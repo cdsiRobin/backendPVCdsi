@@ -26,7 +26,7 @@ public class ArccmcController extends GenericController {
 	private IArccmcService arccService;
 
 	//METODO QUE NOS PERMITE TRAER CLIENTE POR CLAVE PRIMARIO
-	@PostMapping
+	@PostMapping("/id")
 	public ResponseEntity<ResponseRest> getCiaForCod(@RequestBody IdArccmc idArccmc, BindingResult result){
 		if (result.hasErrors()){
 			return super.getBadRequest(result);
