@@ -1,14 +1,15 @@
 package com.cdsi.backend.inve.models.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
 public class Arccmc implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
 	@EmbeddedId
 	private IdArccmc objIdArc;
@@ -51,6 +52,9 @@ public class Arccmc implements Serializable {
 	
 	@Size(min = 1, max=100)
 	private String email;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "arccmc")
+	private List<ArcctdaEntity> arcctdaEntityList;
 	
     public IdArccmc getObjIdArc() {
 		return objIdArc;
@@ -156,6 +160,11 @@ public class Arccmc implements Serializable {
 		this.email = email;
 	}
 
-	private static final long serialVersionUID = 1L;
+	public List<ArcctdaEntity> getArcctdaEntityList() {
+		return arcctdaEntityList;
+	}
 
+	public void setArcctdaEntityList(List<ArcctdaEntity> arcctdaEntityList) {
+		this.arcctdaEntityList = arcctdaEntityList;
+	}
 }
