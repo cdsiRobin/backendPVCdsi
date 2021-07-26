@@ -1,5 +1,7 @@
 package com.cdsi.backend.inve.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -55,7 +57,8 @@ public class ArcctdaEntity implements Serializable {
     @JoinColumns({
             @JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
             @JoinColumn(name = "NO_CLIENTE", referencedColumnName = "NO_CLIENTE", insertable = false, updatable = false)})
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JsonIgnoreProperties({"arcctdaEntity","hibernateLazyInitializer","handler"})
     private Arccmc arccmc;
 
     public ArcctdaEntity() {

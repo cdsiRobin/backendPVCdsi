@@ -1,5 +1,7 @@
 package com.cdsi.backend.inve.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -53,8 +55,9 @@ public class Arccmc implements Serializable {
 	@Size(min = 1, max=100)
 	private String email;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "arccmc")
-	private List<ArcctdaEntity> arcctdaEntityList;
+	@JsonIgnoreProperties({"arccmc"})
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "arccmc")
+	private List<ArcctdaEntity> arcctdaEntity;
 	
     public IdArccmc getObjIdArc() {
 		return objIdArc;
@@ -160,11 +163,36 @@ public class Arccmc implements Serializable {
 		this.email = email;
 	}
 
-	public List<ArcctdaEntity> getArcctdaEntityList() {
-		return arcctdaEntityList;
+	public List<ArcctdaEntity> getArcctdaEntity() {
+		return arcctdaEntity;
 	}
 
-	public void setArcctdaEntityList(List<ArcctdaEntity> arcctdaEntityList) {
-		this.arcctdaEntityList = arcctdaEntityList;
+	public void setArcctdaEntity(List<ArcctdaEntity> arcctdaEntity) {
+		this.arcctdaEntity = arcctdaEntity;
+	}
+
+	@Override
+	public int hashCode() {
+		int hash = 0;
+		hash += (objIdArc != null ? objIdArc.hashCode() : 0);
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		// TODO: Warning - this method won't work in the case the id fields are not set
+		if (!(object instanceof Arccmc)) {
+			return false;
+		}
+		Arccmc other = (Arccmc) object;
+		if ((this.objIdArc == null && other.objIdArc != null) || (this.objIdArc != null && !this.objIdArc.equals(other.objIdArc))) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "EntityCXC.Arccmc[ arccmcPK=" + objIdArc + " ]";
 	}
 }
