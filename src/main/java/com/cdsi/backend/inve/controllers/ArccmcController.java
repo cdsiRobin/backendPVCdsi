@@ -1,6 +1,7 @@
 package com.cdsi.backend.inve.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
@@ -9,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-//import org.springframework.security.access.annotation.Secured;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,26 @@ public class ArccmcController extends GenericController {
 	
 	@Autowired
 	private IArccmcService arccService;
+
+	//METODO QUE NOS PERMITE GUARDAR UN CLIENTE
+	@PostMapping
+	public ResponseEntity<ResponseRest> guardarArccmc(@RequestBody Arccmc arccmc, BindingResult result){
+		if (result.hasErrors()){
+			return super.getBadRequest(result);
+		}
+		try{
+
+			Object obj = this.arccService.createArccmc(arccmc);
+			if (obj != null){
+				return super.getCreated(obj);
+			}
+
+			return super.getErrorRequest();
+		}catch (Exception e){
+			return super.getErrorRequest();
+		}
+
+	}
 
 	//METODO QUE NOS PERMITE TRAER CLIENTE POR CLAVE PRIMARIO
 	@PostMapping("/id")
