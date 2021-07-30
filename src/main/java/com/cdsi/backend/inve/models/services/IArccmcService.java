@@ -15,7 +15,7 @@ public interface IArccmcService {
 
 	Arccmc updateArccmc(IdArccmc objIdArc, Arccmc objA);
 
-	void deleteArccmc(IdArccmc objIdArc);
+	Object deleteArccmc(IdArccmc objIdArc);
 	
 	//BUSCAR UN ARTICULO
 	Arccmc findCiaForCodigo(IdArccmc objIdArc);

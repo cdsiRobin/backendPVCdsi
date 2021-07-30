@@ -8,7 +8,9 @@ public class ResponseContants {
     public final static String MSG_CONS_SIN_CONT	=	"CONSULTA SIN CONTENIDO";
 
     public final static String MSG_REG_EXITO		=	"REGISTRO EXITOSA";
+    public final static String MSG_REG_ELIMINADO    =	"REGISTRO ELIMINADO";
     public final static String MSG_REG_ALERTA		=	"REGISTRO CON OBSERVACIONES";
+    public final static String MSG_REG_DUPLICADO    =	"REGISTRO YA EXISTE";
     public final static String MSG_REG_ERROR		=	"ERROR DE REGISTRO";
 
     public final static String MSG_ERR_GENE			=	"ERROR INTERNO";

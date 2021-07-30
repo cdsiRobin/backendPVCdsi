@@ -55,9 +55,9 @@ public class ArcctdaEntity implements Serializable {
     private String estabSunat;
 
     @JoinColumns({
-            @JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
-            @JoinColumn(name = "NO_CLIENTE", referencedColumnName = "NO_CLIENTE", insertable = false, updatable = false)})
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+            @JoinColumn(name = "NO_CIA",referencedColumnName = "NO_CIA", insertable = false, updatable = false),
+            @JoinColumn(name = "NO_CLIENTE" , referencedColumnName = "NO_CLIENTE", insertable = false, updatable = false)})
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"arcctdaEntity","hibernateLazyInitializer","handler"})
     private Arccmc arccmc;
 
@@ -72,7 +72,7 @@ public class ArcctdaEntity implements Serializable {
         this.arcctdaPKEntity = new ArcctdaPKEntity(noCia, noCliente, codTienda);
     }
 
-    public ArcctdaPKEntity getArcctdaPK() {
+    public ArcctdaPKEntity getArcctdaPKEntity() {
         return arcctdaPKEntity;
     }
 

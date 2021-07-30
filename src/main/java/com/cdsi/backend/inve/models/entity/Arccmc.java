@@ -57,10 +57,10 @@ public class Arccmc implements Serializable {
 	private String email;
 
 	@JsonIgnoreProperties({"arccmc"})
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "arccmc")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "arccmc", cascade = CascadeType.ALL)
 	private List<ArcctdaEntity> arcctdaEntity;
-	
-    public IdArccmc getObjIdArc() {
+
+	public IdArccmc getObjIdArc() {
 		return objIdArc;
 	}
 

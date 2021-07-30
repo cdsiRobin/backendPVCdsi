@@ -102,6 +102,20 @@ public class GenericController {
         return ResponseEntity.status(HttpStatus.OK).body(responseRest);
     }
 
+    protected ResponseEntity<ResponseRest> getDeleteRegistroRequest(Object obj){
+        ResponseRest responseRest = ResponseRest.builder()
+                .apiVerision(apiVersion)
+                .estado(
+                        ResponseEstado.builder()
+                                .codigo(ResponseEnum.ALERTA)
+                                .mensaje(ResponseContants.MSG_REG_ELIMINADO)
+                                .estado(HttpStatus.OK.value())
+                                .error(HttpStatus.OK.name())
+                                .detalle(obj)
+                                .build()).build();
+        return ResponseEntity.status(HttpStatus.OK).body(responseRest);
+    }
+
     protected ResponseEntity<ResponseRest> getOKConsultaRequest(Object obj){
         ResponseRest res= 	ResponseRest.builder()
                 .apiVerision(apiVersion)
@@ -111,6 +125,21 @@ public class GenericController {
                                 .mensaje(ResponseContants.MSG_CONS_EXITO)
                                 .estado(HttpStatus.OK.value())
                                 .error(HttpStatus.OK.name())
+                                .build())
+                .resultado(obj)
+                .build();
+        return ResponseEntity.ok(res);
+    }
+
+    protected ResponseEntity<ResponseRest> duplicadoRegsitrarRequest(Object obj){
+        ResponseRest res= 	ResponseRest.builder()
+                .apiVerision(apiVersion)
+                .estado(
+                        ResponseEstado.builder()
+                                .codigo(ResponseEnum.ALERTA)
+                                .mensaje(ResponseContants.MSG_REG_DUPLICADO)
+                                .estado(HttpStatus.NOT_FOUND.value())
+                                .error(HttpStatus.NOT_FOUND.name())
                                 .build())
                 .resultado(obj)
                 .build();

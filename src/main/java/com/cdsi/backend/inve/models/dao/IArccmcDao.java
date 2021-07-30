@@ -16,7 +16,7 @@ import com.cdsi.backend.inve.models.entity.IdArccmc;
 public interface IArccmcDao extends PagingAndSortingRepository<Arccmc,IdArccmc> {
 	
 	//METODO QUE NOS PERMITE TRAER TODOS LOS CLIENTE CON COMPAÑIA
-	@Query("SELECT a FROM Arccmc a WHERE a.objIdArc.cia = :cia")
+	@Query("SELECT a FROM Arccmc a WHERE a.objIdArc.cia = :cia AND a.activo = 'S'")
 	Page<Arccmc> findPagByCia(Pageable pageable,@Param("cia") String cia);
 	
 	//METODO QUE NOS PERMITE BUSCAR A UN CLIENTE POR SU CODIGO
@@ -25,7 +25,7 @@ public interface IArccmcDao extends PagingAndSortingRepository<Arccmc,IdArccmc> 
 
 	
 	//METODO QUE NOS PERMITE BUSCAR A UN CLIENTE POR SU NOMBRE
-	@Query("SELECT a FROM Arccmc a WHERE a.objIdArc.cia = :cia AND a.nombre LIKE %:dscri%")
+	@Query("SELECT a FROM Arccmc a WHERE a.objIdArc.cia = :cia AND a.activo = 'S' AND a.nombre LIKE %:dscri%")
 	List<Arccmc> findByNombreAndCia(@Param("cia") String cia,@Param("dscri") String dscri);
 	
 }

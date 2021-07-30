@@ -47,8 +47,10 @@ public class ArccmcServiceImple implements IArccmcService  {
 
 	@Override
 	@Transactional
-	public void deleteArccmc(IdArccmc objIdArc) {
-		arccDao.delete(findCiaForCodigo(objIdArc));
+	public Object deleteArccmc(IdArccmc objIdArc) {
+		Arccmc arccmc = this.findCiaForCodigo(objIdArc);
+		arccmc.setActivo("N");
+	  return 	this.arccDao.save(arccmc);
 	}
 
 	@Override

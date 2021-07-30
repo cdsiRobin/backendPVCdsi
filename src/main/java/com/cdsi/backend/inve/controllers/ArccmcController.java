@@ -13,10 +13,13 @@ import org.springframework.data.domain.Pageable;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.cdsi.backend.inve.models.entity.Arccmc;
 import com.cdsi.backend.inve.models.services.IArccmcService;
+
+import javax.validation.Valid;
 
 @CrossOrigin(origins = {"*"}, methods= {RequestMethod.GET,RequestMethod.POST})
 @RestController
@@ -26,21 +29,49 @@ public class ArccmcController extends GenericController {
 	@Autowired
 	private IArccmcService arccService;
 
+	@DeleteMapping
+	public ResponseEntity<ResponseRest> eliminar(@RequestBody IdArccmc idArccmc, BindingResult result){
+		if (result.hasErrors()){
+			return super.getErrorRequest();
+		}
+		try{
+			Object obj = this.arccService.deleteArccmc(idArccmc);
+			if (obj != null){
+				return super.getDeleteRegistroRequest(obj);
+			}else {
+				return super.getNotFoundRequest();
+			}
+		}catch (Exception e){
+			System.out.println(e);
+			return super.getErrorRequest();
+		}
+	}
+
+	@PutMapping
+	public ResponseEntity<ResponseRest> actualizar(){
+		return null;
+	}
+
 	//METODO QUE NOS PERMITE GUARDAR UN CLIENTE
 	@PostMapping
-	public ResponseEntity<ResponseRest> guardarArccmc(@RequestBody Arccmc arccmc, BindingResult result){
+	public ResponseEntity<ResponseRest> guardarArccmc(@Validated @RequestBody Arccmc arccmc, BindingResult result){
 		if (result.hasErrors()){
 			return super.getBadRequest(result);
 		}
 		try{
-
-			Object obj = this.arccService.createArccmc(arccmc);
-			if (obj != null){
-				return super.getCreated(obj);
+			Arccmc objArcc = this.arccService.findCiaForCodigo(arccmc.getObjIdArc());
+			if (objArcc == null) {
+				Object obj = this.arccService.createArccmc(arccmc);
+				if (obj != null){
+					return super.getDeleteRegistroRequest(obj);
+				}
+			}else{
+				return super.getNotFoundRequest();
 			}
 
 			return super.getErrorRequest();
 		}catch (Exception e){
+			System.out.println(e);
 			return super.getErrorRequest();
 		}
 

@@ -9,11 +9,11 @@ import javax.validation.constraints.Size;
 @Embeddable
 public class IdArccmc implements Serializable {
 	
-	@Column(name="NO_CIA")
-	@Size(min=1, max=4)
+	@Column(name="NO_CIA" , unique = true)
+	@Size(min=1, max=2)
 	private String cia;
 	
-	@Column(name ="NO_CLIENTE")
+	@Column(name ="NO_CLIENTE" , unique = true)
 	@Size(min=1, max=12)
 	private String id;
 	
