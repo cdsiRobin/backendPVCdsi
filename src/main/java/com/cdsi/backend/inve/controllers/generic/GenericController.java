@@ -116,6 +116,20 @@ public class GenericController {
         return ResponseEntity.status(HttpStatus.OK).body(responseRest);
     }
 
+    protected ResponseEntity<ResponseRest> getUpdateRegistroRequest(Object obj){
+        ResponseRest responseRest = ResponseRest.builder()
+                .apiVerision(apiVersion)
+                .estado(
+                        ResponseEstado.builder()
+                                .codigo(ResponseEnum.ALERTA)
+                                .mensaje(ResponseContants.MSG_REG_UPDATE)
+                                .estado(HttpStatus.OK.value())
+                                .error(HttpStatus.OK.name())
+                                .detalle(obj)
+                                .build()).build();
+        return ResponseEntity.status(HttpStatus.OK).body(responseRest);
+    }
+
     protected ResponseEntity<ResponseRest> getOKConsultaRequest(Object obj){
         ResponseRest res= 	ResponseRest.builder()
                 .apiVerision(apiVersion)

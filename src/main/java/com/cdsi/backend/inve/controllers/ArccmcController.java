@@ -21,7 +21,7 @@ import com.cdsi.backend.inve.models.services.IArccmcService;
 
 import javax.validation.Valid;
 
-@CrossOrigin(origins = {"*"}, methods= {RequestMethod.GET,RequestMethod.POST})
+//@CrossOrigin(origins = {"*"}, methods= {RequestMethod.GET,RequestMethod.POST})
 @RestController
 @RequestMapping("/api/cli")
 public class ArccmcController extends GenericController {
@@ -48,13 +48,25 @@ public class ArccmcController extends GenericController {
 	}
 
 	@PutMapping
-	public ResponseEntity<ResponseRest> actualizar(){
-		return null;
+	public ResponseEntity<ResponseRest> actualizar(@RequestBody Arccmc arccmc, BindingResult result){
+		if (result.hasErrors()){
+			return super.getBadRequest(result);
+		}
+		try{
+			Object obj = this.arccService.updateArccmc(arccmc.getObjIdArc(),arccmc);
+			if (obj != null){
+				return super.getUpdateRegistroRequest(obj);
+			}
+			return super.getNotFoundRequest();
+		}catch (Exception e){
+			System.out.println(e);
+			return super.getNotFoundRequest();
+		}
 	}
 
 	//METODO QUE NOS PERMITE GUARDAR UN CLIENTE
 	@PostMapping
-	public ResponseEntity<ResponseRest> guardarArccmc(@Validated @RequestBody Arccmc arccmc, BindingResult result){
+	public ResponseEntity<ResponseRest> guardar(@Validated @RequestBody Arccmc arccmc, BindingResult result){
 		if (result.hasErrors()){
 			return super.getBadRequest(result);
 		}

@@ -2,6 +2,7 @@ package com.cdsi.backend.inve.models.services.impl;
 
 import java.util.List;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +19,9 @@ public class ArccmcServiceImple implements IArccmcService  {
 
 	@Autowired
 	private IArccmcDao arccDao;
+
+	@Autowired
+	private ObjectMapper objectMapper;
 	
 	@Override
 	@Transactional
@@ -29,6 +33,7 @@ public class ArccmcServiceImple implements IArccmcService  {
 	@Transactional
 	public Arccmc updateArccmc(IdArccmc objIdArc, Arccmc objA) {
 		Arccmc newArcc = findCiaForCodigo(objIdArc);
+		/***
 		newArcc.setActivo(objA.getActivo());
 		newArcc.setCelular(objA.getCelular());
 		newArcc.setDireccion(objA.getDireccion());
@@ -41,7 +46,8 @@ public class ArccmcServiceImple implements IArccmcService  {
 		newArcc.setTelefono(objA.getTelefono());
 		newArcc.setTipo(objA.getTipo());
 		newArcc.setWeb(objA.getWeb());
-		
+		*/
+		newArcc = objectMapper.convertValue(objA,Arccmc.class);
 		return arccDao.save(newArcc);
 	}
 
