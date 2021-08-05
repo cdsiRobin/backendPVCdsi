@@ -158,10 +158,14 @@ public class Arpfol implements Serializable {
     private String noCliente1;
     @Column(name = "MARCA1")
     private String marca1;
+    /*
     @Column(name = "TIPO_BS")
     private String tipoBs;
+    */
+    /*
     @Column(name = "IND_PIDE_LOTE")
     private String indPideLote;
+    */
     @Column(name = "OPER_EXONERADAS")
     private BigDecimal operExoneradas;
     @Column(name = "OPER_GRATUITAS")
@@ -174,10 +178,14 @@ public class Arpfol implements Serializable {
     private String tipoAfectacion;
     @Column(name = "PRECIO_UNI")
     private BigDecimal precioUni;
+    /*
     @Column(name = "TXT_COD_ALTER")
     private String txtCodAlter;
+    */
+    /*
     @Column(name = "PREC_IGV")
     private BigDecimal precIgv;
+    */
     @Column(name = "MEDIDA")
     private String medida;
 
@@ -751,7 +759,7 @@ public class Arpfol implements Serializable {
     public void setMarca1(String marca1) {
         this.marca1 = marca1;
     }
-
+/*
     public String getTipoBs() {
         return tipoBs;
     }
@@ -759,7 +767,8 @@ public class Arpfol implements Serializable {
     public void setTipoBs(String tipoBs) {
         this.tipoBs = tipoBs;
     }
-
+*/
+    /*
     public String getIndPideLote() {
         return indPideLote;
     }
@@ -767,7 +776,7 @@ public class Arpfol implements Serializable {
     public void setIndPideLote(String indPideLote) {
         this.indPideLote = indPideLote;
     }
-
+*/
     public BigDecimal getOperExoneradas() {
         return operExoneradas;
     }
@@ -815,7 +824,7 @@ public class Arpfol implements Serializable {
     public void setPrecioUni(BigDecimal precioUni) {
         this.precioUni = precioUni;
     }
-
+   /*
     public String getTxtCodAlter() {
         return txtCodAlter;
     }
@@ -823,7 +832,8 @@ public class Arpfol implements Serializable {
     public void setTxtCodAlter(String txtCodAlter) {
         this.txtCodAlter = txtCodAlter;
     }
-
+   */
+    /*
     public BigDecimal getPrecIgv() {
         return precIgv;
     }
@@ -831,7 +841,7 @@ public class Arpfol implements Serializable {
     public void setPrecIgv(BigDecimal precIgv) {
         this.precIgv = precIgv;
     }
-
+*/
     public String getMedida() {
         return medida;
     }

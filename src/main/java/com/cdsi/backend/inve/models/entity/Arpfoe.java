@@ -15,6 +15,7 @@ public class Arpfoe implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected ArpfoePK arpfoePK;
+
     @Column(name = "GRUPO")
     private String grupo;
     @Column(name = "NO_CLIENTE")
@@ -359,28 +360,48 @@ public class Arpfoe implements Serializable {
     private String codAgente;
     @Column(name = "CODI_CAMP")
     private String codiCamp;
+    /*
     @Column(name = "IND_PROFORMA1")
     private String indProforma1;
+    */
+    /*
     @Column(name = "A_CTA")
     private BigDecimal aCta;
+    */
+    /*
     @Column(name = "SALDO")
     private BigDecimal saldo;
+    */
+    /*
     @Column(name = "ENTREGA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date entrega;
+    */
+    /*
     @Column(name = "HORA_ENTREGA")
     private String horaEntrega;
+    */
+    /*
     @Column(name = "IND_PIDE_LOTE")
     private String indPideLote;
+    */
+    /*
     @Column(name = "FECHA_ESTADO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaEstado;
+    */
+    /*
     @Column(name = "COD_MAQUINA")
     private String codMaquina;
+    */
+    /*
     @Column(name = "COD_LUGAR")
     private String codLugar;
+    */
+    /*
     @Column(name = "COD_FRENTE")
     private String codFrente;
+    */
     @Column(name = "MOT_CONTING")
     private Character motConting;
     @Column(name = "OPER_EXONERADAS")
@@ -397,12 +418,15 @@ public class Arpfoe implements Serializable {
     private String emailPedido;
     @Column(name = "COD_DETRAC")
     private String codDetrac;
+    /*
     @Column(name = "COMPRADOR")
     private String comprador;
+    */
+    /*
     @Column(name = "GUIA_TEMP")
     private String guiaTemp;
-
-    //@JsonIgnoreProperties({"spMaesCampList","hibernateLazyInitializer","handler"})
+    */
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @JoinColumns({
             @JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
             @JoinColumn(name = "NO_ORDEN", referencedColumnName = "NO_ORDEN", insertable = false, updatable = false)})
@@ -1739,7 +1763,7 @@ public class Arpfoe implements Serializable {
     public void setCodiCamp(String codiCamp) {
         this.codiCamp = codiCamp;
     }
-
+    /*
     public String getIndProforma1() {
         return indProforma1;
     }
@@ -1747,7 +1771,8 @@ public class Arpfoe implements Serializable {
     public void setIndProforma1(String indProforma1) {
         this.indProforma1 = indProforma1;
     }
-
+    */
+    /*
     public BigDecimal getACta() {
         return aCta;
     }
@@ -1755,7 +1780,8 @@ public class Arpfoe implements Serializable {
     public void setACta(BigDecimal aCta) {
         this.aCta = aCta;
     }
-
+    */
+    /*
     public BigDecimal getSaldo() {
         return saldo;
     }
@@ -1763,7 +1789,8 @@ public class Arpfoe implements Serializable {
     public void setSaldo(BigDecimal saldo) {
         this.saldo = saldo;
     }
-
+    */
+    /*
     public Date getEntrega() {
         return entrega;
     }
@@ -1771,7 +1798,8 @@ public class Arpfoe implements Serializable {
     public void setEntrega(Date entrega) {
         this.entrega = entrega;
     }
-
+    */
+    /*
     public String getHoraEntrega() {
         return horaEntrega;
     }
@@ -1779,7 +1807,8 @@ public class Arpfoe implements Serializable {
     public void setHoraEntrega(String horaEntrega) {
         this.horaEntrega = horaEntrega;
     }
-
+    */
+    /*
     public String getIndPideLote() {
         return indPideLote;
     }
@@ -1787,7 +1816,8 @@ public class Arpfoe implements Serializable {
     public void setIndPideLote(String indPideLote) {
         this.indPideLote = indPideLote;
     }
-
+    */
+  /*
     public Date getFechaEstado() {
         return fechaEstado;
     }
@@ -1795,7 +1825,8 @@ public class Arpfoe implements Serializable {
     public void setFechaEstado(Date fechaEstado) {
         this.fechaEstado = fechaEstado;
     }
-
+*/
+    /*
     public String getCodMaquina() {
         return codMaquina;
     }
@@ -1803,7 +1834,8 @@ public class Arpfoe implements Serializable {
     public void setCodMaquina(String codMaquina) {
         this.codMaquina = codMaquina;
     }
-
+    */
+  /*
     public String getCodLugar() {
         return codLugar;
     }
@@ -1811,7 +1843,8 @@ public class Arpfoe implements Serializable {
     public void setCodLugar(String codLugar) {
         this.codLugar = codLugar;
     }
-
+*/
+    /*
     public String getCodFrente() {
         return codFrente;
     }
@@ -1819,7 +1852,7 @@ public class Arpfoe implements Serializable {
     public void setCodFrente(String codFrente) {
         this.codFrente = codFrente;
     }
-
+    */
     public Character getMotConting() {
         return motConting;
     }
@@ -1883,7 +1916,7 @@ public class Arpfoe implements Serializable {
     public void setCodDetrac(String codDetrac) {
         this.codDetrac = codDetrac;
     }
-
+    /*
     public String getComprador() {
         return comprador;
     }
@@ -1891,7 +1924,8 @@ public class Arpfoe implements Serializable {
     public void setComprador(String comprador) {
         this.comprador = comprador;
     }
-
+    */
+    /*
     public String getGuiaTemp() {
         return guiaTemp;
     }
@@ -1899,7 +1933,7 @@ public class Arpfoe implements Serializable {
     public void setGuiaTemp(String guiaTemp) {
         this.guiaTemp = guiaTemp;
     }
-
+    */
     public List<Arpfol> getArpfolList() {
         return arpfolList;
     }
