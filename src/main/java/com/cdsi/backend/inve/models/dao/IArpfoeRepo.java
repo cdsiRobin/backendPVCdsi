@@ -13,7 +13,8 @@ import org.springframework.stereotype.Repository;
 public interface IArpfoeRepo extends PagingAndSortingRepository<Arpfoe, ArpfoePK> {
 
     //METODO QUE NOS PERMITE OPTENER UN PEDIDO
-    public Arpfoe findByArpfoePK();
+    @Query("SELECT a FROM Arpfoe a where a.arpfoePK.noCia = :cia AND a.arpfoePK.noOrden = :noOrden")
+    public Arpfoe buscarId(@Param("cia") String cia, @Param("noOrden") String noOrden);
 
     //METODO QUE NOS PERMITE TRAER TODO LOS PEDIDOS
     @Query("SELECT a FROM Arpfoe a where a.arpfoePK.noCia = :cia AND a.indPvent = :indPvent")
