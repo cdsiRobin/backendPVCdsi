@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface IArfaccService extends IGenericService<Arfacc> {
 
+    Arfacc actualizar(ArfaccPK arfaccPK, Arfacc arfacc) throws ServiceException;
+
     List<Arfacc> buscarCiaAndTipDocAndCentroAndActivo(Arfacc arfacc) throws ServiceException;
 
     Page<Arfacc> listPageCia(int limit, int page,ArfaccPK arfaccPK) throws ServiceException;

@@ -10,4 +10,5 @@ public interface IGenericService <T>{
     List<T> findByLike(T t) throws  ServiceException;
     T save(T t) throws ServiceException;
     T delete(Long id) throws ServiceException;
+
 }

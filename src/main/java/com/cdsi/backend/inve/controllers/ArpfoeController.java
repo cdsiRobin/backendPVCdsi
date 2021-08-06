@@ -35,6 +35,7 @@ public class ArpfoeController extends GenericController {
             return super.getErrorRequest();
         }
     }
+
     @PostMapping
     public ResponseEntity<ResponseRest> guardar(@RequestBody Arpfoe arpfoe, BindingResult result){
         if (result.hasErrors()){

@@ -5,6 +5,7 @@ import com.cdsi.backend.inve.models.entity.Arfacc;
 import com.cdsi.backend.inve.models.entity.ArfaccPK;
 import com.cdsi.backend.inve.models.services.IArfaccService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,6 +21,25 @@ public class ArfaccServiceImple implements IArfaccService {
 
     @Autowired
     private IArfaccRepo iArfaccRepo;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Override
+    public Arfacc actualizar(ArfaccPK arfaccPK, Arfacc arfacc) throws ServiceException {
+       try{
+           Arfacc arfacc1 = this.iArfaccRepo.findById(arfaccPK).orElse(null);
+           if (arfacc1 != null){
+               arfacc1 =  this.objectMapper.convertValue(arfacc,Arfacc.class);
+               return this.save(arfacc1);
+           }
+           return null;
+       }catch (Exception e){
+           log.error(e.getMessage());
+           return null;
+       }
+
+    }
 
     @Override
     public List<Arfacc> buscarCiaAndTipDocAndCentroAndActivo(Arfacc arfacc) throws ServiceException {

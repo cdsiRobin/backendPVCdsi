@@ -3,16 +3,12 @@ package com.cdsi.backend.inve.controllers;
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
 import com.cdsi.backend.inve.models.entity.Arfacc;
-import com.cdsi.backend.inve.models.entity.ArfaccPK;
 import com.cdsi.backend.inve.models.services.IArfaccService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -42,4 +38,38 @@ public class ArfaccController extends GenericController {
 
     }
 
+    @PostMapping
+    public ResponseEntity<ResponseRest> guardar(@RequestBody Arfacc arfacc, BindingResult result){
+        if (result.hasErrors()){
+            return super.getBadRequest(result);
+        }
+        try {
+            Object obj = this.iArfaccService.save(arfacc);
+            if (obj != null){
+                return super.getOKConsultaRequest(obj);
+            }
+            return super.getBadIdRequest();
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return super.getBadRequest(e.getMessage());
+        }
+    }
+
+    @PutMapping
+    public ResponseEntity<ResponseRest> actualizar(@RequestBody Arfacc arfacc, BindingResult result){
+        if(result.hasErrors()){
+            return super.getBadRequest(result);
+        }
+        try {
+            Object obj = this.iArfaccService.actualizar(arfacc.getArfaccPK(),arfacc);
+            if (obj != null){
+                return super.getUpdateRegistroRequest(obj);
+            }
+            return super.getBadIdRequest();
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return super.getBadRequest(e.getMessage());
+        }
+
+    }
 }

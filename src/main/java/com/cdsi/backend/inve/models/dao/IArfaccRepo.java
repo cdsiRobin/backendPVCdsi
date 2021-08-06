@@ -11,9 +11,13 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface IArfaccRepo extends PagingAndSortingRepository<Arfacc, ArfaccPK> {
+
+    @Override
+    Optional<Arfacc> findById(ArfaccPK arfaccPK);
 
     //METODO QUE NOS PERMITE OBTENER EL CORRELATIVO DE LAS SERIES DE FACTU
     @Query("SELECT a FROM Arfacc a WHERE a.arfaccPK.noCia = :cia AND a.arfaccPK.tipoDoc = :tipoDoc AND a.arfaccPK.centro = :centro AND a.activo = :activo")

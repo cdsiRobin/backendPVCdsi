@@ -31,6 +31,7 @@ public class ArccvcController {
 		vendedores= service.listaVende(cia);
 		return new ResponseEntity<List<Arccvc>>(vendedores,HttpStatus.OK);
 	}
+
 	@PostMapping("/vendedor")
 	public ResponseEntity<Arccvc> vendedor(@RequestBody VendedorDTO dto) {		
 		//codigo="09152188";
@@ -41,6 +42,7 @@ public class ArccvcController {
 		}
 		return new ResponseEntity<Arccvc>(obj, HttpStatus.OK);
 	}
+
 	@PostMapping("/vendedor/caja")
 	public ResponseEntity<VendedorDTO> vendeCaja(@RequestBody VendedorDTO dto) {		
 		//codigo="09152188";
