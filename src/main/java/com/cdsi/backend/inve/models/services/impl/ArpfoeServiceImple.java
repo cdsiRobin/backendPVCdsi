@@ -87,7 +87,13 @@ public class ArpfoeServiceImple implements IArpfoeService {
 
     @Override
     public Arpfoe save(Arpfoe arpfoe) throws ServiceException {
-        return null;
+        try{
+            Arpfoe arpfoe1 = this.iArpfoeRepo.save(arpfoe);
+            return arpfoe1;
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return null;
+        }
     }
 
     @Override

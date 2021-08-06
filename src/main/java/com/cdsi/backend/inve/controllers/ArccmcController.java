@@ -75,7 +75,7 @@ public class ArccmcController extends GenericController {
 			if (objArcc == null) {
 				Object obj = this.arccService.createArccmc(arccmc);
 				if (obj != null){
-					return super.getDeleteRegistroRequest(obj);
+					return super.getOKConsultaRequest(obj);
 				}
 			}else{
 				return super.getNotFoundRequest();
