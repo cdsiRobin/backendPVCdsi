@@ -55,4 +55,22 @@ public class ArpfoeController extends GenericController {
 
     }
 
+    @PutMapping
+    public ResponseEntity<ResponseRest> actualizar(@RequestBody Arpfoe arpfoe, BindingResult result){
+        if (result.hasErrors()){
+            return super.getBadRequest(result);
+        }
+        try {
+            Object obj = this.iArpfoeService.save(arpfoe);
+            if (obj != null){
+                return super.getUpdateRegistroRequest(obj);
+            }
+            return super.getBadIdRequest();
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return super.getBadRequest(e.getMessage());
+        }
+
+    }
+
 }

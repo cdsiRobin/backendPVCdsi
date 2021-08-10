@@ -1,6 +1,7 @@
 package com.cdsi.backend.inve.models.services;
 
 import com.cdsi.backend.inve.models.entity.Arpfoe;
+import com.cdsi.backend.inve.models.entity.ArpfoePK;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
 import com.cdsi.backend.inve.models.services.generic.IGenericService;
 
