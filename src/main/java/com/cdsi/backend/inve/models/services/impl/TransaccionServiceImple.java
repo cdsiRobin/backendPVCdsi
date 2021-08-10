@@ -4,6 +4,8 @@ import com.cdsi.backend.inve.models.dao.ITransaccionRepo;
 import com.cdsi.backend.inve.models.entity.Transaccion;
 import com.cdsi.backend.inve.models.services.ITransaccionService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
+
+import jdk.internal.org.jline.utils.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +22,7 @@ public class TransaccionServiceImple implements ITransaccionService {
         try {
             return this.iTransaccionRepo.findByCiaAndUser(cia,usuario);
         }catch (Exception e){
-            log.error(e.getMessage());
+        	Log.error(e.getMessage());
         }
         return null;
     }

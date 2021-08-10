@@ -4,7 +4,11 @@ import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
 import com.cdsi.backend.inve.models.entity.Arfacc;
 import com.cdsi.backend.inve.models.services.IArfaccService;
+
+import jdk.internal.org.jline.utils.Log;
 import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.XSlf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -32,7 +36,7 @@ public class ArfaccController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+            Log.error(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
 
@@ -50,7 +54,7 @@ public class ArfaccController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+        	Log.error(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
     }
@@ -67,7 +71,7 @@ public class ArfaccController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+        	Log.error(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
 

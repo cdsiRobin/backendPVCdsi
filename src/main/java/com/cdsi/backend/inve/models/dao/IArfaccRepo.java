@@ -2,7 +2,6 @@ package com.cdsi.backend.inve.models.dao;
 
 import com.cdsi.backend.inve.models.entity.Arfacc;
 import com.cdsi.backend.inve.models.entity.ArfaccPK;
-import com.cdsi.backend.inve.models.entity.Arpfoe;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -11,14 +10,17 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface IArfaccRepo extends PagingAndSortingRepository<Arfacc, ArfaccPK> {
-
+    
+	@Query("SELECT a FROM Arfacc a WHERE a.arfaccPK.noCia = :cia AND a.arfaccPK.centro = :centro AND a.arfaccPK.tipoDoc = :tipoDoc AND a.arfaccPK.serie = :serie ")
+	Arfacc buscarId(@Param("cia") String cia, @Param("centro") String centro,@Param("tipoDoc") String tipoDoc, @Param("serie") String serie );
+	
+	/*
     @Override
     Optional<Arfacc> findById(ArfaccPK arfaccPK);
-
+    */
     //METODO QUE NOS PERMITE OBTENER EL CORRELATIVO DE LAS SERIES DE FACTU
     @Query("SELECT a FROM Arfacc a WHERE a.arfaccPK.noCia = :cia AND a.arfaccPK.tipoDoc = :tipoDoc AND a.arfaccPK.centro = :centro AND a.activo = :activo")
     List<Arfacc> buscarCiaAndTipDocAndCentroAndActivo(@Param("cia") String cia, @Param("tipoDoc") String tipoDoc, @Param("centro") String centro, @Param("activo") String activo);

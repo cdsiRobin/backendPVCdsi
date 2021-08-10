@@ -5,6 +5,8 @@ import com.cdsi.backend.inve.controllers.generic.GenericController;
 import com.cdsi.backend.inve.models.entity.Arpfoe;
 import com.cdsi.backend.inve.models.entity.ArpfoePK;
 import com.cdsi.backend.inve.models.services.IArpfoeService;
+
+import jdk.internal.org.jline.utils.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +33,7 @@ public class ArpfoeController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+        	Log.error(e.getMessage());
             return super.getErrorRequest();
         }
     }
@@ -49,7 +51,7 @@ public class ArpfoeController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+        	Log.error(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
 

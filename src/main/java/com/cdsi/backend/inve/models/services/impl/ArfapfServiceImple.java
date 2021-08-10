@@ -5,6 +5,8 @@ import com.cdsi.backend.inve.models.entity.Arfafp;
 import com.cdsi.backend.inve.models.entity.ArfafpPK;
 import com.cdsi.backend.inve.models.services.IArfafpService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
+
+import jdk.internal.org.jline.utils.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +26,7 @@ public class ArfapfServiceImple implements IArfafpService {
             List<Arfafp> arfafpList = this.iArfafpRepo.listarCiaAndEstado(cia,estado);
             return arfafpList;
         }catch (Exception e){
-            log.error(e.getMessage());
+        	Log.error(e.getMessage());
         }
         return null;
     }
@@ -34,7 +36,7 @@ public class ArfapfServiceImple implements IArfafpService {
         try {
             return this.iArfafpRepo.buscarId(arfafpPK.getNoCia(), arfafpPK.getTipoFpago(), arfafpPK.getCodFpago());
         }catch (Exception e){
-            log.error(e.getMessage());
+        	Log.error(e.getMessage());
         }
         return null;
     }
