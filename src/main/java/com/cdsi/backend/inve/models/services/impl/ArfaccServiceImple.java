@@ -6,6 +6,8 @@ import com.cdsi.backend.inve.models.entity.ArfaccPK;
 import com.cdsi.backend.inve.models.services.IArfaccService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import jdk.internal.org.jline.utils.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,14 +30,18 @@ public class ArfaccServiceImple implements IArfaccService {
     @Override
     public Arfacc actualizar(ArfaccPK arfaccPK, Arfacc arfacc) throws ServiceException {
        try{
-           Arfacc arfacc1 = this.iArfaccRepo.findById(arfaccPK).orElse(null);
-           if (arfacc1 != null){
-               arfacc1 =  this.objectMapper.convertValue(arfacc,Arfacc.class);
-               return this.save(arfacc1);
+    	  
+           Arfacc arfacc1 = this.iArfaccRepo.buscarId(arfaccPK.getNoCia(),arfaccPK.getCentro(),arfaccPK.getTipoDoc(),arfaccPK.getSerie());
+           
+           if (arfacc1 != null){        	  
+              // arfacc1 =  this.objectMapper.convertValue(arfacc,Arfacc.class);
+        	   arfacc1.setConsDesde(arfacc.getConsDesde());
+        	   log.error(arfacc1.toString());
+               return this.iArfaccRepo.save(arfacc1);
            }
            return null;
        }catch (Exception e){
-           log.error(e.getMessage());
+    	   log.error(e.getMessage());
            return null;
        }
 
@@ -48,7 +54,7 @@ public class ArfaccServiceImple implements IArfaccService {
                     arfacc.getArfaccPK().getTipoDoc(),arfacc.getArfaccPK().getCentro(),arfacc.getActivo());
             return arfaccList;
         }catch (Exception e){
-            log.error(e.getMessage());
+        	log.error(e.getMessage());
             return null;
         }
     }
@@ -60,7 +66,7 @@ public class ArfaccServiceImple implements IArfaccService {
             Page<Arfacc> arfaccPage = this.iArfaccRepo.listarCia(arfaccPK.getNoCia(),pageableRequest);
             return arfaccPage;
         }catch (Exception e){
-            log.error(e.getMessage());
+        	log.error(e.getMessage());
             return null;
         }
     }
@@ -71,7 +77,7 @@ public class ArfaccServiceImple implements IArfaccService {
             Pageable pageableRequest = PageRequest.of(page,limit);
             return this.iArfaccRepo.listarCiaAndActivo(arfacc.getArfaccPK().getNoCia(),arfacc.getActivo(),pageableRequest);
         }catch (Exception e){
-            log.error(e.getMessage());
+        	log.error(e.getMessage());
             return null;
         }
     }
@@ -82,7 +88,7 @@ public class ArfaccServiceImple implements IArfaccService {
             Pageable pageableRequest = PageRequest.of(page,limit);
             return this.iArfaccRepo.listarCiaAndTipoDoc(arfacc.getArfaccPK().getNoCia(),arfacc.getArfaccPK().getTipoDoc(),pageableRequest);
         }catch (Exception e){
-            log.error(e.getMessage());
+        	log.error(e.getMessage());
             return null;
         }
     }
@@ -93,7 +99,7 @@ public class ArfaccServiceImple implements IArfaccService {
             Pageable pageableRequest = PageRequest.of(page,limit);
             return this.iArfaccRepo.listarCiaAndCentro(arfacc.getArfaccPK().getNoCia(),arfacc.getArfaccPK().getCentro(),pageableRequest);
         }catch (Exception e){
-            log.error(e.getMessage());
+        	log.error(e.getMessage());
             return null;
         }
     }
