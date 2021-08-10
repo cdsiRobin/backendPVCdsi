@@ -2,11 +2,9 @@ package com.cdsi.backend.inve.models.services.impl;
 
 import com.cdsi.backend.inve.models.dao.IArpfoeRepo;
 import com.cdsi.backend.inve.models.entity.Arpfoe;
-import com.cdsi.backend.inve.models.entity.ArpfoePK;
 import com.cdsi.backend.inve.models.services.IArpfoeService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
 
-import jdk.internal.org.jline.utils.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,7 +27,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             Arpfoe arpfoe = this.iArpfoeRepo.buscarId(cia,noOrden);
             return arpfoe;
         }catch (Exception e){
-        	Log.error(e.getMessage());
+        	log.error(e.getMessage());
             return  null;
         }
     }
@@ -42,7 +40,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             List<Arpfoe> arpfoeList = arpfoePage.getContent();
             return arpfoeList;
         }catch (Exception e){
-        	Log.error(e.getMessage());
+            log.error(e.getMessage());
             return null;
         }
     }
@@ -55,7 +53,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             List<Arpfoe> arpfoeList = arpfoePage.getContent();
             return arpfoeList;
         }catch (Exception e){
-        	Log.error(e.getMessage());
+            log.error(e.getMessage());
             return null;
         }
     }
@@ -68,7 +66,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             List<Arpfoe> arpfoeList = arpfoePage.getContent();
             return arpfoeList;
         }catch (Exception e){
-        	Log.error(e.getMessage());
+            log.error(e.getMessage());
             return null;
         }
     }
@@ -94,7 +92,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             Arpfoe arpfoe1 = this.iArpfoeRepo.save(arpfoe);
             return arpfoe1;
         }catch (Exception e){
-        	Log.error(e.getMessage());
+            log.error(e.getMessage());
             return null;
         }
     }
