@@ -9,14 +9,12 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
 public interface IArinme1Repo extends PagingAndSortingRepository<Arinme1, Arinme1PK> {
 
     //BUSCAR POR CODIGO
-    @Override
-    Optional<Arinme1> findById(Arinme1PK arinme1PK);
+	@Query("SELECT a FROM Arinme1 a WHERE a.arinme1PK.noCia = :cia AND a.arinme1PK.bodega = :bodega AND a.arinme1PK.tipoDoc = :tipoDoc AND a.arinme1PK.noDocu = :noDocu")
+    Arinme1 buscarId(@Param("cia") String cia,@Param("bodega") String bodega,@Param("tipoDoc") String tipoDoc,@Param("noDocu") String noDocu);
 
     @Query("SELECT a FROM Arinme1 a WHERE a.arinme1PK.noCia = :cia")
     Page<Arinme1> buscarCia(@Param("cia") String cia, Pageable pageable);

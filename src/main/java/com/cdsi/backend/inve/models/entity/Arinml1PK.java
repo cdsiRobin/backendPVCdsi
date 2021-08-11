@@ -6,7 +6,9 @@ import java.io.Serializable;
 
 @Embeddable
 public class Arinml1PK implements Serializable {
-    @Column(name = "NO_CIA")
+	
+	private static final long serialVersionUID = 1L;
+	@Column(name = "NO_CIA")
     private String noCia;
 
     @Column(name = "BODEGA")

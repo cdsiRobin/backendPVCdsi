@@ -46,7 +46,7 @@ public class ArpfoeController extends GenericController {
         try {
             Object obj = this.iArpfoeService.save(arpfoe);
             if (obj != null){
-                return super.getOKConsultaRequest(obj);
+                return super.getOKRegistroRequest(obj);
             }
             return super.getBadIdRequest();
         }catch (Exception e){

@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
@@ -402,15 +401,18 @@ public class Arinme1 implements Serializable {
     private String indFicta;
     @Column(name = "GENERO_NC")
     private String generoNc;
+    /*
     @Column(name = "IND_PROFORMA")
     private String indProforma;
+    
     @Column(name = "GR_SERIE")
     private String grSerie;
     @Column(name = "GR_CORRE")
     private String grCorre;
+    
     @Column(name = "CANT_LINEAS")
     private BigInteger cantLineas;
-
+    */
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @JoinColumns({
             @JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
@@ -420,14 +422,6 @@ public class Arinme1 implements Serializable {
     })
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Arinml1> arinml1List;
-
-    public List<Arinml1> getArinml1List() {
-        return arinml1List;
-    }
-
-    public void setArinml1List(List<Arinml1> arinml1List) {
-        this.arinml1List = arinml1List;
-    }
 
     public Arinme1() {
     }
@@ -1943,7 +1937,7 @@ public class Arinme1 implements Serializable {
     public void setGeneroNc(String generoNc) {
         this.generoNc = generoNc;
     }
-
+    /*
     public String getIndProforma() {
         return indProforma;
     }
@@ -1951,7 +1945,7 @@ public class Arinme1 implements Serializable {
     public void setIndProforma(String indProforma) {
         this.indProforma = indProforma;
     }
-
+    
     public String getGrSerie() {
         return grSerie;
     }
@@ -1967,7 +1961,7 @@ public class Arinme1 implements Serializable {
     public void setGrCorre(String grCorre) {
         this.grCorre = grCorre;
     }
-
+    
     public BigInteger getCantLineas() {
         return cantLineas;
     }
@@ -1975,7 +1969,16 @@ public class Arinme1 implements Serializable {
     public void setCantLineas(BigInteger cantLineas) {
         this.cantLineas = cantLineas;
     }
+    */
+    
+    public List<Arinml1> getArinml1List() {
+		return arinml1List;
+	}
 
+	public void setArinml1List(List<Arinml1> arinml1List) {
+		this.arinml1List = arinml1List;
+	}    
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -1983,7 +1986,8 @@ public class Arinme1 implements Serializable {
         return hash;
     }
 
-    @Override
+
+	@Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Arinme1)) {

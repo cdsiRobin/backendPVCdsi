@@ -13,6 +13,8 @@ public class ResponseContants {
     public final static String MSG_REG_ALERTA		=	"REGISTRO CON OBSERVACIONES";
     public final static String MSG_REG_DUPLICADO    =	"REGISTRO YA EXISTE";
     public final static String MSG_REG_ERROR		=	"ERROR DE REGISTRO";
+    
+    public final static String MSG_ACTU_NO_EXISTE	=	"DATOS PRIMARIOS NO VALIDOR";
 
     public final static String MSG_ERR_GENE			=	"ERROR INTERNO";
     public final static String MSG_AlER_GENE		=	"ERROR DE OPERACION";

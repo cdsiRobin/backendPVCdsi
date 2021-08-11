@@ -85,9 +85,10 @@ public class Arinml1 implements Serializable {
     private String noArti1;
     @Column(name = "MARCA3")
     private String marca3;
+    /*
     @Column(name = "TIPO_BS")
     private String tipoBs;
-
+    */
     public Arinml1() {
     }
 
@@ -386,7 +387,7 @@ public class Arinml1 implements Serializable {
     public void setMarca3(String marca3) {
         this.marca3 = marca3;
     }
-
+    /*
     public String getTipoBs() {
         return tipoBs;
     }
@@ -394,7 +395,7 @@ public class Arinml1 implements Serializable {
     public void setTipoBs(String tipoBs) {
         this.tipoBs = tipoBs;
     }
-
+    */
     @Override
     public int hashCode() {
         int hash = 0;

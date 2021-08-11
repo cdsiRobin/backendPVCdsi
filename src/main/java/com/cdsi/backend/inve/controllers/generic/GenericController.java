@@ -158,6 +158,20 @@ public class GenericController {
                 .build();
         return ResponseEntity.ok(res);
     }
+    
+    protected ResponseEntity<ResponseRest> getDatosNoValidoRequest() {
+        ResponseRest responseRest = ResponseRest.builder()
+                .apiVerision(apiVersion)
+                .estado(
+                        ResponseEstado.builder()
+                                .codigo(ResponseEnum.ERROR)
+                                .mensaje(ResponseContants.MSG_ACTU_NO_EXISTE)
+                                .estado(HttpStatus.INTERNAL_SERVER_ERROR.value() )
+                                .error(HttpStatus.INTERNAL_SERVER_ERROR.name())
+                                .build()
+                ).build();
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseRest);
+    }
 
     protected ResponseEntity<ResponseRest> getErrorRequest() {
         ResponseRest responseRest = ResponseRest.builder()
