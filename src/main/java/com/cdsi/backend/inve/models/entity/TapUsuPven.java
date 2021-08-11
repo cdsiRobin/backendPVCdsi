@@ -1,6 +1,5 @@
 package com.cdsi.backend.inve.models.entity;
 
-
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;

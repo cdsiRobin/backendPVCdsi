@@ -1,10 +1,13 @@
 package com.cdsi.backend.inve.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "ARINME1")
@@ -407,6 +410,24 @@ public class Arinme1 implements Serializable {
     private String grCorre;
     @Column(name = "CANT_LINEAS")
     private BigInteger cantLineas;
+
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+    @JoinColumns({
+            @JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
+            @JoinColumn(name = "BODEGA", referencedColumnName = "BODEGA", insertable = false, updatable = false),
+            @JoinColumn(name = "TIPO_DOC", referencedColumnName = "TIPO_DOC", insertable = false, updatable = false),
+            @JoinColumn(name = "NO_DOCU", referencedColumnName = "NO_DOCU", insertable = false, updatable = false)
+    })
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Arinml1> arinml1List;
+
+    public List<Arinml1> getArinml1List() {
+        return arinml1List;
+    }
+
+    public void setArinml1List(List<Arinml1> arinml1List) {
+        this.arinml1List = arinml1List;
+    }
 
     public Arinme1() {
     }

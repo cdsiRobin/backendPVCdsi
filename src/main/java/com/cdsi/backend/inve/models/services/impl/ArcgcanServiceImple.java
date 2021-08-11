@@ -5,7 +5,6 @@ import com.cdsi.backend.inve.models.entity.Arcgcan;
 import com.cdsi.backend.inve.models.entity.ArcgcanPK;
 import com.cdsi.backend.inve.models.services.IArcgcanService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
-import com.sun.tools.sjavac.Log;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class ArcgcanServiceImple implements IArcgcanService {
         try {
             return this.iArcgcanRepo.listaCiaAndEstado(arcgcan.getArcgcanPK().getNoCia(),arcgcan.getEstado());
         }catch (Exception e){
-        	Log.error(e.getMessage());
+        	log.error(e.getMessage());
             return null;
         }
     }
@@ -33,7 +32,7 @@ public class ArcgcanServiceImple implements IArcgcanService {
         try{
             return this.iArcgcanRepo.buscarId(arcgcanPK.getTipoAnalitico(),arcgcanPK.getNoCia(),arcgcanPK.getCodAnalitico());
         }catch (Exception e){
-        	Log.error(e.getMessage());
+        	log.error(e.getMessage());
             return null;
         }
     }
