@@ -24,13 +24,6 @@ public class ArfacfServiceIple implements IArfacfService {
     }
 
     @Override
-    public Page<Arfacf> pagiCia(int limit, int page, String cia) throws ServiceException {
-        Pageable pageableRequest = PageRequest.of(page,limit);
-        Page<Arfacf> arfacfPage = this.arfacfRepo.pageCia(cia,pageableRequest);
-        return arfacfPage;
-    }
-
-    @Override
     public Arfacf findById(Long id) throws ServiceException {
         return null;
     }
@@ -53,5 +46,12 @@ public class ArfacfServiceIple implements IArfacfService {
     @Override
     public Arfacf delete(Long id) throws ServiceException {
         return null;
+    }
+
+    @Override
+    public Page<Arfacf> pageCia(int limit, int page, String cia) throws ServiceException {
+        Pageable pageableRequest = PageRequest.of(page,limit);
+        Page<Arfacf> arfacfPage = this.arfacfRepo.pageCia(cia,pageableRequest);
+        return arfacfPage;
     }
 }

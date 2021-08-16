@@ -6,7 +6,6 @@ import com.cdsi.backend.inve.models.entity.Arfafp;
 import com.cdsi.backend.inve.models.entity.ArfafpPK;
 import com.cdsi.backend.inve.models.services.IArfafpService;
 
-import jdk.internal.org.jline.utils.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +33,7 @@ public class ArfafpController  extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-        	Log.error(e.getMessage());
+        	log.error(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
 
@@ -54,7 +53,7 @@ public class ArfafpController  extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-        	Log.error(e.getMessage());
+        	log.error(e.getMessage());
             return super.getErrorRequest();
         }
 

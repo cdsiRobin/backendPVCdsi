@@ -101,4 +101,11 @@ public class ArpfoeServiceImple implements IArpfoeService {
     public Arpfoe delete(Long id) throws ServiceException {
         return null;
     }
+
+    @Override
+    public Page<Arpfoe> pageCia(int limit, int page, String cia) throws ServiceException {
+        Pageable pageableRest = PageRequest.of(page,limit);
+        Page<Arpfoe> arpfoePage = this.iArpfoeRepo.pageCia(pageableRest,cia);
+        return arpfoePage;
+    }
 }

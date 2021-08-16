@@ -8,5 +8,4 @@ import org.springframework.data.domain.Page;
 
 public interface IArfacfService extends IGenericService<Arfacf> {
     public Arfacf buscarId(ArfacfPK arfacfPK) throws ServiceException;
-    Page<Arfacf> pagiCia(int limit, int page, String cia) throws ServiceException;
 }

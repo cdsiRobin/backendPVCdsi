@@ -16,6 +16,9 @@ public interface IArpfoeRepo extends PagingAndSortingRepository<Arpfoe, ArpfoePK
     @Query("SELECT a FROM Arpfoe a where a.arpfoePK.noCia = :cia AND a.arpfoePK.noOrden = :noOrden")
     public Arpfoe buscarId(@Param("cia") String cia, @Param("noOrden") String noOrden);
 
+    @Query("SELECT a FROM Arpfoe a where a.arpfoePK.noCia = :cia")
+    Page<Arpfoe> pageCia(Pageable pageable, @Param("cia") String cia);
+
     //METODO QUE NOS PERMITE TRAER TODO LOS PEDIDOS
     @Query("SELECT a FROM Arpfoe a where a.arpfoePK.noCia = :cia AND a.indPvent = :indPvent")
     Page<Arpfoe> buscarCiaAndIndPvent(Pageable pageable, @Param("cia") String cia , @Param("indPvent") String indPvent);

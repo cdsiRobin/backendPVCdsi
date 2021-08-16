@@ -21,7 +21,7 @@ public class ArpfoeController extends GenericController {
     private IArpfoeService iArpfoeService;
 
     @PostMapping("/id")
-    public ResponseEntity<ResponseRest>buscarId(@RequestBody ArpfoePK arpfoePK, BindingResult result){
+    public ResponseEntity<ResponseRest> buscarId(@RequestBody ArpfoePK arpfoePK, BindingResult result){
         if (result.hasErrors()){
             return super.getErrorRequest();
         }

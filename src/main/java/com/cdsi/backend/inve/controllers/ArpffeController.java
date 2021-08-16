@@ -2,10 +2,9 @@ package com.cdsi.backend.inve.controllers;
 
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
-import com.cdsi.backend.inve.models.entity.Arfacf;
-import com.cdsi.backend.inve.models.entity.ArfacfPK;
-import com.cdsi.backend.inve.models.entity.ArfafpPK;
-import com.cdsi.backend.inve.models.services.IArfacfService;
+import com.cdsi.backend.inve.models.entity.ArpffePK;
+import com.cdsi.backend.inve.models.services.IArpffeService;
+import com.cdsi.backend.inve.models.services.IArpfoeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,42 +13,42 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/arfacf")
-public class ArfacfController extends GenericController {
+@RequestMapping("/api/arpffe")
+public class ArpffeController extends GenericController {
 
     @Autowired
-    private IArfacfService arfacfService;
+    private IArpffeService iArpffeService;
 
     @PostMapping("/id")
-    public ResponseEntity<ResponseRest> buscarId(@RequestBody ArfacfPK arfacfPK, BindingResult result){
+    public ResponseEntity<ResponseRest> buscarId(@RequestBody ArpffePK arpffePK, BindingResult result){
         if (result.hasErrors()){
             return super.getErrorRequest();
         }
         try{
-            Object obj = this.arfacfService.buscarId(arfacfPK);
+            Object obj = this.iArpffeService.buscarId(arpffePK);
             if (obj != null){
                 return super.getOKConsultaRequest(obj);
             }
             return super.getBadIdRequest();
         }catch (Exception e){
             log.error(e.getMessage());
-            return super.getBadRequest(e.getMessage());
+            return super.getErrorRequest();
         }
 
     }
 
-    @GetMapping("/page")
-    public ResponseEntity<ResponseRest> pageCia(@RequestParam String cia,@RequestParam int limit,@RequestParam int page){
+    @GetMapping("/pagin")
+    public ResponseEntity<ResponseRest> pageCia(@RequestParam String cia,@RequestParam int limit, @RequestParam int page){
 
         try{
-            Object lst = this.arfacfService.pagiCia(limit,page,cia);
-            if (lst != null){
-                return super.getOKConsultaRequest(lst);
+            Object obj = this.iArpffeService.pageCia(limit,page,cia);
+            if (obj != null){
+                return super.getOKConsultaRequest(obj);
             }
             return super.getBadIdRequest();
         }catch (Exception e){
             log.error(e.getMessage());
-            return  super.getBadRequest(e.getMessage());
+            return super.getErrorRequest();
         }
 
     }
