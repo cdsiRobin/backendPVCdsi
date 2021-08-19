@@ -6,6 +6,7 @@ import com.cdsi.backend.inve.models.entity.SpMaesCampanaPK;
 import com.cdsi.backend.inve.models.services.IspMaesCampService;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,28 +30,34 @@ public class SpMaesCampanaServiceImpl implements IspMaesCampService {
     }
 
     @Override
-    public SpMaesCampana findById(Long id) throws com.cdsi.backend.inve.models.services.exception.ServiceException {
+    public SpMaesCampana findById(Long id) throws ServiceException {
         return null;
     }
 
     @Override
-    public List<SpMaesCampana> getAll() throws com.cdsi.backend.inve.models.services.exception.ServiceException {
+    public List<SpMaesCampana> getAll() throws ServiceException {
         return null;
     }
 
     @Override
-    public List<SpMaesCampana> findByLike(SpMaesCampana spMaesCampana) throws com.cdsi.backend.inve.models.services.exception.ServiceException {
+    public List<SpMaesCampana> findByLike(SpMaesCampana spMaesCampana) throws ServiceException {
         return null;
     }
 
     @Override
-    public SpMaesCampana save(SpMaesCampana spMaesCampana) throws com.cdsi.backend.inve.models.services.exception.ServiceException {
+    public SpMaesCampana save(SpMaesCampana spMaesCampana) throws ServiceException {
         return null;
     }
 
     @Override
-    public SpMaesCampana delete(Long id) throws com.cdsi.backend.inve.models.services.exception.ServiceException {
+    public SpMaesCampana delete(Long id) throws ServiceException {
         return null;
     }
+
+	@Override
+	public Page<SpMaesCampana> pageCia(int limit, int page, String cia) throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 

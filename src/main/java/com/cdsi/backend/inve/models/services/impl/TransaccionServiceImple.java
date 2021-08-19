@@ -5,12 +5,13 @@ import com.cdsi.backend.inve.models.entity.Transaccion;
 import com.cdsi.backend.inve.models.services.ITransaccionService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
 
-import jdk.internal.org.jline.utils.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Slf4j
 @Service
 public class TransaccionServiceImple implements ITransaccionService {
@@ -22,7 +23,7 @@ public class TransaccionServiceImple implements ITransaccionService {
         try {
             return this.iTransaccionRepo.findByCiaAndUser(cia,usuario);
         }catch (Exception e){
-        	Log.error(e.getMessage());
+        	log.error(e.getMessage());
         }
         return null;
     }
@@ -51,4 +52,10 @@ public class TransaccionServiceImple implements ITransaccionService {
     public Transaccion delete(Long id) throws ServiceException {
         return null;
     }
+
+	@Override
+	public Page<Transaccion> pageCia(int limit, int page, String cia) throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

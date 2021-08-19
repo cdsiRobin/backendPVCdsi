@@ -8,6 +8,7 @@ import com.cdsi.backend.inve.models.services.exception.ServiceException;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +16,10 @@ import java.util.List;
 @Slf4j
 @Service
 public class ArcgcanServiceImple implements IArcgcanService {
-    @Autowired
+   
+	@Autowired
     private IArcgcanRepo iArcgcanRepo;
+	
     @Override
     public List<Arcgcan> listarByCiaAndEstado(Arcgcan arcgcan) throws ServiceException {
         try {
@@ -61,4 +64,10 @@ public class ArcgcanServiceImple implements IArcgcanService {
     public Arcgcan delete(Long id) throws ServiceException {
         return null;
     }
+
+	@Override
+	public Page<Arcgcan> pageCia(int limit, int page, String cia) throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

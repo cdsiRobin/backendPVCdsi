@@ -57,4 +57,10 @@ public class Arinme1ServiceImple implements IArinme1Service {
         return null;
     }
 
+	@Override
+	public Page<Arinme1> pageCia(int limit, int page, String cia) throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

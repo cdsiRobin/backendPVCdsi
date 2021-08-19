@@ -6,9 +6,9 @@ import com.cdsi.backend.inve.models.entity.ArfafpPK;
 import com.cdsi.backend.inve.models.services.IArfafpService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
 
-import jdk.internal.org.jline.utils.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class ArfapfServiceImple implements IArfafpService {
             List<Arfafp> arfafpList = this.iArfafpRepo.listarCiaAndEstado(cia,estado);
             return arfafpList;
         }catch (Exception e){
-        	Log.error(e.getMessage());
+        	log.error(e.getMessage());
         }
         return null;
     }
@@ -36,7 +36,7 @@ public class ArfapfServiceImple implements IArfafpService {
         try {
             return this.iArfafpRepo.buscarId(arfafpPK.getNoCia(), arfafpPK.getTipoFpago(), arfafpPK.getCodFpago());
         }catch (Exception e){
-        	Log.error(e.getMessage());
+        	log.error(e.getMessage());
         }
         return null;
     }
@@ -65,4 +65,10 @@ public class ArfapfServiceImple implements IArfafpService {
     public Arfafp delete(Long id) throws ServiceException {
         return null;
     }
+
+	@Override
+	public Page<Arfafp> pageCia(int limit, int page, String cia) throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

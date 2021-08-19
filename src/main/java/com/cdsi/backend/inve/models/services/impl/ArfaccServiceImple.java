@@ -7,7 +7,6 @@ import com.cdsi.backend.inve.models.services.IArfaccService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import jdk.internal.org.jline.utils.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -128,4 +127,10 @@ public class ArfaccServiceImple implements IArfaccService {
     public Arfacc delete(Long id) throws ServiceException {
         return null;
     }
+
+	@Override
+	public Page<Arfacc> pageCia(int limit, int page, String cia) throws ServiceException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

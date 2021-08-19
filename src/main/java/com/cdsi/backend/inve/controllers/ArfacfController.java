@@ -42,7 +42,7 @@ public class ArfacfController extends GenericController {
     public ResponseEntity<ResponseRest> pageCia(@RequestParam String cia,@RequestParam int limit,@RequestParam int page){
 
         try{
-            Object lst = this.arfacfService.pagiCia(limit,page,cia);
+            Object lst = this.arfacfService.pageCia(limit, page, cia);//  pagiCia(limit,page,cia);
             if (lst != null){
                 return super.getOKConsultaRequest(lst);
             }
