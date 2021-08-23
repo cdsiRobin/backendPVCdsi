@@ -7,7 +7,7 @@
 	<groupId>com.cdsi.backend.inve</groupId>
 	<artifactId>spring-boot-backend-pvCdsi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>spring-boot-backend-pvCdsi</name>
 	<description>Demo project for Spring Boot</description>
@@ -52,6 +52,7 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
