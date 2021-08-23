@@ -21,7 +21,7 @@ public class ArpffeServiceImple implements IArpffeService {
 
     @Override
     public Arpffe buscarId(ArpffePK arpffePK) {
-        return this.buscarId(arpffePK);
+        return this.arpffeRepo.buscarId(arpffePK.getNoCia(),arpffePK.getBodega(),arpffePK.getNoGuia());
     }
 
     @Override
