@@ -5,13 +5,17 @@ import com.cdsi.backend.inve.models.entity.Arcgtc;
 import com.cdsi.backend.inve.models.entity.ArcgtcPK;
 import com.cdsi.backend.inve.models.services.IArcgtcService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @Service
 public class ArcgtcServiceImpl implements IArcgtcService {
     @Autowired
@@ -29,15 +33,21 @@ public class ArcgtcServiceImpl implements IArcgtcService {
             List<Arcgtc> arcgtcs = this.arcgtcRepo.buscarXFecha(fecha);
             return arcgtcs;
         }catch (Exception e){
-            //log.error(e.getMessage());
+            log.error(e.getMessage());
             return null;
         }
 
     }
 
     @Override
-    public List<Arcgtc> listar(int limit, int page) throws ServiceException {
-        return null;
+    public Page<Arcgtc> listar(int limit, int page) throws ServiceException {
+        try {
+            Pageable pageable = PageRequest.of(page, limit);
+            return this.arcgtcRepo.listar(pageable);
+        }catch (Exception e){
+            log.error(e.getMessage());
+            return null;
+        }
     }
 
     @Override
