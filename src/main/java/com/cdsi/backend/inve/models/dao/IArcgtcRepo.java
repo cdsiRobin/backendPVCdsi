@@ -9,12 +9,14 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface IArcgtc extends PagingAndSortingRepository<Arcgtc, ArcgtcPK> {
+public interface IArcgtcRepo extends PagingAndSortingRepository<Arcgtc, ArcgtcPK> {
+
+    @Query("SELECT a FROM Arcgtc  a WHERE a.arcgtcPK.claseCambio = :clase and a.arcgtcPK.fecha = :fecha")
+    Arcgtc buscarClaseAndFecha(@Param("clase") String clase,@Param("fecha") Date fecha);
 
     //METODO QUE NOS TRAE EL TIPO DE CAMBIO DE UNA FECHA
     @Query("SELECT a FROM Arcgtc  a WHERE a.arcgtcPK.fecha = :fecha")

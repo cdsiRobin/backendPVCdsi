@@ -18,7 +18,6 @@ public class Arcgtc implements Serializable {
     @Column(name = "TIPO_CAMBIO")
     private BigDecimal tipoCambio;
 
-
     public Arcgtc() {
     }
 
