@@ -22,7 +22,10 @@ public interface IArcgtcRepo extends PagingAndSortingRepository<Arcgtc, ArcgtcPK
     @Query("SELECT a FROM Arcgtc  a WHERE a.arcgtcPK.fecha = :fecha")
     List<Arcgtc> buscarXFecha(@Param("fecha") Date fecha);
 
+    @Query("SELECT a FROM Arcgtc a")
+    List<Arcgtc> listar();
+
     @Query("select a from Arcgtc a")
-    Page<Arcgtc> listar(Pageable pageable);
+    Page<Arcgtc> pageArcgtc(Pageable pageable);
 
 }

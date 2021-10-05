@@ -40,10 +40,10 @@ public class ArcgtcServiceImpl implements IArcgtcService {
     }
 
     @Override
-    public Page<Arcgtc> listar(int limit, int page) throws ServiceException {
+    public Page<Arcgtc> pageArcgtc(int limit, int page) throws ServiceException {
         try {
             Pageable pageable = PageRequest.of(page, limit);
-            return this.arcgtcRepo.listar(pageable);
+            return this.arcgtcRepo.pageArcgtc(pageable);
         }catch (Exception e){
             log.error(e.getMessage());
             return null;
@@ -57,7 +57,7 @@ public class ArcgtcServiceImpl implements IArcgtcService {
 
     @Override
     public List<Arcgtc> getAll() throws ServiceException {
-        return null;
+       return this.arcgtcRepo.listar();
     }
 
     @Override

@@ -20,6 +20,19 @@ public class ArcgtcController extends GenericController {
     @Autowired
     private IArcgtcService arcgtcService;
 
+    @GetMapping("/listar")
+    public ResponseEntity<ResponseRest> listar(){
+        try{
+            Object obj = this.arcgtcService.getAll();
+            if (obj != null){
+                return super.getOKConsultaRequest(obj);
+            }
+            return super.getBadIdRequest();
+        }catch (Exception e){
+            return super.getBadRequest(e.getMessage());
+        }
+    }
+
      @PostMapping("/id")
      public ResponseEntity<ResponseRest> buscarId(@RequestBody ArcgtcPK arcgtcPK, BindingResult result){
          if (result.hasErrors()){
@@ -50,10 +63,11 @@ public class ArcgtcController extends GenericController {
              return super.getBadRequest(e.getMessage());
          }
      }
+
      @GetMapping("/page")
      public ResponseEntity<ResponseRest> paginacion(@RequestParam int limit, @RequestParam int page){
          try{
-             Object obj = this.arcgtcService.listar(limit,page);
+             Object obj = this.arcgtcService.pageArcgtc(limit,page);
              if (obj != null){
                  return super.getOKConsultaRequest(obj);
              }
