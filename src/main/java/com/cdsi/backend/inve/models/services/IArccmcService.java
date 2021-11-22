@@ -25,4 +25,8 @@ public interface IArccmcService {
     
     //VAMOS A BUSCAR UN CLIENTES POR SU DESCRIPCION
     List<Arccmc> findByNombreAndCia(String cia,String dscri);
+    
+  //VAMOS A BUSCAR UN CLIENTES POR SU RUC
+    List<Arccmc> findByCiaAndRuc(String cia,String id);
+    
 }

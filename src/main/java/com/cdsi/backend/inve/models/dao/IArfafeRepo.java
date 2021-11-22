@@ -2,6 +2,9 @@ package com.cdsi.backend.inve.models.dao;
 
 import com.cdsi.backend.inve.models.entity.Arfafe;
 import com.cdsi.backend.inve.models.entity.ArfafePK;
+
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -17,7 +20,7 @@ public interface IArfafeRepo extends PagingAndSortingRepository<Arfafe, ArfafePK
 
     //OBTENER TODAS LAS FACTURAS
     @Query("SELECT a FROM Arfafe a where a.arfafePK.noCia = :cia and a.IND_PVENT = :indPvent")
-    Page<Arfafe> buscarCiaAndIndPvent(Pageable pageable, @Param("cia") String cia, @Param("indPvent") String indPvent);
+    public Page<Arfafe> buscarCiaAndIndPvent(Pageable pageable, @Param("cia") String cia, @Param("indPvent") String indPvent);
 
     //OBTENER TODAS LAS FACTURAS X Cliente
     @Query("SELECT a FROM Arfafe a where a.arfafePK.noCia = :cia AND a.IND_PVENT = :indPvent AND a.NO_CLIENTE = :cliente")
@@ -32,6 +35,10 @@ public interface IArfafeRepo extends PagingAndSortingRepository<Arfafe, ArfafePK
     //OBTENER FACTURA
     @Query("SELECT a FROM Arfafe a where a.arfafePK.noCia = :cia AND a.arfafePK.tipoDoc = :doc AND a.arfafePK.noFactu = :factu")
     public Arfafe buscarId(@Param("cia") String cia, @Param("doc") String tipoDoc, @Param("factu") String noFactu);
-
+    
+    //LISTAR FACTURAS 2 MESES - PVTA
+    @Query("SELECT a FROM Arfafe a where a.arfafePK.noCia = :cia and IND_PVENT = 'S' "
+    		+ "and FECHA BETWEEN to_char(ADD_MONTHS(SYSDATE,-22),'DD/MM/YYYY') and to_char(SYSDATE,'DD/MM/YYYY')")
+    public List<Arfafe> listArfafePventa(@Param("cia") String cia);
 
 }

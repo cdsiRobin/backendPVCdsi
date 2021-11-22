@@ -114,6 +114,12 @@ public class ArccmcController extends GenericController {
 		return arccService.findByNombreAndCia(cia, dscri);
 	}
 	
+	@GetMapping("/listRuc/{cia}/{id}")
+	//@Secured({"ROLE_ADMIN", "ROLE_USAR"})
+	public List<Arccmc> listaRucCia(@PathVariable("cia") String cia, @PathVariable("id") String id) {
+		return arccService.findByCiaAndRuc(cia, id);
+	}
+	
 	//METODO QUE ENVIA UNA PAGINACION DE CLIENTES
   	@GetMapping("/list/page/{cia}/{page}")
   	//@Secured({"ROLE_ADMIN", "ROLE_USAR"})

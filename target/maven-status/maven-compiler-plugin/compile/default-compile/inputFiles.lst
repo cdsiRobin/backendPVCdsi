@@ -1,90 +1,187 @@
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\Arinbo1Controller.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IArccvcService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IArfatpService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\IUsuarioDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\ArinfaServiceImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\IdTapUsuPven.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\ICompanyDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\IdCatalogo.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\ArincatController.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\ArticuloController.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Arinbo1.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\ArccmcServiceImple.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\UsuarioService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\CompanyRestController.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Linea.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\ICatalogoService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\IArinmrDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\IdLinea.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IArinbo1Service.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\IdArinbo1.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\RoleServImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\IArinfaDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\ArfatpServiceImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\IArccvcDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\IArfatpDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IArticuloService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\StockLibroDTOService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\ArinmrServiceImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\ArticuloStockDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\IRoleDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\IdArfatp.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Arfamc.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Role.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\IdArinfa.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\IdArinmr.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\ILineaService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\ArinfaController.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Articulo.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\exception\ModeloNotFoundException.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\dto\StockLibroDTO.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Arccvc.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IArinfaService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IArinmrService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IUsuarioService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\IdArccvc.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IRolService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\exception\ResponseExceptionHandler.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Usuario.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\ArccvcController.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IArincatService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\UploadFileServiceImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\RolRestController.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\IArticuloDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\ILineaDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Arinmr.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IArccmcService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\ArincatServiceImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\ArccmcController.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\IArincatDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\ArfamcServiceImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IArfamcService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\ArinmrController.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\CatalogoController.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\IdArticulo.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\TapUsuPven.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\IArfamcDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\IdArincat.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Arccmc.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Arincat.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IArticuloStockServiceImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\ArccvcServiceImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\ArticuloServiceImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\ArfatpController.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\util\CORS.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\ICatalogoDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\LineaController.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Catalogo.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\exception\ExceptionResponse.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IArticuloStockService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\IUploadFileService.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\IdArccmc.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\LineaServiceImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Arinfa.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\Arinbo1ServiceImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\entity\Arfatp.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\SpringBootBackendApirestApplication.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\IArccmcDao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\dao\IArinbo1Dao.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\models\services\CatalogoServiceImpl.java
-D:\INVENTARIO CDSI\BACK\restfulInve\src\main\java\com\cdsi\backend\inve\controllers\UsuarioRestController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArcaaccajController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\ITapUsuPvenDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\ArpfoePK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IRoleDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\IdTapUsuPven.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArinmrController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arinml1PK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IUsuarioService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\exception\ModeloNotFoundException.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\TransaccionController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arpfoe.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArinme1Service.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\CompanyRestController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arinml1.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\ArcctdaPKEntity.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\IdArfatp.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\UploadFileServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\ServletInitializer.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArfatpService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArfatpServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArcgcanServiceImple.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\TransaccionServiceImple.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArccmcController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArpffeRepo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArpfoeServiceImple.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\IArticuloStockServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArticuloController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arccvc.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\ILineaService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\IArcaaccajServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\RolRestController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\UsuarioService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\ArpfolPK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\ArcgcanPK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arinmr.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArfatpDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Articulo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\UsuarioRestController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\IdCatalogo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArpfoeService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArfaccServiceImple.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\ICatalogoDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\TapUsuPven.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArccvcController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArfacfRepo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arfamc.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\ICatalogoService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\SpMaesEdic.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\exception\ServiceException.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArfafpRepo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\commons\ResponseRest.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArticuloDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\CatalogoController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArinme1Repo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArccvcServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\LineaController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arpffe.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\IdArincat.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Transaccion.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\Arinbo1ServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArfafeController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Role.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\RoleServImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArinfaDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\generic\IGenericService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arpffl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArfamcServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArcgcanController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\SpMaesCamp.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IUploadFileService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\ArcctdaEntity.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\exception\ExceptionRepository.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArticuloService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\TapUsuPvenController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArticuloServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArcaaccajService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArfaflService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\dto\CajaDTO.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\dto\VendedorDTO.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArfafpService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArfaccController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arinme1PK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Linea.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arinme1.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArinbo1Dao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\ITransaccionRepo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArfatpController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\IdArccmc.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\dto\StockLibroDTO.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\Arinme1ServiceImple.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArccmcDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\ArpffePK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arfatp.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\constants\ResponseContants.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\exception\ExceptionResponse.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArincatService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\ArticuloStockDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\imple\TransaccionRepoImple.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\SpMaesCampanaPK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Usuario.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IspMaesCampService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\SpMaesCampPK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArcaaccajDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arfafe.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\SpMaesCampanaController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArfacfServiceIple.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\IdArticulo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arfafp.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\ILineaDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArcgcanRepo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArfafeService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\IdArccvc.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArinfaService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArfamcDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArincatDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ITapUsuPvenServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\commons\ResponseEstado.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArpffeService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arincat.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\IdArinfa.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\exception\ResponseExceptionHandler.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArccmcServiceImple.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArfafpController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArccvcDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\IdLinea.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\StockLibroDTOService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\IdArinmr.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArccmcService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\ArfaccPK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArticuloStockService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\ArpfflPK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\CatalogoServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arfacf.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arcaaccaj.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArfafeRepo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arfacc.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\dto\DatosCajaDTO.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IspMaesCampanaRepo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArinmrService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IUsuarioDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\generic\GenericController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\ArfaflPK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\ArfafpPK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\ITransaccionService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\IdArinbo1.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArcgcanService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArfacfController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\enums\ResponseEnum.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\ICompanyDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\classModel.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\SpMaesCampanaServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArfamcService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArfapfServiceImple.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\IdArcaaccaj.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArinmrServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arinbo1.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\util\CORS.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\Arinbo1Controller.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArfaccService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArfafeServiceImple.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArinbo1Service.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\SpMaesCampana.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arfafl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\ITapUsuPvenService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArinfaServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arcgcan.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\ArfacfPK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArincatServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArpfoeRepo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arpfol.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArinmrDao.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Catalogo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\LineaServiceImpl.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IRolService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArccvcService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arinfa.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\SpMaesEdicPK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\IArfacfService.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\services\impl\ArpffeServiceImple.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\Arccmc.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\dao\IArfaccRepo.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\SpringBootBackendApirestApplication.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArincatController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\Arinme1Controller.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\models\entity\ArfafePK.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArpffeController.java
+C:\Users\CDSI\Documents\GitHub\backendPVCdsi\src\main\java\com\cdsi\backend\inve\controllers\ArpfoeController.java

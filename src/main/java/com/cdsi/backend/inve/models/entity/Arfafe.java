@@ -1,13 +1,13 @@
 package com.cdsi.backend.inve.models.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
-import java.util.List;
+//import java.util.List;
 
 @Entity
 @Table(name = "ARFAFE")
@@ -25,7 +25,7 @@ public class Arfafe implements Serializable {
     private String TIPO_CLIENTE;
     private String NBR_CLIENTE;
     private String DIRECCION;
-    private String PLAZO;
+    private BigInteger PLAZO;
     private String NO_VENDEDOR;
     private String TIPO_PRECIO;
     private String MONEDA;
@@ -55,11 +55,11 @@ public class Arfafe implements Serializable {
     private String NO_REFE_FACTU;
     private String NO_GUIA;
     private String TIPO;
-    private BigInteger NO_CONTA;
+    private BigDecimal NO_CONTA;
     private BigDecimal COMISION;
     private BigDecimal SALDO_COMISION;
     private String COD_OPER;
-    private BigInteger NO_CUOTAS;
+    private BigDecimal NO_CUOTAS;
     private BigDecimal GASTO_ND;
     private BigDecimal GASTO_NC;
     private BigDecimal GASTO_FINAN;
@@ -194,34 +194,34 @@ public class Arfafe implements Serializable {
     private String NO_GUIA_PROM;
     private String NO_GUIA_VENTA;
     private String IND_PROMARG;
-    private BigDecimal OPER_EXONERADAS;
-    private BigDecimal OPER_GRATUITAS;
-    private BigDecimal OPER_GRAVADAS;
-    private BigDecimal OPER_INAFECTAS;
+    private String IND_NC_FICTA1;
     private String NO_GUIA_CONSIG;
-    private String MOT_ANU;
     private String MOT_CONTING;
+    private BigDecimal OPER_GRATUITAS;
+    private BigDecimal OPER_EXONERADAS;
+    private BigDecimal OPER_INAFECTAS;
+    private BigDecimal OPER_GRAVADAS;
+    private String ESTADO_SUNAT;
     private String TIPO_OPERACION;
     private String SUSTENTO;
-    private String ESTADO_SUNAT;
-    private String EST_RES_CON;
-    private String COD_HASH;
-    private String MENSAJE_ERROR_TCI;
-    private String COD_BARRA_SUNAT;
     private String COD_DETRAC;
     private BigDecimal PORC_DETRAC;
     private BigDecimal VALOR_REF_DETRAC;
     private String NUM_CUENTA_DETRAC;
     private BigDecimal DETRACCION;
+    private String MOT_ANU;
+    private String EST_RES_CON;
+    private String COD_HASH;
+    private String COD_BARRA_SUNAT;
 
-    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+    /*@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @JoinColumns({
             @JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
             @JoinColumn(name = "TIPO_DOC", referencedColumnName = "TIPO_DOC", insertable = false, updatable = false),
             @JoinColumn(name = "NO_FACTU", referencedColumnName = "NO_FACTU", insertable = false, updatable = false)})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Arfafl> arfaflList;
-
+*/
     public Arfafe() {
     }
 
@@ -305,11 +305,11 @@ public class Arfafe implements Serializable {
         this.DIRECCION = DIRECCION;
     }
 
-    public String getPLAZO() {
+    public BigInteger getPLAZO() {
         return PLAZO;
     }
 
-    public void setPLAZO(String PLAZO) {
+    public void setPLAZO(BigInteger PLAZO) {
         this.PLAZO = PLAZO;
     }
 
@@ -545,11 +545,11 @@ public class Arfafe implements Serializable {
         this.TIPO = TIPO;
     }
 
-    public BigInteger getNO_CONTA() {
+    public BigDecimal getNO_CONTA() {
         return NO_CONTA;
     }
 
-    public void setNO_CONTA(BigInteger NO_CONTA) {
+    public void setNO_CONTA(BigDecimal NO_CONTA) {
         this.NO_CONTA = NO_CONTA;
     }
 
@@ -577,11 +577,11 @@ public class Arfafe implements Serializable {
         this.COD_OPER = COD_OPER;
     }
 
-    public BigInteger getNO_CUOTAS() {
+    public BigDecimal getNO_CUOTAS() {
         return NO_CUOTAS;
     }
 
-    public void setNO_CUOTAS(BigInteger NO_CUOTAS) {
+    public void setNO_CUOTAS(BigDecimal NO_CUOTAS) {
         this.NO_CUOTAS = NO_CUOTAS;
     }
 
@@ -1657,36 +1657,12 @@ public class Arfafe implements Serializable {
         this.IND_PROMARG = IND_PROMARG;
     }
 
-    public BigDecimal getOPER_EXONERADAS() {
-        return OPER_EXONERADAS;
+    public String getIND_NC_FICTA1() {
+        return IND_NC_FICTA1;
     }
 
-    public void setOPER_EXONERADAS(BigDecimal OPER_EXONERADAS) {
-        this.OPER_EXONERADAS = OPER_EXONERADAS;
-    }
-
-    public BigDecimal getOPER_GRATUITAS() {
-        return OPER_GRATUITAS;
-    }
-
-    public void setOPER_GRATUITAS(BigDecimal OPER_GRATUITAS) {
-        this.OPER_GRATUITAS = OPER_GRATUITAS;
-    }
-
-    public BigDecimal getOPER_GRAVADAS() {
-        return OPER_GRAVADAS;
-    }
-
-    public void setOPER_GRAVADAS(BigDecimal OPER_GRAVADAS) {
-        this.OPER_GRAVADAS = OPER_GRAVADAS;
-    }
-
-    public BigDecimal getOPER_INAFECTAS() {
-        return OPER_INAFECTAS;
-    }
-
-    public void setOPER_INAFECTAS(BigDecimal OPER_INAFECTAS) {
-        this.OPER_INAFECTAS = OPER_INAFECTAS;
+    public void setIND_NC_FICTA1(String IND_NC_FICTA1) {
+        this.IND_NC_FICTA1 = IND_NC_FICTA1;
     }
 
     public String getNO_GUIA_CONSIG() {
@@ -1697,20 +1673,52 @@ public class Arfafe implements Serializable {
         this.NO_GUIA_CONSIG = NO_GUIA_CONSIG;
     }
 
-    public String getMOT_ANU() {
-        return MOT_ANU;
-    }
-
-    public void setMOT_ANU(String MOT_ANU) {
-        this.MOT_ANU = MOT_ANU;
-    }
-
     public String getMOT_CONTING() {
         return MOT_CONTING;
     }
 
     public void setMOT_CONTING(String MOT_CONTING) {
         this.MOT_CONTING = MOT_CONTING;
+    }
+
+    public BigDecimal getOPER_GRATUITAS() {
+        return OPER_GRATUITAS;
+    }
+
+    public void setOPER_GRATUITAS(BigDecimal OPER_GRATUITAS) {
+        this.OPER_GRATUITAS = OPER_GRATUITAS;
+    }
+
+    public BigDecimal getOPER_EXONERADAS() {
+        return OPER_EXONERADAS;
+    }
+
+    public void setOPER_EXONERADAS(BigDecimal OPER_EXONERADAS) {
+        this.OPER_EXONERADAS = OPER_EXONERADAS;
+    }
+
+    public BigDecimal getOPER_INAFECTAS() {
+        return OPER_INAFECTAS;
+    }
+
+    public void setOPER_INAFECTAS(BigDecimal OPER_INAFECTAS) {
+        this.OPER_INAFECTAS = OPER_INAFECTAS;
+    }
+
+    public BigDecimal getOPER_GRAVADAS() {
+        return OPER_GRAVADAS;
+    }
+
+    public void setOPER_GRAVADAS(BigDecimal OPER_GRAVADAS) {
+        this.OPER_GRAVADAS = OPER_GRAVADAS;
+    }
+
+    public String getESTADO_SUNAT() {
+        return ESTADO_SUNAT;
+    }
+
+    public void setESTADO_SUNAT(String ESTADO_SUNAT) {
+        this.ESTADO_SUNAT = ESTADO_SUNAT;
     }
 
     public String getTIPO_OPERACION() {
@@ -1727,46 +1735,6 @@ public class Arfafe implements Serializable {
 
     public void setSUSTENTO(String SUSTENTO) {
         this.SUSTENTO = SUSTENTO;
-    }
-
-    public String getESTADO_SUNAT() {
-        return ESTADO_SUNAT;
-    }
-
-    public void setESTADO_SUNAT(String ESTADO_SUNAT) {
-        this.ESTADO_SUNAT = ESTADO_SUNAT;
-    }
-
-    public String getEST_RES_CON() {
-        return EST_RES_CON;
-    }
-
-    public void setEST_RES_CON(String EST_RES_CON) {
-        this.EST_RES_CON = EST_RES_CON;
-    }
-
-    public String getCOD_HASH() {
-        return COD_HASH;
-    }
-
-    public void setCOD_HASH(String COD_HASH) {
-        this.COD_HASH = COD_HASH;
-    }
-
-    public String getMENSAJE_ERROR_TCI() {
-        return MENSAJE_ERROR_TCI;
-    }
-
-    public void setMENSAJE_ERROR_TCI(String MENSAJE_ERROR_TCI) {
-        this.MENSAJE_ERROR_TCI = MENSAJE_ERROR_TCI;
-    }
-
-    public String getCOD_BARRA_SUNAT() {
-        return COD_BARRA_SUNAT;
-    }
-
-    public void setCOD_BARRA_SUNAT(String COD_BARRA_SUNAT) {
-        this.COD_BARRA_SUNAT = COD_BARRA_SUNAT;
     }
 
     public String getCOD_DETRAC() {
@@ -1809,13 +1777,45 @@ public class Arfafe implements Serializable {
         this.DETRACCION = DETRACCION;
     }
 
-    public List<Arfafl> getArfaflList() {
+    public String getMOT_ANU() {
+        return MOT_ANU;
+    }
+
+    public void setMOT_ANU(String MOT_ANU) {
+        this.MOT_ANU = MOT_ANU;
+    }
+
+    public String getEST_RES_CON() {
+        return EST_RES_CON;
+    }
+
+    public void setEST_RES_CON(String EST_RES_CON) {
+        this.EST_RES_CON = EST_RES_CON;
+    }
+
+    public String getCOD_HASH() {
+        return COD_HASH;
+    }
+
+    public void setCOD_HASH(String COD_HASH) {
+        this.COD_HASH = COD_HASH;
+    }
+
+    public String getCOD_BARRA_SUNAT() {
+        return COD_BARRA_SUNAT;
+    }
+
+    public void setCOD_BARRA_SUNAT(String COD_BARRA_SUNAT) {
+        this.COD_BARRA_SUNAT = COD_BARRA_SUNAT;
+    }
+
+    /*public List<Arfafl> getArfaflList() {
         return arfaflList;
     }
 
     public void setArfaflList(List<Arfafl> arfaflList) {
         this.arfaflList = arfaflList;
-    }
+    }*/
 
     @Override
     public int hashCode() {

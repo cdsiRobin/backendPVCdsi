@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -34,7 +35,7 @@ public class ArfafeServiceImple implements IArfafeService {
     @Override
     public List<Arfafe> buscarCiaAndIndPvent(int limit, int page, String cia, String indPvent) throws ServiceException {
         try {
-            Pageable pageableRequest = PageRequest.of(page, limit);
+            Pageable pageableRequest = PageRequest.of(limit, page);
             Page<Arfafe> arfafePage = this.iArfafeRepo.buscarCiaAndIndPvent(pageableRequest, cia, indPvent);
             List<Arfafe> arfafeList = arfafePage.getContent();
             return arfafeList;
@@ -42,6 +43,11 @@ public class ArfafeServiceImple implements IArfafeService {
             log.error(e.getMessage());
             return null;
         }
+    }
+    
+    @Override
+    public List<Arfafe> listarFacturasPvta(String cia){
+    	return this.iArfafeRepo.listArfafePventa(cia);
     }
 
     @Override
@@ -107,4 +113,5 @@ public class ArfafeServiceImple implements IArfafeService {
         Page<Arfafe> arfafePage = this.iArfafeRepo.pageCia(pageableRest,cia);
         return arfafePage;
     }
+
 }

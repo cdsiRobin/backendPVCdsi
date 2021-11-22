@@ -59,7 +59,7 @@ public class Arfafl implements Serializable {
     private String TIPO_ARTI;
     private String TIPO_REFE_FACTU;
     private String NO_REFE_FACTU;
-    private BigDecimal PRECIO_UNIT_REFM;
+    private BigDecimal PRECIO_UNIT_REF;
     private BigDecimal P_DSCTO3_REF;
     private String NO_GUIA;
     private BigDecimal CANTIDAD_REF;
@@ -469,11 +469,11 @@ public class Arfafl implements Serializable {
     }
 
     public BigDecimal getPRECIO_UNIT_REFM() {
-        return PRECIO_UNIT_REFM;
+        return PRECIO_UNIT_REF;
     }
 
-    public void setPRECIO_UNIT_REFM(BigDecimal PRECIO_UNIT_REFM) {
-        this.PRECIO_UNIT_REFM = PRECIO_UNIT_REFM;
+    public void setPRECIO_UNIT_REFM(BigDecimal PRECIO_UNIT_REF) {
+        this.PRECIO_UNIT_REF = PRECIO_UNIT_REF;
     }
 
     public BigDecimal getP_DSCTO3_REF() {
