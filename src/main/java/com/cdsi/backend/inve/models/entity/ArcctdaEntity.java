@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 @Table(name = "ARCCTDA")
@@ -30,17 +29,7 @@ public class ArcctdaEntity implements Serializable {
     private String codiProv;
     @Column(name = "CODI_DIST")
     private String codiDist;
-    @Column(name = "FEC_CREA")
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fecCrea;
-    @Column(name = "USU_CREA")
-    private String usuCrea;
-    @Column(name = "USUARIO")
-    private String usuario;
-    @Column(name = "FEC_MODI")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fecModi;
     @Column(name = "TIPO_DIR")
     private String tipoDir;
     @Column(name = "ACTIVO")
@@ -142,38 +131,6 @@ public class ArcctdaEntity implements Serializable {
 
     public void setCodiDist(String codiDist) {
         this.codiDist = codiDist;
-    }
-
-    public Date getFecCrea() {
-        return fecCrea;
-    }
-
-    public void setFecCrea(Date fecCrea) {
-        this.fecCrea = fecCrea;
-    }
-
-    public String getUsuCrea() {
-        return usuCrea;
-    }
-
-    public void setUsuCrea(String usuCrea) {
-        this.usuCrea = usuCrea;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public Date getFecModi() {
-        return fecModi;
-    }
-
-    public void setFecModi(Date fecModi) {
-        this.fecModi = fecModi;
     }
 
     public String getTipoDir() {
