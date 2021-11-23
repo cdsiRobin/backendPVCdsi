@@ -75,4 +75,9 @@ public class ArccmcServiceImple implements IArccmcService  {
 		return arccDao.findByNombreAndCia(cia, dscri);
 	}
 
+	@Override
+	public List<Arccmc> findByCiaAndRuc(String cia, String id) {
+		return arccDao.findByCiaAndRuc(cia, id);
+	}
+
 }
