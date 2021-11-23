@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Slf4j
@@ -33,13 +34,14 @@ public class ArcgtcController extends GenericController {
         }
     }
 
-     @PostMapping("/id")
-     public ResponseEntity<ResponseRest> buscarId(@RequestBody ArcgtcPK arcgtcPK, BindingResult result){
-         if (result.hasErrors()){
-             return super.getErrorRequest();
-         }
+    @GetMapping("/id")
+     public ResponseEntity<ResponseRest> buscarId(@RequestParam String clase,@RequestParam String fecha){
+         
          try{
-            Object object = this.arcgtcService.buscarClaseAndFecha(arcgtcPK);
+        	 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+        	 Date f = formato.parse(fecha);
+        	 
+            Object object = this.arcgtcService.buscarClaseAndFecha(clase,f);
             if (object != null){
                 return super.getOKConsultaRequest(object);
             }
@@ -52,9 +54,11 @@ public class ArcgtcController extends GenericController {
      }
 
      @GetMapping("/fecha")
-     public ResponseEntity<ResponseRest> buscarFecha(@RequestParam Date fecha){
+     public ResponseEntity<ResponseRest> buscarFecha(@RequestParam String fecha){
          try{
-             Object obj = this.arcgtcService.listarXFecha(fecha);
+        	 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+        	 Date f = formato.parse(fecha);
+             Object obj = this.arcgtcService.listarXFecha(f);
              if (obj != null){
                  return this.getOKConsultaRequest(obj);
              }

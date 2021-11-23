@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -22,8 +23,8 @@ public class ArcgtcServiceImpl implements IArcgtcService {
     private IArcgtcRepo arcgtcRepo;
 
     @Override
-    public Arcgtc buscarClaseAndFecha(ArcgtcPK arcgtcPK) throws ServiceException {
-        Arcgtc arcgtc = this.arcgtcRepo.buscarClaseAndFecha(arcgtcPK.getClaseCambio(),arcgtcPK.getFecha());
+    public Arcgtc buscarClaseAndFecha(String clase,Date fecha) throws ServiceException {
+        Arcgtc arcgtc = this.arcgtcRepo.buscarClaseAndFecha(clase,fecha);
         return arcgtc;
     }
 
