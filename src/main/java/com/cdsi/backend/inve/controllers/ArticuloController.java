@@ -39,7 +39,6 @@ import com.cdsi.backend.inve.models.entity.Articulo;
 import com.cdsi.backend.inve.models.services.IArticuloService;
 import com.cdsi.backend.inve.models.services.IArticuloStockService;
 
-import oracle.security.o5logon.d;
 
 @CrossOrigin(origins = {"*"}, methods= {RequestMethod.GET,RequestMethod.POST})
 @RestController

@@ -35,7 +35,8 @@ public class ArccvcController {
 	@PostMapping("/vendedor")
 	public ResponseEntity<Arccvc> vendedor(@RequestBody VendedorDTO dto) {		
 		//codigo="09152188";
-		Arccvc obj = service.traeVendedor(dto);
+		Arccvc obj = new Arccvc();
+		obj = service.traeVendedor(dto);
 		
 		if(obj == null ) {
 			throw new ModeloNotFoundException("ID NO ENCONTRADO " + dto.getCodigo());
@@ -44,18 +45,21 @@ public class ArccvcController {
 	}
 
 	@PostMapping("/vendedor/caja")
-	public ResponseEntity<VendedorDTO> vendeCaja(@RequestBody VendedorDTO dto) {		
+	public ResponseEntity<VendedorDTO> vendeCaja(@RequestBody VendedorDTO dto) {	
 		//codigo="09152188";
-		Arccvc obj = service.traeVendedor(dto);
+		Arccvc obj = new Arccvc();
+		obj = service.traeVendedor(dto);
 		VendedorDTO vendedor = new VendedorDTO();
 		if(obj == null ) {
-			throw new ModeloNotFoundException("ID NO ENCONTRADO " + dto.getCodigo());
+			throw new ModeloNotFoundException("ID NO ENCONTRADO 1 :" + dto.getCodigo());
 		}
+		//BUSCA SI EL EMPLEADO SE ENCUENTRA EN EN LE MODULO DE PLANILLA		
 		vendedor = service.traeEmpelado(obj.getIdArc().getCia(), obj.getIdArc().getCodigo());
 		if(vendedor.getCodEmp() == null ) {
-			throw new ModeloNotFoundException("ID NO ENCONTRADO " + dto.getCodigo());
+			throw new ModeloNotFoundException("ID NO ENCONTRADO 2 :" + dto.getCodigo());
 		}
 		return new ResponseEntity<VendedorDTO>(vendedor, HttpStatus.OK);
+		
 	}
 	
 }

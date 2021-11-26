@@ -2,13 +2,10 @@ package com.cdsi.backend.inve.controllers;
 
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
-import com.cdsi.backend.inve.models.entity.Arcgtc;
-import com.cdsi.backend.inve.models.entity.ArcgtcPK;
 import com.cdsi.backend.inve.models.services.IArcgtcService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;

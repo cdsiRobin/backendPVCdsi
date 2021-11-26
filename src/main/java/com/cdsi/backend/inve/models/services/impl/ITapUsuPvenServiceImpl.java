@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cdsi.backend.inve.dto.DatosCajaDTO;
 import com.cdsi.backend.inve.models.dao.ITapUsuPvenDao;
 import com.cdsi.backend.inve.models.entity.TapUsuPven;
 import com.cdsi.backend.inve.models.services.ITapUsuPvenService;
