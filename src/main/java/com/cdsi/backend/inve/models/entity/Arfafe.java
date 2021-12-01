@@ -3,10 +3,14 @@ package com.cdsi.backend.inve.models.entity;
 //import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 //import java.util.List;
 
 @Entity
@@ -21,7 +25,7 @@ public class Arfafe implements Serializable {
     private String NO_CLIENTE;
     private String CENTRO;
     private String BODEGA;
-    private Date FECHA;
+    private String FECHA;
     private String TIPO_CLIENTE;
     private String NBR_CLIENTE;
     private String DIRECCION;
@@ -214,14 +218,14 @@ public class Arfafe implements Serializable {
     private String COD_HASH;
     private String COD_BARRA_SUNAT;
 
-    /*@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @JoinColumns({
             @JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
             @JoinColumn(name = "TIPO_DOC", referencedColumnName = "TIPO_DOC", insertable = false, updatable = false),
             @JoinColumn(name = "NO_FACTU", referencedColumnName = "NO_FACTU", insertable = false, updatable = false)})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Arfafl> arfaflList;
-*/
+
     public Arfafe() {
     }
 
@@ -273,11 +277,11 @@ public class Arfafe implements Serializable {
         this.BODEGA = BODEGA;
     }
 
-    public Date getFECHA() {
+    public String getFECHA() {
         return FECHA;
     }
 
-    public void setFECHA(Date FECHA) {
+    public void setFECHA(String FECHA) {
         this.FECHA = FECHA;
     }
 
@@ -1809,13 +1813,13 @@ public class Arfafe implements Serializable {
         this.COD_BARRA_SUNAT = COD_BARRA_SUNAT;
     }
 
-    /*public List<Arfafl> getArfaflList() {
+    public List<Arfafl> getArfaflList() {
         return arfaflList;
     }
 
     public void setArfaflList(List<Arfafl> arfaflList) {
         this.arfaflList = arfaflList;
-    }*/
+    }
 
     @Override
     public int hashCode() {

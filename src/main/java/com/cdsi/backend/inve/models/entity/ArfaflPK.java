@@ -3,7 +3,6 @@ package com.cdsi.backend.inve.models.entity;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Embeddable
 public class ArfaflPK implements Serializable {
@@ -15,12 +14,12 @@ public class ArfaflPK implements Serializable {
     @Column(name = "NO_FACTU")
     private String noFactu;
     @Column(name = "CONSECUTIVO")
-    private Number consecutivo;
+    private Integer consecutivo;
 
     public ArfaflPK() {
     }
 
-    public ArfaflPK(String noCia, String tipoDoc, String noFactu, Number consecutivo) {
+    public ArfaflPK(String noCia, String tipoDoc, String noFactu, Integer consecutivo) {
         this.noCia = noCia;
         this.tipoDoc = tipoDoc;
         this.noFactu = noFactu;
@@ -55,7 +54,7 @@ public class ArfaflPK implements Serializable {
         return consecutivo;
     }
 
-    public void setConsecutivo(Number consecutivo) {
+    public void setConsecutivo(Integer consecutivo) {
         this.consecutivo = consecutivo;
     }
 
