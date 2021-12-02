@@ -11,6 +11,7 @@ import java.util.Date;
 public class Arfafl implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @EmbeddedId
     protected ArfaflPK arfaflPK;
 
@@ -96,7 +97,7 @@ public class Arfafl implements Serializable {
         this.arfaflPK = arfaflPK;
     }
 
-    public Arfafl(String NO_CIA, String TIPO_DOC, String NO_FACTU, BigInteger CONSECUTIVO) {
+    public Arfafl(String NO_CIA, String TIPO_DOC, String NO_FACTU, Integer CONSECUTIVO) {
         this.arfaflPK = new ArfaflPK(NO_CIA, TIPO_DOC, NO_FACTU, CONSECUTIVO);
     }
 
@@ -710,11 +711,11 @@ public class Arfafl implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Arfafp)) {
+        if (!(object instanceof Arpfol)) {
             return false;
         }
-        Arfafp other = (Arfafp) object;
-        if ((this.arfaflPK == null && other.arfafpPK != null) || (this.arfaflPK != null && !this.arfaflPK.equals(other.arfafpPK))) {
+        Arfafl other = (Arfafl) object;
+        if ((this.arfaflPK == null && other.arfaflPK != null) || (this.arfaflPK != null && !this.arfaflPK.equals(other.arfaflPK))) {
             return false;
         }
         return true;
@@ -722,8 +723,7 @@ public class Arfafl implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Arfafl[" +
-                "arfaflPK=" + arfaflPK +
-                ']';
+        return "Entity.Arpfol[ arpfolPK=" + arfaflPK + " ]";
     }
+
 }
