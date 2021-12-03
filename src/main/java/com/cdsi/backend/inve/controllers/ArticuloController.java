@@ -1,15 +1,13 @@
 package com.cdsi.backend.inve.controllers;
 
-import java.io.File;
-import java.io.IOException;
+
 import java.net.MalformedURLException;
-import java.nio.file.Files;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,13 +25,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
+
+import com.cdsi.backend.inve.controllers.commons.ResponseRest;
+import com.cdsi.backend.inve.controllers.generic.GenericController;
 import com.cdsi.backend.inve.dto.StockLibroDTO;
 import com.cdsi.backend.inve.models.entity.Articulo;
 import com.cdsi.backend.inve.models.services.IArticuloService;
@@ -43,7 +43,7 @@ import com.cdsi.backend.inve.models.services.IArticuloStockService;
 @CrossOrigin(origins = {"*"}, methods= {RequestMethod.GET,RequestMethod.POST})
 @RestController
 @RequestMapping("/api/arti")
-public class ArticuloController {
+public class ArticuloController extends GenericController {
 	
 	@Autowired
 	private IArticuloService artiServi;
@@ -77,13 +77,25 @@ public class ArticuloController {
 		return new ResponseEntity<Articulo>(articulo, HttpStatus.OK);
 	}
 	
-	//METODO QUE NOS PERMITE BUSCAR POR ARTICULO
-  	@GetMapping("/list/desc/{cia}/{desc}")
-  	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
+	//METODO QUE NOS PERMITE BUSCAR POR DESCRIPCION DE ARTICULOS
+  	@GetMapping("/list/desc")
+    public ResponseEntity<ResponseRest> buscarFecha(@RequestParam String cia, @RequestParam String desc){
+        try{
+            Object obj = this.artiServi.likeDescripArti(cia, desc);
+            if (obj != null){
+                return this.getOKConsultaRequest(obj);
+            }
+            return this.getBadIdRequest();
+        }catch (Exception e){
+       	 log.error(e.getMessage());
+            return super.getBadRequest(e.getMessage());
+        }
+    }
+  	/*
   	public List<Articulo> listaArtiDesc(@PathVariable("cia") String cia, @PathVariable("desc") String desc ){
   		return artiServi.likeDescripArti(cia, desc);
   	}
-	
+	*/
 	//METODO QUE ENVIA UNA PAGINACION DE ARTICULO y DESCRIPCION
   	@GetMapping("/listd/page/{cia}/{desc}/{page}")
   	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
@@ -162,43 +174,6 @@ public class ArticuloController {
   		return artiServi.saldoComprometido(cia, arti);
   	}
   	
-  	// SUBIR UNA IMAGEN DEL ARTICULO
-  	@PostMapping("/upload")
-  	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
-  	public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("cia") String cia, @RequestParam("cod") String cod ) {
-  		Map<String, Object> response = new HashMap<>();
-  		Articulo articulo = artiServi.findByCiaAndCod(cia, cod);
-  		if(!archivo.isEmpty()) {
-  			String nombreArchivo = UUID.randomUUID().toString()+"_"+archivo.getOriginalFilename().replace(" ","");
-  			Path rutaArchivo = Paths.get("uploads").resolve(nombreArchivo).toAbsolutePath();
-  			log.info(rutaArchivo.toString());
-  			try {
-				Files.copy(archivo.getInputStream(),rutaArchivo);
-			} catch (IOException e) {
-				response.put("mensaje", "Error al subir la imagen : "+nombreArchivo);
-				response.put("error", e.getMessage().concat(":+ ").concat(e.getCause().getMessage()));
-				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-			}
-  			//VAMOS A ELIMINAR LA IMAGEN REPETIDAS
-  			String nombreFotoAnterior = articulo.getFoto();
-  			if(nombreFotoAnterior != null && nombreFotoAnterior.length()>0) {
-  				Path rutaFotoAnterior = Paths.get("uploads").resolve(nombreFotoAnterior).toAbsolutePath();
-  				File fileFotoAnterior = rutaFotoAnterior.toFile();
-  				if(fileFotoAnterior.exists() && fileFotoAnterior.canRead()) {
-  					fileFotoAnterior.delete();
-  				}
-  			}
-  			
-  			articulo.setFoto(nombreArchivo);
-  			Articulo objArti = artiServi.updateArticulo(cia, cod, articulo);
-  			log.info("ACTUALIZO OOOOOOOOOOOO");
-  			log.info("El articulo cambio de imagen : "+objArti.getFoto());
-  			response.put("articulo",objArti);
-  			response.put("mensaje","Has subido correctamente la imagen : "+nombreArchivo);
-  			
-  		}
-  		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
-  	}
   	// METODO QUE NOS PERMITE MOSTRAR LA IMAGEN DE LA FOTO
   	@GetMapping("/uploads/img/{nombreFoto:.+}")
   	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})

@@ -61,6 +61,7 @@ public class ArcgtcController extends GenericController {
              }
              return this.getBadIdRequest();
          }catch (Exception e){
+        	 log.error(e.getMessage());
              return super.getBadRequest(e.getMessage());
          }
      }
@@ -74,6 +75,7 @@ public class ArcgtcController extends GenericController {
              }
              return super.getBadIdRequest();
          }catch (Exception e){
+        	 log.error(e.getMessage());
              return super.getBadRequest(e.getMessage());
          }
      }
