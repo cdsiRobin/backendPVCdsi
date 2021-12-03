@@ -10,6 +10,9 @@ import com.cdsi.backend.inve.models.entity.VArinda1PS;
 
 public interface IVArinda1PSService {
 	
+	//METODO QUE NOS PERMOTE LISTAR POR CIA, LISTA DE PRECIO
+	List<VArinda1PS> listaItemCiaAndListaPrecio(String cia,String lp);
+	
 	//METODO QUE NOS PERMOTE LISTAR POR CIA, LISTA DE PRECIO Y DESCRIPCION DEL ITEM
 	List<VArinda1PS> listaItemCiaAndListaPrecioAndDescripcion(String cia,String lp,String desc);
 	

@@ -23,8 +23,8 @@ public class VArinda1PSController extends GenericController {
 	@Autowired
 	private IVArinda1PSService ivarinda1psServi;
 	
-	@GetMapping("/list")
-	public ResponseEntity<ResponseRest> listaItemsCiaAndListPrecioAndDescripcion(@RequestParam String cia, @RequestParam String lp,@RequestParam  String desc){
+	@GetMapping("/buscar")
+	public ResponseEntity<ResponseRest> listaItemsCiaAndListPrecio(@RequestParam String cia, @RequestParam String desc ,@RequestParam String lp){
 		try{       	 
 	           Object object = this.ivarinda1psServi.listaItemCiaAndListaPrecioAndDescripcion(cia, lp, desc);
 	           if (object != null){

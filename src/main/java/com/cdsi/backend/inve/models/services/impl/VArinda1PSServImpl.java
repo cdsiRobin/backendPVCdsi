@@ -28,6 +28,11 @@ public class VArinda1PSServImpl implements IVArinda1PSService {
          return this.ivarinda1psRepo.pagListaItemXCiaAndListaPrecio(pageable, cia, lp);
 	}
 
+	@Override
+	public List<VArinda1PS> listaItemCiaAndListaPrecio(String cia, String lp) {
+		return this.ivarinda1psRepo.listaItemsXCiaAndLisPrecio(cia, lp);
+	}
+
 	
 
 }
