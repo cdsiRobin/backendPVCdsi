@@ -29,7 +29,7 @@ public class Arfafe implements Serializable {
     private String TIPO_CLIENTE;
     private String NBR_CLIENTE;
     private String DIRECCION;
-    private BigInteger PLAZO;
+    private String PLAZO;
     private String NO_VENDEDOR;
     private String TIPO_PRECIO;
     private String MONEDA;
@@ -59,11 +59,11 @@ public class Arfafe implements Serializable {
     private String NO_REFE_FACTU;
     private String NO_GUIA;
     private String TIPO;
-    private BigDecimal NO_CONTA;
+    private BigInteger NO_CONTA;
     private BigDecimal COMISION;
     private BigDecimal SALDO_COMISION;
     private String COD_OPER;
-    private BigDecimal NO_CUOTAS;
+    private BigInteger NO_CUOTAS;
     private BigDecimal GASTO_ND;
     private BigDecimal GASTO_NC;
     private BigDecimal GASTO_FINAN;
@@ -198,25 +198,25 @@ public class Arfafe implements Serializable {
     private String NO_GUIA_PROM;
     private String NO_GUIA_VENTA;
     private String IND_PROMARG;
-    private String IND_NC_FICTA1;
-    private String NO_GUIA_CONSIG;
-    private String MOT_CONTING;
-    private BigDecimal OPER_GRATUITAS;
     private BigDecimal OPER_EXONERADAS;
-    private BigDecimal OPER_INAFECTAS;
+    private BigDecimal OPER_GRATUITAS;
     private BigDecimal OPER_GRAVADAS;
-    private String ESTADO_SUNAT;
+    private BigDecimal OPER_INAFECTAS;
+    private String NO_GUIA_CONSIG;
+    private String MOT_ANU;
+    private String MOT_CONTING;
     private String TIPO_OPERACION;
     private String SUSTENTO;
+    private String ESTADO_SUNAT;
+    private String EST_RES_CON;
+    private String COD_HASH;
+    private String MENSAJE_ERROR_TCI;
+    private String COD_BARRA_SUNAT;
     private String COD_DETRAC;
     private BigDecimal PORC_DETRAC;
     private BigDecimal VALOR_REF_DETRAC;
     private String NUM_CUENTA_DETRAC;
     private BigDecimal DETRACCION;
-    private String MOT_ANU;
-    private String EST_RES_CON;
-    private String COD_HASH;
-    private String COD_BARRA_SUNAT;
 
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @JoinColumns({
@@ -229,7 +229,23 @@ public class Arfafe implements Serializable {
     public Arfafe() {
     }
 
-    public Arfafe(ArfafePK arfafePK) {
+    public String getPLAZO() {
+		return PLAZO;
+	}
+
+	public void setPLAZO(String pLAZO) {
+		PLAZO = pLAZO;
+	}
+
+	public String getMENSAJE_ERROR_TCI() {
+		return MENSAJE_ERROR_TCI;
+	}
+
+	public void setMENSAJE_ERROR_TCI(String mENSAJE_ERROR_TCI) {
+		MENSAJE_ERROR_TCI = mENSAJE_ERROR_TCI;
+	}
+
+	public Arfafe(ArfafePK arfafePK) {
         this.arfafePK = arfafePK;
     }
 
@@ -307,14 +323,6 @@ public class Arfafe implements Serializable {
 
     public void setDIRECCION(String DIRECCION) {
         this.DIRECCION = DIRECCION;
-    }
-
-    public BigInteger getPLAZO() {
-        return PLAZO;
-    }
-
-    public void setPLAZO(BigInteger PLAZO) {
-        this.PLAZO = PLAZO;
     }
 
     public String getNO_VENDEDOR() {
@@ -549,11 +557,11 @@ public class Arfafe implements Serializable {
         this.TIPO = TIPO;
     }
 
-    public BigDecimal getNO_CONTA() {
+    public BigInteger getNO_CONTA() {
         return NO_CONTA;
     }
 
-    public void setNO_CONTA(BigDecimal NO_CONTA) {
+    public void setNO_CONTA(BigInteger NO_CONTA) {
         this.NO_CONTA = NO_CONTA;
     }
 
@@ -581,11 +589,11 @@ public class Arfafe implements Serializable {
         this.COD_OPER = COD_OPER;
     }
 
-    public BigDecimal getNO_CUOTAS() {
+    public BigInteger getNO_CUOTAS() {
         return NO_CUOTAS;
     }
 
-    public void setNO_CUOTAS(BigDecimal NO_CUOTAS) {
+    public void setNO_CUOTAS(BigInteger NO_CUOTAS) {
         this.NO_CUOTAS = NO_CUOTAS;
     }
 
@@ -1659,14 +1667,6 @@ public class Arfafe implements Serializable {
 
     public void setIND_PROMARG(String IND_PROMARG) {
         this.IND_PROMARG = IND_PROMARG;
-    }
-
-    public String getIND_NC_FICTA1() {
-        return IND_NC_FICTA1;
-    }
-
-    public void setIND_NC_FICTA1(String IND_NC_FICTA1) {
-        this.IND_NC_FICTA1 = IND_NC_FICTA1;
     }
 
     public String getNO_GUIA_CONSIG() {

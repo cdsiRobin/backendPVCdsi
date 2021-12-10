@@ -7,6 +7,8 @@ import com.cdsi.backend.inve.models.entity.ArfafePK;
 import com.cdsi.backend.inve.models.services.IArfafeService;
 import lombok.extern.slf4j.Slf4j;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +43,11 @@ public class ArfafeController extends GenericController {
         }
     }
     
-    @GetMapping("/listas/{cia}")
-    public List<Arfafe> listarArfafe(@PathVariable("cia") String cia){
-    	return this.iArfafeService.listarFacturasPvta(cia);
+    @GetMapping("/listas/{cia}/{pven}/{doc}")
+    public List<Arfafe> listarArfafe(@PathVariable("cia") String cia, @PathVariable("pven") String pven, 
+    		@PathVariable("doc") String doc, @RequestParam("f1") String f1, @RequestParam("f2") String f2
+    		, @RequestParam("fac") String fac){
+    	return this.iArfafeService.listarFacturasPvta(cia, pven, doc, f1, f2, fac);
     }
     
     @GetMapping("/list")

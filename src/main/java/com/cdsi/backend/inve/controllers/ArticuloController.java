@@ -180,20 +180,20 @@ public class ArticuloController {
 				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
   			//VAMOS A ELIMINAR LA IMAGEN REPETIDAS
-  			String nombreFotoAnterior = articulo.getFoto();
-  			if(nombreFotoAnterior != null && nombreFotoAnterior.length()>0) {
+  			//String nombreFotoAnterior = articulo.getFoto();
+  			/*if(nombreFotoAnterior != null && nombreFotoAnterior.length()>0) {
   				Path rutaFotoAnterior = Paths.get("uploads").resolve(nombreFotoAnterior).toAbsolutePath();
   				File fileFotoAnterior = rutaFotoAnterior.toFile();
   				if(fileFotoAnterior.exists() && fileFotoAnterior.canRead()) {
   					fileFotoAnterior.delete();
   				}
-  			}
+  			}*/
   			
-  			articulo.setFoto(nombreArchivo);
-  			Articulo objArti = artiServi.updateArticulo(cia, cod, articulo);
+  			/*articulo.setFoto(nombreArchivo);
+  			Articulo objArti = artiServi.updateArticulo(cia, cod, articulo);*/
   			log.info("ACTUALIZO OOOOOOOOOOOO");
-  			log.info("El articulo cambio de imagen : "+objArti.getFoto());
-  			response.put("articulo",objArti);
+  			/*log.info("El articulo cambio de imagen : "+objArti.getFoto());
+  			response.put("articulo",objArti);*/
   			response.put("mensaje","Has subido correctamente la imagen : "+nombreArchivo);
   			
   		}

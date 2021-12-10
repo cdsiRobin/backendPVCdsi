@@ -90,7 +90,7 @@ public class Articulo implements Serializable {
 	private String tipoAfectacion;
 	
 	// @Column(name = "RUTA_ARCHIVO_ARTI")
-	private String foto;
+	/*private String foto;
 	
 	public String getFoto() {
 		return foto;
@@ -98,7 +98,7 @@ public class Articulo implements Serializable {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
-	}
+	}*/
 
 	public IdArticulo getIdArti() {
 		return idArti;

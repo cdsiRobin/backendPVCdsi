@@ -3,6 +3,7 @@ package com.cdsi.backend.inve.models.dao;
 import com.cdsi.backend.inve.models.entity.Arfafe;
 import com.cdsi.backend.inve.models.entity.ArfafePK;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -37,8 +38,9 @@ public interface IArfafeRepo extends PagingAndSortingRepository<Arfafe, ArfafePK
     public Arfafe buscarId(@Param("cia") String cia, @Param("doc") String tipoDoc, @Param("factu") String noFactu);
     
     //LISTAR FACTURAS 2 MESES - PVTA
-    @Query("SELECT a FROM Arfafe a where a.arfafePK.noCia = :cia and IND_PVENT = 'S' "
-    		+ "and FECHA BETWEEN to_char(ADD_MONTHS(SYSDATE,-22),'DD/MM/YYYY') and to_char(SYSDATE,'DD/MM/YYYY')")
-    public List<Arfafe> listArfafePventa(@Param("cia") String cia);
+    @Query("SELECT a FROM Arfafe a where a.arfafePK.noCia = :cia and IND_PVENT = :pven and tipo_doc= :doc "
+    		+ "and FECHA BETWEEN :f1 and :f2 and NO_FACTU = nvl(:fac,NO_FACTU)")
+    public List<Arfafe> listArfafePventa(@Param("cia") String cia,@Param("pven") String pven, @Param("doc") String doc,
+    		@Param("f1") String f1, @Param("f2") String f2, @Param("fac") String fac);
 
 }

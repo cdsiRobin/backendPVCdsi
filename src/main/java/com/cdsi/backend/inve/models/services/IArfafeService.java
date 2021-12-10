@@ -4,6 +4,7 @@ import com.cdsi.backend.inve.models.entity.Arfafe;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
 import com.cdsi.backend.inve.models.services.generic.IGenericService;
 
+import java.util.Date;
 import java.util.List;
 
 //import org.springframework.data.domain.Page;
@@ -13,7 +14,7 @@ public interface IArfafeService extends IGenericService<Arfafe> {
 
     public Arfafe buscarId(String cia, String doc, String factu) throws ServiceException;
     
-    public List<Arfafe> listarFacturasPvta(String cia);
+    public List<Arfafe> listarFacturasPvta(String cia, String pven, String doc, String f1, String f2, String fac);
 
     public List<Arfafe> buscarCiaAndIndPvent(int limit, int page, String cia, String indPvent)throws ServiceException;
 
