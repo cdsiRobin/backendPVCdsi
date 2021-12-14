@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -46,8 +47,8 @@ public class ArfafeServiceImple implements IArfafeService {
     }
     
     @Override
-    public List<Arfafe> listarFacturasPvta(String cia){
-    	return this.iArfafeRepo.listArfafePventa(cia);
+    public List<Arfafe> listarFacturasPvta(String cia, String pven, String doc, String f1, String f2, String fac){
+    	return this.iArfafeRepo.listArfafePventa(cia, pven, doc, f1, f2, fac);
     }
 
     @Override

@@ -63,7 +63,11 @@ public class ArticuloServiceImpl implements IArticuloService {
 		objA.setIndCodBarra(articulo.getIndCodBarra());
 		objA.setImpVen(articulo.getImpVen());
 		objA.setTipoAfectacion(articulo.getTipoAfectacion());
+<<<<<<< HEAD
 		
+=======
+		//objA.setFoto(articulo.getFoto());
+>>>>>>> 7c4d2c0923bd8eae7b334e22a646607e054505f6
 		return artiDao.save(objA);
 	}
 

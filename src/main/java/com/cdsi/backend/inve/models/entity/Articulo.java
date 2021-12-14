@@ -88,6 +88,20 @@ public class Articulo implements Serializable {
 		
 	@Column(name = "TIPO_AFECTACION")
 	private String tipoAfectacion;
+<<<<<<< HEAD
+=======
+	
+	// @Column(name = "RUTA_ARCHIVO_ARTI")
+	/*private String foto;
+	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}*/
+>>>>>>> 7c4d2c0923bd8eae7b334e22a646607e054505f6
 
 	public IdArticulo getIdArti() {
 		return idArti;
