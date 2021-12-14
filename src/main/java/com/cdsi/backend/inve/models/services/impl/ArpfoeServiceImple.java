@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 @Slf4j
 @Service
 public class ArpfoeServiceImple implements IArpfoeService {
@@ -87,10 +89,11 @@ public class ArpfoeServiceImple implements IArpfoeService {
     }
 
     @Override
+    @Transactional
     public Arpfoe save(Arpfoe arpfoe) throws ServiceException {
         try{
-            Arpfoe arpfoe1 = this.iArpfoeRepo.save(arpfoe);
-            return arpfoe1;
+            //Arpfoe arpfoe1 = this.iArpfoeRepo.save(arpfoe);
+            return this.iArpfoeRepo.save(arpfoe);
         }catch (Exception e){
             log.error(e.getMessage());
             return null;
