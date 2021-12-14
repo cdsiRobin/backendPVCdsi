@@ -174,46 +174,7 @@ public class ArticuloController extends GenericController {
   		return artiServi.saldoComprometido(cia, arti);
   	}
   	
-<<<<<<< HEAD
-=======
-  	// SUBIR UNA IMAGEN DEL ARTICULO
-  	@PostMapping("/upload")
-  	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
-  	public ResponseEntity<?> upload(@RequestParam("archivo") MultipartFile archivo, @RequestParam("cia") String cia, @RequestParam("cod") String cod ) {
-  		Map<String, Object> response = new HashMap<>();
-  		Articulo articulo = artiServi.findByCiaAndCod(cia, cod);
-  		if(!archivo.isEmpty()) {
-  			String nombreArchivo = UUID.randomUUID().toString()+"_"+archivo.getOriginalFilename().replace(" ","");
-  			Path rutaArchivo = Paths.get("uploads").resolve(nombreArchivo).toAbsolutePath();
-  			log.info(rutaArchivo.toString());
-  			try {
-				Files.copy(archivo.getInputStream(),rutaArchivo);
-			} catch (IOException e) {
-				response.put("mensaje", "Error al subir la imagen : "+nombreArchivo);
-				response.put("error", e.getMessage().concat(":+ ").concat(e.getCause().getMessage()));
-				return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-			}
-  			//VAMOS A ELIMINAR LA IMAGEN REPETIDAS
-  			//String nombreFotoAnterior = articulo.getFoto();
-  			/*if(nombreFotoAnterior != null && nombreFotoAnterior.length()>0) {
-  				Path rutaFotoAnterior = Paths.get("uploads").resolve(nombreFotoAnterior).toAbsolutePath();
-  				File fileFotoAnterior = rutaFotoAnterior.toFile();
-  				if(fileFotoAnterior.exists() && fileFotoAnterior.canRead()) {
-  					fileFotoAnterior.delete();
-  				}
-  			}*/
-  			
-  			/*articulo.setFoto(nombreArchivo);
-  			Articulo objArti = artiServi.updateArticulo(cia, cod, articulo);*/
-  			log.info("ACTUALIZO OOOOOOOOOOOO");
-  			/*log.info("El articulo cambio de imagen : "+objArti.getFoto());
-  			response.put("articulo",objArti);*/
-  			response.put("mensaje","Has subido correctamente la imagen : "+nombreArchivo);
-  			
-  		}
-  		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
-  	}
->>>>>>> 7c4d2c0923bd8eae7b334e22a646607e054505f6
+
   	// METODO QUE NOS PERMITE MOSTRAR LA IMAGEN DE LA FOTO
   	@GetMapping("/uploads/img/{nombreFoto:.+}")
   	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
