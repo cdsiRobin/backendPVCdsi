@@ -15,16 +15,14 @@ public class Arfacf implements Serializable {
     private String descripcion;
     @Column(name = "TRANS_PTO_VENTA_PED")
     private String transPtoVentaPed;
-    @Column(name = "COD_SUC")
-    private String codSuc;
+
     @Column(name = "TRANS_PTO_VENTA_CAJA")
     private String transPtoVentaCaja;
     @Column(name = "TRANS_PTO_VENTA_CXC")
     private String transPtoVentaCxc;
     @Column(name = "TIPO_PRECIO_PVEN")
     private String tipoPrecioPven;
-    @Column(name = "FERIA")
-    private String feria;
+
     @Column(name = "SERIE_GR")
     private String serieGr;
     @Column(name = "CORREL_FICT")
@@ -97,14 +95,6 @@ public class Arfacf implements Serializable {
         this.transPtoVentaPed = transPtoVentaPed;
     }
 
-    public String getCodSuc() {
-        return codSuc;
-    }
-
-    public void setCodSuc(String codSuc) {
-        this.codSuc = codSuc;
-    }
-
     public String getTransPtoVentaCaja() {
         return transPtoVentaCaja;
     }
@@ -127,14 +117,6 @@ public class Arfacf implements Serializable {
 
     public void setTipoPrecioPven(String tipoPrecioPven) {
         this.tipoPrecioPven = tipoPrecioPven;
-    }
-
-    public String getFeria() {
-        return feria;
-    }
-
-    public void setFeria(String feria) {
-        this.feria = feria;
     }
 
     public String getSerieGr() {

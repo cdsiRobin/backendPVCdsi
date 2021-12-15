@@ -2,9 +2,7 @@ package com.cdsi.backend.inve.controllers;
 
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
-import com.cdsi.backend.inve.models.entity.Arfacf;
 import com.cdsi.backend.inve.models.entity.ArfacfPK;
-import com.cdsi.backend.inve.models.entity.ArfafpPK;
 import com.cdsi.backend.inve.models.services.IArfacfService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
