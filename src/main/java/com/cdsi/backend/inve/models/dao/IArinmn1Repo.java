@@ -14,8 +14,7 @@ import com.cdsi.backend.inve.models.entity.Arinmn1;
 public interface IArinmn1Repo extends JpaRepository<Arinme1, Arinme1PK> {
 	
 	//BUSCAMOS POR COMPAÑIA,BODEGA,TRANSACCION Y NO_DOCU
-	@Query("SELECT a FROM Arinmn1 a WHERE a.arinmn1PK.noCia = :cia AND a.arinmn1PK.bodega = :bodega AND a.arinmn1PK.tipoDoc = :tipoDoc AND a.arinmn1PK.noDocu = :noDocu")
-	List<Arinmn1> listaCiaAndBodegaAndTransacAndDocu(@Param("cia") String cia,@Param("bodega") String bodega,
-			@Param("tipoDoc") String tipoDoc,@Param("docu") String docu);
+	@Query("SELECT a FROM Arinmn1 a WHERE a.arinmn1PK.noCia = :cia AND a.arinmn1PK.bodega = :bodega AND a.arinmn1PK.tipoDoc = :tipoDoc AND a.arinmn1PK.noDocu = :docu")
+	List<Arinmn1> listaCiaAndBodegaAndTransacAndDocu(@Param("cia") String cia,@Param("bodega") String bodega,@Param("tipoDoc") String tipoDoc,@Param("docu") String docu);
 
 }
