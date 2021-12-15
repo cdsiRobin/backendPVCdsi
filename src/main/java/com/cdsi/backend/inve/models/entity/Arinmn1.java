@@ -16,6 +16,7 @@ public class Arinmn1 implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected Arinmn1PK arinmn1PK;
+    
     @Column(name = "ANO")
     private Short ano;
     @Column(name = "MES")
