@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.*;
 import com.cdsi.backend.inve.models.entity.Arccmc;
 import com.cdsi.backend.inve.models.services.IArccmcService;
 
+import lombok.extern.slf4j.Slf4j;
+
 //@CrossOrigin(origins = {"*"}, methods= {RequestMethod.GET,RequestMethod.POST})
+@Slf4j
 @RestController
 @RequestMapping("/api/cli")
 public class ArccmcController extends GenericController {
@@ -113,12 +116,25 @@ public class ArccmcController extends GenericController {
 	public List<Arccmc> listaNombreCia(@PathVariable("cia") String cia, @PathVariable("dscri") String dscri) {
 		return arccService.findByNombreAndCia(cia, dscri);
 	}
-	
+	//VAMOS A BUSCAR POR RUC A LOS CLIENTES
+	@GetMapping("/listRuc")
+	public ResponseEntity<ResponseRest> listaCiaAndRuc(@RequestParam String cia, @RequestParam String id){
+		try{       	 
+           Object object = this.arccService.findByCiaAndRuc(cia, id);
+           if (object != null){
+               return super.getOKConsultaRequest(object);
+           }
+           return super.getBadIdRequest();
+        }catch (Exception e){
+        	log.error(e.getMessage());
+            return super.getBadRequest(e.getMessage());
+        }
+	}
+	/*
 	@GetMapping("/listRuc/{cia}/{id}")
-	//@Secured({"ROLE_ADMIN", "ROLE_USAR"})
 	public List<Arccmc> listaRucCia(@PathVariable("cia") String cia, @PathVariable("id") String id) {
 		return arccService.findByCiaAndRuc(cia, id);
-	}
+	}*/
 	
 	//METODO QUE ENVIA UNA PAGINACION DE CLIENTES
   	@GetMapping("/list/page/{cia}/{page}")
