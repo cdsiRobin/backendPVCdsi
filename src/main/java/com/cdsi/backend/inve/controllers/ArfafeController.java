@@ -91,7 +91,7 @@ public class ArfafeController extends GenericController {
         }
     }*/
 
-    @PostMapping
+    @PostMapping("save")
     public ResponseEntity<ResponseRest> guardar(@RequestBody Arfafe arfafe, BindingResult result){
         if(result.hasErrors()){
             return super.getBadRequest(result);
