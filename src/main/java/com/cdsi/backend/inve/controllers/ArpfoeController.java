@@ -6,13 +6,11 @@ import com.cdsi.backend.inve.models.entity.Arpfoe;
 import com.cdsi.backend.inve.models.entity.ArpfoePK;
 import com.cdsi.backend.inve.models.services.IArpfoeService;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/arpfoe")
 public class ArpfoeController extends GenericController {
@@ -32,7 +30,7 @@ public class ArpfoeController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-        	log.error(e.getMessage());
+     
             return super.getErrorRequest();
         }
     }
@@ -42,7 +40,6 @@ public class ArpfoeController extends GenericController {
         if (result.hasErrors()){
             return super.getBadRequest(result);
         }
-
         try {
             Object obj = this.iArpfoeService.save(arpfoe);
             if (obj != null){
@@ -50,7 +47,7 @@ public class ArpfoeController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-        	log.error(e.getMessage());
+        	
             return super.getBadRequest(e.getMessage());
         }
 
@@ -68,7 +65,7 @@ public class ArpfoeController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+            
             return super.getBadRequest(e.getMessage());
         }
 

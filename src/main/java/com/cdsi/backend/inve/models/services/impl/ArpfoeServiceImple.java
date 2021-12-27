@@ -4,8 +4,6 @@ import com.cdsi.backend.inve.models.dao.IArpfoeRepo;
 import com.cdsi.backend.inve.models.entity.Arpfoe;
 import com.cdsi.backend.inve.models.services.IArpfoeService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
-
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,7 +14,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-@Slf4j
+
 @Service
 public class ArpfoeServiceImple implements IArpfoeService {
 
@@ -29,7 +27,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             Arpfoe arpfoe = this.iArpfoeRepo.buscarId(cia,noOrden);
             return arpfoe;
         }catch (Exception e){
-        	log.error(e.getMessage());
+        	
             return  null;
         }
     }
@@ -42,7 +40,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             List<Arpfoe> arpfoeList = arpfoePage.getContent();
             return arpfoeList;
         }catch (Exception e){
-            log.error(e.getMessage());
+            
             return null;
         }
     }
@@ -55,7 +53,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             List<Arpfoe> arpfoeList = arpfoePage.getContent();
             return arpfoeList;
         }catch (Exception e){
-            log.error(e.getMessage());
+            
             return null;
         }
     }
@@ -68,7 +66,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             List<Arpfoe> arpfoeList = arpfoePage.getContent();
             return arpfoeList;
         }catch (Exception e){
-            log.error(e.getMessage());
+            
             return null;
         }
     }
@@ -91,13 +89,15 @@ public class ArpfoeServiceImple implements IArpfoeService {
     @Override
     @Transactional
     public Arpfoe save(Arpfoe arpfoe) throws ServiceException {
-        try{
+        Arpfoe objA =  null;
+    	try{
             //Arpfoe arpfoe1 = this.iArpfoeRepo.save(arpfoe);
-            return this.iArpfoeRepo.save(arpfoe);
+            objA =  this.iArpfoeRepo.save(arpfoe);
         }catch (Exception e){
-            log.error(e.getMessage());
-            return null;
+            
+            System.out.println(e.getMessage());
         }
+    	return objA;
     }
 
     @Override

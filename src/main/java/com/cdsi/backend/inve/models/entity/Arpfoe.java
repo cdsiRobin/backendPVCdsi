@@ -12,16 +12,15 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table(name = "ARPFOE")
 public class Arpfoe implements Serializable {
@@ -29,6 +28,10 @@ public class Arpfoe implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected ArpfoePK arpfoePK;
+    
+    @Column(name = "COD_FPAGO")
+    private String codFpago;
+    
     @Column(name = "GRUPO")
     private String grupo;
     @Column(name = "NO_CLIENTE")
@@ -40,8 +43,6 @@ public class Arpfoe implements Serializable {
     private String noVendedor;
     @Column(name = "COD_T_PED")
     private String codTPed;
-    @Column(name = "COD_FPAGO")
-    private String codFpago;
 
     @Column(name = "F_RECEPCION")
     @Temporal(TemporalType.DATE)
@@ -74,7 +75,6 @@ public class Arpfoe implements Serializable {
     private String estado;
     @Column(name = "BODEGA")
     private String bodega;
-
 
     @Column(name = "IGV")
     private BigDecimal igv;
@@ -131,8 +131,11 @@ public class Arpfoe implements Serializable {
     private String direcTienda;
     @Column(name = "ALMA_ORIGEN")
     private String almaOrigen;
+    
+    @Column(name = "ALMA_DESTINO")
+    private String almaDestino;
 
-    @Column(name = "TIPO_ARTI")
+	@Column(name = "TIPO_ARTI")
     private String tipoArti;
 
     @Column(name = "TIPO_DOC_CLI")
@@ -169,8 +172,7 @@ public class Arpfoe implements Serializable {
     private String consumo;
     @Column(name = "IND_FERIAS")
     private String indFerias;
-    @Column(name = "USU_CIERRE")
-    private String usuCierre;
+
     @Column(name = "IND_PROVINCIA")
     private String indProvincia;
 
@@ -192,7 +194,7 @@ public class Arpfoe implements Serializable {
     @Column(name = "EMAIL_PEDIDO")
     private String emailPedido;
     
-     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @JoinColumns({
             @JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
             @JoinColumn(name = "NO_ORDEN", referencedColumnName = "NO_ORDEN", insertable = false, updatable = false)})
@@ -211,9 +213,567 @@ public class Arpfoe implements Serializable {
         this.arpfoePK = new ArpfoePK(noCia, noOrden);
     }
 
+    public ArpfoePK getArpfoePK() {
+		return arpfoePK;
+	}
     
+    public String getAlmaDestino() {
+		return almaDestino;
+	}
 
-    @Override
+	public void setAlmaDestino(String almaDestino) {
+		this.almaDestino = almaDestino;
+	}
+
+	public void setArpfoePK(ArpfoePK arpfoePK) {
+		this.arpfoePK = arpfoePK;
+	}
+
+	public String getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
+	}
+
+	public String getNoCliente() {
+		return noCliente;
+	}
+
+	public void setNoCliente(String noCliente) {
+		this.noCliente = noCliente;
+	}
+
+	public String getDivision() {
+		return division;
+	}
+
+	public void setDivision(String division) {
+		this.division = division;
+	}
+
+	public String getNoVendedor() {
+		return noVendedor;
+	}
+
+	public void setNoVendedor(String noVendedor) {
+		this.noVendedor = noVendedor;
+	}
+
+	public String getCodTPed() {
+		return codTPed;
+	}
+
+	public void setCodTPed(String codTPed) {
+		this.codTPed = codTPed;
+	}
+
+	public String getCodFpago() {
+		return codFpago;
+	}
+
+	public void setCodFpago(String codFpago) {
+		this.codFpago = codFpago;
+	}
+
+	public Date getfRecepcion() {
+		return fRecepcion;
+	}
+
+	public void setfRecepcion(Date fRecepcion) {
+		this.fRecepcion = fRecepcion;
+	}
+
+	public Date getFechaRegistro() {
+		return fechaRegistro;
+	}
+
+	public void setFechaRegistro(Date fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
+	}
+
+	public Date getfAprobacion() {
+		return fAprobacion;
+	}
+
+	public void setfAprobacion(Date fAprobacion) {
+		this.fAprobacion = fAprobacion;
+	}
+
+	public String getTipoPrecio() {
+		return tipoPrecio;
+	}
+
+	public void setTipoPrecio(String tipoPrecio) {
+		this.tipoPrecio = tipoPrecio;
+	}
+
+	public String getMoneda() {
+		return moneda;
+	}
+
+	public void setMoneda(String moneda) {
+		this.moneda = moneda;
+	}
+
+	public BigDecimal getTipoCambio() {
+		return tipoCambio;
+	}
+
+	public void setTipoCambio(BigDecimal tipoCambio) {
+		this.tipoCambio = tipoCambio;
+	}
+
+	public BigDecimal getSubTotal() {
+		return subTotal;
+	}
+
+	public void setSubTotal(BigDecimal subTotal) {
+		this.subTotal = subTotal;
+	}
+
+	public BigDecimal gettImpuesto() {
+		return tImpuesto;
+	}
+
+	public void settImpuesto(BigDecimal tImpuesto) {
+		this.tImpuesto = tImpuesto;
+	}
+
+	public BigDecimal gettPrecio() {
+		return tPrecio;
+	}
+
+	public void settPrecio(BigDecimal tPrecio) {
+		this.tPrecio = tPrecio;
+	}
+
+	public BigDecimal getImpuesto() {
+		return impuesto;
+	}
+
+	public void setImpuesto(BigDecimal impuesto) {
+		this.impuesto = impuesto;
+	}
+
+	public BigDecimal getImpIsc() {
+		return impIsc;
+	}
+
+	public void setImpIsc(BigDecimal impIsc) {
+		this.impIsc = impIsc;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getBodega() {
+		return bodega;
+	}
+
+	public void setBodega(String bodega) {
+		this.bodega = bodega;
+	}
+
+	public BigDecimal getIgv() {
+		return igv;
+	}
+
+	public void setIgv(BigDecimal igv) {
+		this.igv = igv;
+	}
+
+	public String getIndGuiado() {
+		return indGuiado;
+	}
+
+	public void setIndGuiado(String indGuiado) {
+		this.indGuiado = indGuiado;
+	}
+
+	public String getNoSolic() {
+		return noSolic;
+	}
+
+	public void setNoSolic(String noSolic) {
+		this.noSolic = noSolic;
+	}
+
+	public String getObserva() {
+		return observa;
+	}
+
+	public void setObserva(String observa) {
+		this.observa = observa;
+	}
+
+	public Short getPerDeGracia() {
+		return perDeGracia;
+	}
+
+	public void setPerDeGracia(Short perDeGracia) {
+		this.perDeGracia = perDeGracia;
+	}
+
+	public String getDireccionComercial() {
+		return direccionComercial;
+	}
+
+	public void setDireccionComercial(String direccionComercial) {
+		this.direccionComercial = direccionComercial;
+	}
+
+	public String getCodiDepa() {
+		return codiDepa;
+	}
+
+	public void setCodiDepa(String codiDepa) {
+		this.codiDepa = codiDepa;
+	}
+
+	public String getCodiProv() {
+		return codiProv;
+	}
+
+	public void setCodiProv(String codiProv) {
+		this.codiProv = codiProv;
+	}
+
+	public String getCodiDist() {
+		return codiDist;
+	}
+
+	public void setCodiDist(String codiDist) {
+		this.codiDist = codiDist;
+	}
+
+	public String getMotivoTraslado() {
+		return motivoTraslado;
+	}
+
+	public void setMotivoTraslado(String motivoTraslado) {
+		this.motivoTraslado = motivoTraslado;
+	}
+
+	public String getNombreCliente() {
+		return nombreCliente;
+	}
+
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
+	}
+
+	public String getRuc() {
+		return ruc;
+	}
+
+	public void setRuc(String ruc) {
+		this.ruc = ruc;
+	}
+
+	public BigDecimal gettDescuento() {
+		return tDescuento;
+	}
+
+	public void settDescuento(BigDecimal tDescuento) {
+		this.tDescuento = tDescuento;
+	}
+
+	public Date getFechaDocRef() {
+		return fechaDocRef;
+	}
+
+	public void setFechaDocRef(Date fechaDocRef) {
+		this.fechaDocRef = fechaDocRef;
+	}
+
+	public String getTipoDocRef() {
+		return tipoDocRef;
+	}
+
+	public void setTipoDocRef(String tipoDocRef) {
+		this.tipoDocRef = tipoDocRef;
+	}
+
+	public String getCodClasPed() {
+		return codClasPed;
+	}
+
+	public void setCodClasPed(String codClasPed) {
+		this.codClasPed = codClasPed;
+	}
+
+	public String getTipoFpago() {
+		return tipoFpago;
+	}
+
+	public void setTipoFpago(String tipoFpago) {
+		this.tipoFpago = tipoFpago;
+	}
+
+	public BigDecimal gettDsctoGlobal() {
+		return tDsctoGlobal;
+	}
+
+	public void settDsctoGlobal(BigDecimal tDsctoGlobal) {
+		this.tDsctoGlobal = tDsctoGlobal;
+	}
+
+	public BigDecimal gettValorVenta() {
+		return tValorVenta;
+	}
+
+	public void settValorVenta(BigDecimal tValorVenta) {
+		this.tValorVenta = tValorVenta;
+	}
+
+	public String getCodTienda() {
+		return codTienda;
+	}
+
+	public void setCodTienda(String codTienda) {
+		this.codTienda = codTienda;
+	}
+
+	public String getNombTienda() {
+		return nombTienda;
+	}
+
+	public void setNombTienda(String nombTienda) {
+		this.nombTienda = nombTienda;
+	}
+
+	public String getDirecTienda() {
+		return direcTienda;
+	}
+
+	public void setDirecTienda(String direcTienda) {
+		this.direcTienda = direcTienda;
+	}
+
+	public String getAlmaOrigen() {
+		return almaOrigen;
+	}
+
+	public void setAlmaOrigen(String almaOrigen) {
+		this.almaOrigen = almaOrigen;
+	}
+
+	public String getTipoArti() {
+		return tipoArti;
+	}
+
+	public void setTipoArti(String tipoArti) {
+		this.tipoArti = tipoArti;
+	}
+
+	public String getTipoDocCli() {
+		return tipoDocCli;
+	}
+
+	public void setTipoDocCli(String tipoDocCli) {
+		this.tipoDocCli = tipoDocCli;
+	}
+
+	public String getNumDocCli() {
+		return numDocCli;
+	}
+
+	public void setNumDocCli(String numDocCli) {
+		this.numDocCli = numDocCli;
+	}
+
+	public BigDecimal getTotalBruto() {
+		return totalBruto;
+	}
+
+	public void setTotalBruto(BigDecimal totalBruto) {
+		this.totalBruto = totalBruto;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getIndPvent() {
+		return indPvent;
+	}
+
+	public void setIndPvent(String indPvent) {
+		this.indPvent = indPvent;
+	}
+
+	public String getCentro() {
+		return centro;
+	}
+
+	public void setCentro(String centro) {
+		this.centro = centro;
+	}
+
+	public String getIndFactura1() {
+		return indFactura1;
+	}
+
+	public void setIndFactura1(String indFactura1) {
+		this.indFactura1 = indFactura1;
+	}
+
+	public String getIndBoleta1() {
+		return indBoleta1;
+	}
+
+	public void setIndBoleta1(String indBoleta1) {
+		this.indBoleta1 = indBoleta1;
+	}
+
+	public String getCodCaja() {
+		return codCaja;
+	}
+
+	public void setCodCaja(String codCaja) {
+		this.codCaja = codCaja;
+	}
+
+	public String getCajera() {
+		return cajera;
+	}
+
+	public void setCajera(String cajera) {
+		this.cajera = cajera;
+	}
+
+	public String getCentroCosto() {
+		return centroCosto;
+	}
+
+	public void setCentroCosto(String centroCosto) {
+		this.centroCosto = centroCosto;
+	}
+
+	public String getIndNotaCred() {
+		return indNotaCred;
+	}
+
+	public void setIndNotaCred(String indNotaCred) {
+		this.indNotaCred = indNotaCred;
+	}
+
+	public String getIndExportacion() {
+		return indExportacion;
+	}
+
+	public void setIndExportacion(String indExportacion) {
+		this.indExportacion = indExportacion;
+	}
+
+	public String getConsumo() {
+		return consumo;
+	}
+
+	public void setConsumo(String consumo) {
+		this.consumo = consumo;
+	}
+
+	public String getIndFerias() {
+		return indFerias;
+	}
+
+	public void setIndFerias(String indFerias) {
+		this.indFerias = indFerias;
+	}
+
+	public String getIndProvincia() {
+		return indProvincia;
+	}
+
+	public void setIndProvincia(String indProvincia) {
+		this.indProvincia = indProvincia;
+	}
+
+	public BigDecimal getRedondeo() {
+		return redondeo;
+	}
+
+	public void setRedondeo(BigDecimal redondeo) {
+		this.redondeo = redondeo;
+	}
+
+	public String getIndCodBarra() {
+		return indCodBarra;
+	}
+
+	public void setIndCodBarra(String indCodBarra) {
+		this.indCodBarra = indCodBarra;
+	}
+
+	public BigDecimal getOperExoneradas() {
+		return operExoneradas;
+	}
+
+	public void setOperExoneradas(BigDecimal operExoneradas) {
+		this.operExoneradas = operExoneradas;
+	}
+
+	public BigDecimal getOperGratuitas() {
+		return operGratuitas;
+	}
+
+	public void setOperGratuitas(BigDecimal operGratuitas) {
+		this.operGratuitas = operGratuitas;
+	}
+
+	public BigDecimal getOperGravadas() {
+		return operGravadas;
+	}
+
+	public void setOperGravadas(BigDecimal operGravadas) {
+		this.operGravadas = operGravadas;
+	}
+
+	public BigDecimal getOperInafectas() {
+		return operInafectas;
+	}
+
+	public void setOperInafectas(BigDecimal operInafectas) {
+		this.operInafectas = operInafectas;
+	}
+
+	public String getTipoOperacion() {
+		return tipoOperacion;
+	}
+
+	public void setTipoOperacion(String tipoOperacion) {
+		this.tipoOperacion = tipoOperacion;
+	}
+
+	public String getEmailPedido() {
+		return emailPedido;
+	}
+
+	public void setEmailPedido(String emailPedido) {
+		this.emailPedido = emailPedido;
+	}
+
+	public List<Arpfol> getArpfolList() {
+		return arpfolList;
+	}
+
+	public void setArpfolList(List<Arpfol> arpfolList) {
+		this.arpfolList = arpfolList;
+	}
+
+	@Override
     public int hashCode() {
         int hash = 0;
         hash += (arpfoePK != null ? arpfoePK.hashCode() : 0);

@@ -36,30 +36,21 @@ public class Arpfol implements Serializable {
     private BigDecimal cantComp;
     @Column(name = "CANT_SOLICITADA")
     private BigDecimal cantSolicitada;
-    @Column(name = "CANT_RESER")
-    private BigDecimal cantReser;
-    @Column(name = "CANT_RESER_DE_PROD")
-    private BigDecimal cantReserDeProd;
+    
     @Column(name = "CANT_ENTREG")
     private BigDecimal cantEntreg;
-    @Column(name = "CANT_PPROC")
-    private BigDecimal cantPproc;
+    
     @Column(name = "CANT_ASIGNADA")
     private BigDecimal cantAsignada;
     @Column(name = "CANT_REASIGNADA")
     private BigDecimal cantReasignada;
-    @Column(name = "CANT_AUTORIZAR")
-    private BigDecimal cantAutorizar;
 
     @Column(name = "FECHA_REGISTRO")
     @Temporal(TemporalType.DATE)
     private Date fechaRegistro;
     @Column(name = "PRECIO")
     private BigDecimal precio;
-    @Column(name = "TIPO_DOC")
-    private String tipoDoc;
-    @Column(name = "NO_FACTU")
-    private String noFactu;
+    
     @Column(name = "TOT_LINEA")
     private BigDecimal totLinea;
 
@@ -69,8 +60,6 @@ public class Arpfol implements Serializable {
     @Column(name = "NO_LINEA")
     private Short noLinea;
  
-    @Column(name = "IMP_ISC")
-    private BigDecimal impIsc;
     @Column(name = "IMP_IGV")
     private BigDecimal impIgv;
 
@@ -80,7 +69,10 @@ public class Arpfol implements Serializable {
     private BigDecimal totalLin;
     @Column(name = "DESCRIPCION")
     private String descripcion;
-
+    
+    @Column(name = "TIPO_BS")
+    private String tipoBs;
+    
     @Column(name = "OPER_EXONERADAS")
     private BigDecimal operExoneradas;
     @Column(name = "OPER_GRATUITAS")
@@ -97,11 +89,17 @@ public class Arpfol implements Serializable {
     @Column(name = "ICBPER")
     private BigInteger icbper;
     @Column(name = "PRECIO_UNI")
-    private BigDecimal precioUni;
+    private BigDecimal precioUni;  
     
-    
+    public String getTipoBs() {
+		return tipoBs;
+	}
 
-    public Arpfol() {
+	public void setTipoBs(String tipoBs) {
+		this.tipoBs = tipoBs;
+	}
+
+	public Arpfol() {
     }
 
     public Arpfol(ArpfolPK arpfolPK) {
@@ -168,21 +166,6 @@ public class Arpfol implements Serializable {
 		this.cantSolicitada = cantSolicitada;
 	}
 
-	public BigDecimal getCantReser() {
-		return cantReser;
-	}
-
-	public void setCantReser(BigDecimal cantReser) {
-		this.cantReser = cantReser;
-	}
-
-	public BigDecimal getCantReserDeProd() {
-		return cantReserDeProd;
-	}
-
-	public void setCantReserDeProd(BigDecimal cantReserDeProd) {
-		this.cantReserDeProd = cantReserDeProd;
-	}
 
 	public BigDecimal getCantEntreg() {
 		return cantEntreg;
@@ -192,13 +175,6 @@ public class Arpfol implements Serializable {
 		this.cantEntreg = cantEntreg;
 	}
 
-	public BigDecimal getCantPproc() {
-		return cantPproc;
-	}
-
-	public void setCantPproc(BigDecimal cantPproc) {
-		this.cantPproc = cantPproc;
-	}
 
 	public BigDecimal getCantAsignada() {
 		return cantAsignada;
@@ -216,14 +192,6 @@ public class Arpfol implements Serializable {
 		this.cantReasignada = cantReasignada;
 	}
 
-	public BigDecimal getCantAutorizar() {
-		return cantAutorizar;
-	}
-
-	public void setCantAutorizar(BigDecimal cantAutorizar) {
-		this.cantAutorizar = cantAutorizar;
-	}
-
 	public Date getFechaRegistro() {
 		return fechaRegistro;
 	}
@@ -238,22 +206,6 @@ public class Arpfol implements Serializable {
 
 	public void setPrecio(BigDecimal precio) {
 		this.precio = precio;
-	}
-
-	public String getTipoDoc() {
-		return tipoDoc;
-	}
-
-	public void setTipoDoc(String tipoDoc) {
-		this.tipoDoc = tipoDoc;
-	}
-
-	public String getNoFactu() {
-		return noFactu;
-	}
-
-	public void setNoFactu(String noFactu) {
-		this.noFactu = noFactu;
 	}
 
 	public BigDecimal getTotLinea() {
@@ -278,14 +230,6 @@ public class Arpfol implements Serializable {
 
 	public void setNoLinea(Short noLinea) {
 		this.noLinea = noLinea;
-	}
-
-	public BigDecimal getImpIsc() {
-		return impIsc;
-	}
-
-	public void setImpIsc(BigDecimal impIsc) {
-		this.impIsc = impIsc;
 	}
 
 	public BigDecimal getImpIgv() {
