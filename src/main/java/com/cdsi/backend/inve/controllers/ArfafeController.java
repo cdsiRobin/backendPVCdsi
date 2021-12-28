@@ -5,7 +5,6 @@ import com.cdsi.backend.inve.controllers.generic.GenericController;
 import com.cdsi.backend.inve.models.entity.Arfafe;
 import com.cdsi.backend.inve.models.entity.ArfafePK;
 import com.cdsi.backend.inve.models.services.IArfafeService;
-import lombok.extern.slf4j.Slf4j;
 
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -13,13 +12,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/arfafe")
 public class ArfafeController extends GenericController {
@@ -39,7 +35,7 @@ public class ArfafeController extends GenericController {
             }
             return super.getBadIdRequest();
         } catch (Exception e){
-            log.error(e.getMessage());
+            System.out.println(e.getMessage());
             return super.getErrorRequest();
         }
     }
@@ -65,7 +61,7 @@ public class ArfafeController extends GenericController {
             return super.getBadIdRequest();
     		
     	} catch(Exception e) {
-    		log.error(e.getMessage());
+    		System.out.println(e.getMessage());
     		return super.getErrorRequest();
     	}
     }
@@ -98,7 +94,6 @@ public class ArfafeController extends GenericController {
             return super.getBadRequest(result);
         }
         try {
-        	
         	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         	arfafe.setFECHA(sdf.format(Date.from(Instant.parse(arfafe.getFECHA()))));
             Object o = this.iArfafeService.save(arfafe);
@@ -107,7 +102,7 @@ public class ArfafeController extends GenericController {
             }
             return super.getBadIdRequest();
         } catch (Exception e){
-            log.error(e.getMessage());
+        	System.out.println(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
     }
@@ -124,7 +119,7 @@ public class ArfafeController extends GenericController {
             }
             return super.getBadIdRequest();
         } catch (Exception e){
-            log.error(e.getMessage());
+        	System.out.println(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
     }

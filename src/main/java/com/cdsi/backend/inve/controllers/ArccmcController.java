@@ -18,10 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import com.cdsi.backend.inve.models.entity.Arccmc;
 import com.cdsi.backend.inve.models.services.IArccmcService;
 
-import lombok.extern.slf4j.Slf4j;
-
-//@CrossOrigin(origins = {"*"}, methods= {RequestMethod.GET,RequestMethod.POST})
-@Slf4j
 @RestController
 @RequestMapping("/api/cli")
 public class ArccmcController extends GenericController {
@@ -42,7 +38,7 @@ public class ArccmcController extends GenericController {
 				return super.getNotFoundRequest();
 			}
 		}catch (Exception e){
-			System.out.println(e);
+			System.out.println(e.getMessage());
 			return super.getErrorRequest();
 		}
 	}
@@ -59,7 +55,7 @@ public class ArccmcController extends GenericController {
 			}
 			return super.getNotFoundRequest();
 		}catch (Exception e){
-			System.out.println(e);
+			System.out.println(e.getMessage());
 			return super.getNotFoundRequest();
 		}
 	}
@@ -83,7 +79,7 @@ public class ArccmcController extends GenericController {
 
 			return super.getErrorRequest();
 		}catch (Exception e){
-			System.out.println(e);
+			System.out.println(e.getMessage());
 			return super.getErrorRequest();
 		}
 
@@ -111,6 +107,11 @@ public class ArccmcController extends GenericController {
 
 	}
 	
+	@PostMapping("/cliente")
+	public Arccmc getCliente(@RequestBody IdArccmc idArccmc) {
+		return this.arccService.findCiaForCodigo(idArccmc);
+	}
+	
 	@GetMapping("/list/{cia}/{dscri}")
 	//@Secured({"ROLE_ADMIN", "ROLE_USAR"})
 	public List<Arccmc> listaNombreCia(@PathVariable("cia") String cia, @PathVariable("dscri") String dscri) {
@@ -126,7 +127,7 @@ public class ArccmcController extends GenericController {
            }
            return super.getBadIdRequest();
         }catch (Exception e){
-        	log.error(e.getMessage());
+        	System.out.println(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
 	}
