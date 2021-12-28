@@ -2,21 +2,41 @@ package com.cdsi.backend.inve.controllers;
 
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
+import com.cdsi.backend.inve.models.entity.Arcgtc;
 import com.cdsi.backend.inve.models.services.IArcgtcService;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/arcgtc")
 public class ArcgtcController extends GenericController {
     @Autowired
     private IArcgtcService arcgtcService;
+    
+    //GURDAR TIPO DE CAMBIO DEL DIA
+    @PostMapping("/save")
+    public ResponseEntity<ResponseRest> guardar(@RequestBody Arcgtc arcgtc, BindingResult result){
+    	if (result.hasErrors()){
+			return super.getErrorRequest();
+		}
+    	try{
+			Object obj = this.arcgtcService.save(arcgtc);
+			if (obj != null){
+				return super.getOKRegistroRequest(obj);
+			}else {
+				return super.getNotFoundRequest();
+			}
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+			return super.getErrorRequest();
+		}
+    }
 
     @GetMapping("/listar")
     public ResponseEntity<ResponseRest> listar(){
@@ -32,8 +52,7 @@ public class ArcgtcController extends GenericController {
     }
 
     @GetMapping("/id")
-     public ResponseEntity<ResponseRest> buscarId(@RequestParam String clase,@RequestParam String fecha){
-         
+     public ResponseEntity<ResponseRest> buscarId(@RequestParam String clase,@RequestParam String fecha){         
          try{
         	 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
         	 Date f = formato.parse(fecha);
@@ -44,7 +63,7 @@ public class ArcgtcController extends GenericController {
             }
             return super.getBadIdRequest();
          }catch (Exception e){
-             log.error(e.getMessage());
+        	 System.out.println(e.getMessage());
              return super.getBadRequest(e.getMessage());
          }
 
@@ -61,7 +80,7 @@ public class ArcgtcController extends GenericController {
              }
              return this.getBadIdRequest();
          }catch (Exception e){
-        	 log.error(e.getMessage());
+        	 System.out.println(e.getMessage());
              return super.getBadRequest(e.getMessage());
          }
      }
@@ -75,7 +94,7 @@ public class ArcgtcController extends GenericController {
              }
              return super.getBadIdRequest();
          }catch (Exception e){
-        	 log.error(e.getMessage());
+        	 System.out.println(e.getMessage());
              return super.getBadRequest(e.getMessage());
          }
      }

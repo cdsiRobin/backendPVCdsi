@@ -2,21 +2,18 @@ package com.cdsi.backend.inve.models.services.impl;
 
 import com.cdsi.backend.inve.models.dao.IArcgtcRepo;
 import com.cdsi.backend.inve.models.entity.Arcgtc;
-import com.cdsi.backend.inve.models.entity.ArcgtcPK;
 import com.cdsi.backend.inve.models.services.IArcgtcService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-@Slf4j
 @Service
 public class ArcgtcServiceImpl implements IArcgtcService {
     @Autowired
@@ -34,7 +31,7 @@ public class ArcgtcServiceImpl implements IArcgtcService {
             List<Arcgtc> arcgtcs = this.arcgtcRepo.buscarXFecha(fecha);
             return arcgtcs;
         }catch (Exception e){
-            log.error(e.getMessage());
+            System.out.println(e.getMessage());
             return null;
         }
 
@@ -46,7 +43,7 @@ public class ArcgtcServiceImpl implements IArcgtcService {
             Pageable pageable = PageRequest.of(page, limit);
             return this.arcgtcRepo.pageArcgtc(pageable);
         }catch (Exception e){
-            log.error(e.getMessage());
+        	System.out.println(e.getMessage());
             return null;
         }
     }
@@ -68,7 +65,13 @@ public class ArcgtcServiceImpl implements IArcgtcService {
 
     @Override
     public Arcgtc save(Arcgtc arcgtc) throws ServiceException {
-        return null;
+        Arcgtc a = null;
+        try {
+			a = this.arcgtcRepo.save(arcgtc);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+        return a;
     }
 
     @Override
