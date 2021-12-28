@@ -7,6 +7,7 @@ import com.cdsi.backend.inve.models.services.IArfaccService;
 
 import lombok.extern.slf4j.Slf4j;
 
+import org.hibernate.engine.transaction.jta.platform.internal.SynchronizationRegistryBasedSynchronizationStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;

@@ -111,6 +111,11 @@ public class ArccmcController extends GenericController {
 
 	}
 	
+	@PostMapping("/cliente")
+	public Arccmc getCliente(@RequestBody IdArccmc idArccmc) {
+		return this.arccService.findCiaForCodigo(idArccmc);
+	}
+	
 	@GetMapping("/list/{cia}/{dscri}")
 	//@Secured({"ROLE_ADMIN", "ROLE_USAR"})
 	public List<Arccmc> listaNombreCia(@PathVariable("cia") String cia, @PathVariable("dscri") String dscri) {

@@ -8,6 +8,7 @@ import com.cdsi.backend.inve.models.services.IArfafeService;
 import lombok.extern.slf4j.Slf4j;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
@@ -97,6 +98,9 @@ public class ArfafeController extends GenericController {
             return super.getBadRequest(result);
         }
         try {
+        	//Date d = new SimpleDateFormat("yyyy-MM-ddTHH:mm:ssZ").parse(Date.from(Instant.parse(arfafe.getFECHA())).toString());
+        	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        	arfafe.setFECHA(sdf.format(Date.from(Instant.parse(arfafe.getFECHA()))));
             Object o = this.iArfafeService.save(arfafe);
             if (o != null){
                 return super.getOKRegistroRequest(o);
