@@ -13,7 +13,6 @@ import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
 import com.cdsi.backend.inve.models.entity.Arinse;
 import com.cdsi.backend.inve.models.entity.ArinsePK;
-import com.cdsi.backend.inve.models.entity.IdArccmc;
 import com.cdsi.backend.inve.models.services.IArinseService;
 
 @RestController

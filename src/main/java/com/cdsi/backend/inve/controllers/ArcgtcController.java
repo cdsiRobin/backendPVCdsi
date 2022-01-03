@@ -72,6 +72,7 @@ public class ArcgtcController extends GenericController {
      @GetMapping("/fecha")
      public ResponseEntity<ResponseRest> buscarFecha(@RequestParam String fecha){
          try{
+        	 this.arcgtcService.guardarTipoCambioApiSunat();
         	 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
         	 Date f = formato.parse(fecha);
              Object obj = this.arcgtcService.listarXFecha(f);

@@ -2,8 +2,11 @@ package com.cdsi.backend.inve.models.services.impl;
 
 import com.cdsi.backend.inve.models.dao.IArcgtcRepo;
 import com.cdsi.backend.inve.models.entity.Arcgtc;
+import com.cdsi.backend.inve.models.entity.ArcgtcPK;
+import com.cdsi.backend.inve.models.entity.Sunattc;
 import com.cdsi.backend.inve.models.services.IArcgtcService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
+import com.cdsi.backend.inve.util.TipoCambioSunat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +14,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +23,48 @@ import java.util.List;
 public class ArcgtcServiceImpl implements IArcgtcService {
     @Autowired
     private IArcgtcRepo arcgtcRepo;
+    
+    //METODO QUE NOS PERMITE GUARDAR EL TIPO DE CAMBIO DE LA API DE SUNAT
+    @Override
+    public void guardarTipoCambioApiSunat() {
+    	TipoCambioSunat objTCS = new TipoCambioSunat();
+    	Sunattc sunattc = objTCS.getTipoCambio();
+    	
+    	if(sunattc != null) {
+    		
+    		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd"); 
+       	    Date f = null;
+			try {
+				f = formato.parse(sunattc.getFecha());
+			} catch (ParseException e) {
+				System.out.println(e.getMessage());
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		Arcgtc objA = new Arcgtc();
+    		ArcgtcPK objAPK = new ArcgtcPK();
+    		
+    		objAPK.setClaseCambio("01");
+    		objAPK.setFecha(f);
+    		
+    		objA.setArcgtcPK(objAPK);
+    		objA.setTipoCambio(sunattc.getCompra());
+    		
+    		arcgtcRepo.save(objA);
+    		System.out.println("Guardo ::::::::::::::::::::::::::::::::::::::::::");
+    		Arcgtc objA2 = new Arcgtc();
+    		ArcgtcPK objAPK2 = new ArcgtcPK();
+    		
+    		objAPK2.setClaseCambio("02");
+    		objAPK2.setFecha(f);
+    		
+    		objA2.setArcgtcPK(objAPK2);
+    		objA2.setTipoCambio(sunattc.getVenta());
+    		
+    		arcgtcRepo.save(objA2);
+    	}
+    	
+    }
 
     @Override
     public Arcgtc buscarClaseAndFecha(String clase,Date fecha) throws ServiceException {
