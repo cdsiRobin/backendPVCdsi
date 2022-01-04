@@ -14,4 +14,6 @@ public interface IArcgtcService extends IGenericService<Arcgtc> {
     public List<Arcgtc> listarXFecha(Date fecha) throws ServiceException;
     public Page<Arcgtc> pageArcgtc(int limit, int page) throws ServiceException;
     
+    public void guardarTipoCambioApiSunat();
+    
 }

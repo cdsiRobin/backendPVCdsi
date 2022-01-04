@@ -13,7 +13,7 @@ public class ArcgtcPK implements Serializable {
     private String claseCambio;
 
     @Column(name = "FECHA")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date fecha;
 
     public ArcgtcPK() {
