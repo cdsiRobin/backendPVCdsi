@@ -2,22 +2,32 @@ package com.cdsi.backend.inve.controllers;
 
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
+import com.cdsi.backend.inve.dto.TipoCambioDTO;
+import com.cdsi.backend.inve.models.entity.Arcgcc;
 import com.cdsi.backend.inve.models.entity.Arcgtc;
+import com.cdsi.backend.inve.models.services.IArcgccService;
 import com.cdsi.backend.inve.models.services.IArcgtcService;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/arcgtc")
 public class ArcgtcController extends GenericController {
     @Autowired
     private IArcgtcService arcgtcService;
+    
+    @Autowired
+    private IArcgccService arcgccService;
     
     //GURDAR TIPO DE CAMBIO DEL DIA
     @PostMapping("/save")
@@ -76,6 +86,50 @@ public class ArcgtcController extends GenericController {
         	 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
         	 Date f = formato.parse(fecha);
              Object obj = this.arcgtcService.listarXFecha(f);
+             if (obj != null){
+                 return this.getOKConsultaRequest(obj);
+             }
+             return this.getBadIdRequest();
+         }catch (Exception e){
+        	 System.out.println(e.getMessage());
+             return super.getBadRequest(e.getMessage());
+         }
+     }
+     
+     
+     //METODO QUE NOS DEVUELVE EL TIPO DE CAMBIO DTO
+     @GetMapping("/fechadto")
+     public ResponseEntity<ResponseRest> listarFecha(@RequestParam String fecha){
+    	 try{
+        	 this.arcgtcService.guardarTipoCambioApiSunat();
+        	 SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+        	 Date f = formato.parse(fecha);
+        	 
+        	 List<Arcgtc> arcgtcList = this.arcgtcService.listarXFecha(f);
+        	 List<Arcgcc> arcgccList = this.arcgccService.mostrarTodos();
+        	 
+        	 List<TipoCambioDTO> tipoCambioDtoList = new ArrayList<>();
+        	 
+        	 //ModelMapper modelMapper = new ModelMapper();        	 
+        	 for(Arcgtc arcgtc: arcgtcList) {
+        		 String c1 = arcgtc.getArcgtcPK().getClaseCambio();
+        		 for(Arcgcc arcgcc: arcgccList) {
+        			 //System.out.println("ENTRO :::::::::::::::::::::::::::::::::::::::"+arcgcc.getClaseCambio()+" ::: "+arcgtc.getArcgtcPK().getClaseCambio());
+        			 String c2 = arcgcc.getClaseCambio();
+        			 if( c1.equals(c2) ) {
+        				  //System.out.println("clase 1 : "+c1+" , clase 2 : "+c2);
+        				  TipoCambioDTO tcDTO = new TipoCambioDTO();
+        				  tcDTO.setClase(c1);
+        				  tcDTO.setDescripcion(arcgcc.getDescripcion());
+        				  tcDTO.setMonto(arcgtc.getTipoCambio());
+        				  tipoCambioDtoList.add(tcDTO);
+        				  break;
+        			 }
+        		 }        		         		 
+        	 }
+        	 
+             //Object obj = this.arcgtcService.listarXFecha(f);
+        	 Object obj = tipoCambioDtoList;
              if (obj != null){
                  return this.getOKConsultaRequest(obj);
              }
