@@ -16,7 +16,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.cdsi.backend.inve.models.entity.Arccmc;
+import com.cdsi.backend.inve.models.entity.Empresa;
 import com.cdsi.backend.inve.models.services.IArccmcService;
+import com.cdsi.backend.inve.util.RucDniSunat;
 
 @RestController
 @RequestMapping("/api/cli")
@@ -95,7 +97,6 @@ public class ArccmcController extends GenericController {
 			return super.getBadRequest(result);
 		}
 		try {
-
 			Object obj = this.arccService.findCiaForCodigo(idArccmc);
 			if (obj == null){
 				return super.getNotFoundRequest();
@@ -120,7 +121,11 @@ public class ArccmcController extends GenericController {
 	//VAMOS A BUSCAR POR RUC A LOS CLIENTES
 	@GetMapping("/listRuc")
 	public ResponseEntity<ResponseRest> listaCiaAndRuc(@RequestParam String cia, @RequestParam String id){
-		try{       	 
+		try{
+			RucDniSunat p = new RucDniSunat();
+			Empresa objEmpresa = p.consultarRuc(id);
+			System.out.println(objEmpresa.getNombre());
+			
            Object object = this.arccService.findByCiaAndRuc(cia, id);
            if (object != null){
                return super.getOKConsultaRequest(object);
@@ -131,11 +136,6 @@ public class ArccmcController extends GenericController {
             return super.getBadRequest(e.getMessage());
         }
 	}
-	/*
-	@GetMapping("/listRuc/{cia}/{id}")
-	public List<Arccmc> listaRucCia(@PathVariable("cia") String cia, @PathVariable("id") String id) {
-		return arccService.findByCiaAndRuc(cia, id);
-	}*/
 	
 	//METODO QUE ENVIA UNA PAGINACION DE CLIENTES
   	@GetMapping("/list/page/{cia}/{page}")
