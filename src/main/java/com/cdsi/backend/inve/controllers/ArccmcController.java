@@ -118,13 +118,34 @@ public class ArccmcController extends GenericController {
 	public List<Arccmc> listaNombreCia(@PathVariable("cia") String cia, @PathVariable("dscri") String dscri) {
 		return arccService.findByNombreAndCia(cia, dscri);
 	}
+	
+	//VAMOS A BUSCAR POR RUC A LOS CLIENTES
+	@GetMapping("/buscarapi")
+	public ResponseEntity<ResponseRest> buscarClienteSunat(@RequestParam String id){
+			try{
+				RucDniSunat p = new RucDniSunat();
+				int cantidad = id.length();
+				Object object = null;
+				if(cantidad == 11) {
+			    	object = p.consultarRuc(id); 	
+			    }else {
+			    	object = p.consultarDni(id);
+			    }									
+	           
+	           if (object != null){
+	               return super.getOKConsultaRequest(object);
+	           }
+	           return super.getBadIdRequest();
+	        }catch (Exception e){
+	        	System.out.println(e.getMessage());
+	            return super.getBadRequest(e.getMessage());
+	        }
+		}
+		
 	//VAMOS A BUSCAR POR RUC A LOS CLIENTES
 	@GetMapping("/listRuc")
 	public ResponseEntity<ResponseRest> listaCiaAndRuc(@RequestParam String cia, @RequestParam String id){
 		try{
-			RucDniSunat p = new RucDniSunat();
-			Empresa objEmpresa = p.consultarRuc(id);
-			System.out.println(objEmpresa.getNombre());
 			
            Object object = this.arccService.findByCiaAndRuc(cia, id);
            if (object != null){
