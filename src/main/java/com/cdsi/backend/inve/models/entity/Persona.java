@@ -25,6 +25,7 @@ public class Persona {
 	private String distrito;
 	private String provincia;
 	private String departamento;
+	
 	private String nombres;
 	private String apellidoPaterno;
 	private String apellidoMaterno;
