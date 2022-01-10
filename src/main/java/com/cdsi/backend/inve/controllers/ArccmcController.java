@@ -25,7 +25,7 @@ public class ArccmcController extends GenericController {
 	
 	@Autowired
 	private IArccmcService arccService;
-
+    //ELIMINAR CLIENTE
 	@DeleteMapping
 	public ResponseEntity<ResponseRest> eliminar(@RequestBody IdArccmc idArccmc, BindingResult result){
 		if (result.hasErrors()){
@@ -86,24 +86,20 @@ public class ArccmcController extends GenericController {
 	}
 
 	//METODO QUE NOS PERMITE TRAER CLIENTE POR CLAVE PRIMARIO
-	@PostMapping("/id")
-	public ResponseEntity<ResponseRest> getCiaForCod(@RequestBody IdArccmc idArccmc, BindingResult result){
-		if (result.hasErrors()){
-			return super.getBadRequest(result);
-		}
-		if ( idArccmc.getCia() == null  && idArccmc.getId() == null){
-			return super.getBadRequest(result);
-		}
+	@GetMapping("/id")
+	public ResponseEntity<ResponseRest> getCiaForCod(@RequestParam String cia, @RequestParam String codigo){
+		IdArccmc idArccmc = new IdArccmc();
+		idArccmc.setCia(cia);
+		idArccmc.setId(codigo);
 		try {
 			Object obj = this.arccService.findCiaForCodigo(idArccmc);
-			if (obj == null){
-				return super.getNotFoundRequest();
+			if (obj != null){
+				return super.getOKConsultaRequest(obj);
 			}
-			return super.getOKConsultaRequest(obj);
+			return super.getNotFoundRequest();
 		}catch (Exception e){
 			return super.getErrorRequest();
 		}
-
 	}
 	
 	@PostMapping("/cliente")
