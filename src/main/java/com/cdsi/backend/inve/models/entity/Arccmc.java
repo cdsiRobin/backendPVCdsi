@@ -42,18 +42,15 @@ public class Arccmc implements Serializable {
 	@Size(min = 1, max=1)
 	private String activo;
 	
-	@Size(min = 1, max=100)
 	private String web;
 	
 	@Column(name="COD_PAIS")
-	@Size(min = 1, max=3)
 	private String pais;
 	
 	@Column(name="TIPO_DOCUMENTO")
 	@Size(min = 1, max=10)
 	private String documento;
 	
-	@Size(min = 1, max=100)
 	private String email;
 
 	@JsonIgnoreProperties({"arccmc"})

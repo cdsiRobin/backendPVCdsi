@@ -62,22 +62,21 @@ public class ArccmcController extends GenericController {
 	}
 
 	//METODO QUE NOS PERMITE GUARDAR UN CLIENTE
-	@PostMapping
+	@PostMapping("/save")
 	public ResponseEntity<ResponseRest> guardar(@Validated @RequestBody Arccmc arccmc, BindingResult result){
 		if (result.hasErrors()){
-			return super.getBadRequest(result);
-		}
+			return super.getBadRequest(result);}
 		try{
-			Arccmc objArcc = this.arccService.findCiaForCodigo(arccmc.getObjIdArc());
-			if (objArcc == null) {
+			//Arccmc objArcc = this.arccService.findCiaForCodigo(arccmc.getObjIdArc());
+			//if (objArcc == null) {
 				Object obj = this.arccService.createArccmc(arccmc);
 				if (obj != null){
-					return super.getOKConsultaRequest(obj);
+					return super.getOKRegistroRequest(obj);
 				}
-			}else{
+			/*}else{
 				return super.getNotFoundRequest();
 			}
-
+            */
 			return super.getErrorRequest();
 		}catch (Exception e){
 			System.out.println(e.getMessage());
@@ -116,6 +115,22 @@ public class ArccmcController extends GenericController {
 	//@Secured({"ROLE_ADMIN", "ROLE_USAR"})
 	public List<Arccmc> listaNombreCia(@PathVariable("cia") String cia, @PathVariable("dscri") String dscri) {
 		return arccService.findByNombreAndCia(cia, dscri);
+	}
+	
+	//METODO QUE NOS PERMITE BUSCAR POR RAZON SOCIAL O NOMBRE
+	@GetMapping("/list/nombre")
+	public ResponseEntity<ResponseRest> listarRazonSocialOrNombre(@RequestParam String cia,@RequestParam String nombre){
+		try{			
+	           Object object = this.arccService.findByNombreAndCia(cia, nombre);
+	           if (object != null){
+	               return super.getOKConsultaRequest(object);
+	           }
+	           return super.getBadIdRequest();
+	        }catch (Exception e){
+	        	System.out.println(e.getMessage());
+	            return super.getBadRequest(e.getMessage());
+	        }
+		
 	}
 	
 	//VAMOS A BUSCAR POR RUC A LOS CLIENTES
