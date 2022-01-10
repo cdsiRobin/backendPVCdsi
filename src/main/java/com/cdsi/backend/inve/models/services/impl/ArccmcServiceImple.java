@@ -25,8 +25,8 @@ public class ArccmcServiceImple implements IArccmcService  {
 	
 	@Override
 	@Transactional
-	public Arccmc createArccmc(Arccmc articulo) {
-		return arccDao.save(articulo);
+	public Arccmc createArccmc(Arccmc arccmc) {
+		return arccDao.save(arccmc);
 	}
 
 	@Override
