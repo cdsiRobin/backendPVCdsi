@@ -5,7 +5,6 @@ import com.cdsi.backend.inve.controllers.generic.GenericController;
 import com.cdsi.backend.inve.models.entity.Arinme1;
 import com.cdsi.backend.inve.models.entity.Arinme1PK;
 import com.cdsi.backend.inve.models.services.IArinme1Service;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -17,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/arinme1")
 public class Arinme1Controller extends GenericController {
     @Autowired
     private IArinme1Service arinme1Service;
 
+    // METODO QUE NOS PERMITE BUSCAR POR CLAVE PRIMARIA
     @PostMapping("/id")
     public ResponseEntity<ResponseRest> buscarId(@RequestBody Arinme1PK arinme1PK, BindingResult result){
         if (result.hasErrors()){
@@ -36,31 +35,32 @@ public class Arinme1Controller extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+            System.out.println(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
 
     }
-    
+
+    //METODO QUE NOS PERMITE GUARDAR
     @PostMapping
     public ResponseEntity<ResponseRest> guardar(@RequestBody Arinme1 arinme1, BindingResult result){
     	if(result.hasErrors()) {
     		return super.getErrorRequest();
     	}
     	try {
-    	    Object obj = this.arinme1Service.buscarId(arinme1.getArinme1PK());
-    	    if(obj == null) {
+    	    /*Object obj = this.arinme1Service.buscarId(arinme1.getArinme1PK());
+    	    if(obj == null) {*/
     	    	Object obj2 = this.arinme1Service.save(arinme1);
     	    	if(obj2 != null) {
     	    		return super.getOKRegistroRequest(obj2);
     	    	}
     	    	return super.getBadIdRequest();
     	    	
-    	    }else {
+    	    /*}else {
     	    	return super.duplicadoRegsitrarRequest(obj);
-    	    }
+    	    }*/
     	}catch(Exception e) {
-    		log.error(e.getMessage());
+    		System.out.println(e.getMessage());
     		return super.getBadRequest(e.getMessage());
     	}
     	
@@ -84,7 +84,7 @@ public class Arinme1Controller extends GenericController {
     	    	return super.getDatosNoValidoRequest();
     	    }
     	}catch(Exception e) {
-    		log.error(e.getMessage());
+            System.out.println(e.getMessage());
     		return super.getBadRequest(e.getMessage());
     	}
     	
@@ -99,7 +99,7 @@ public class Arinme1Controller extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+            System.out.println(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
 

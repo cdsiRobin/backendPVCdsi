@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/arpffe")
 public class ArpffeController extends GenericController {
@@ -31,7 +30,7 @@ public class ArpffeController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+            System.out.println(e.getMessage());
             return super.getErrorRequest();
         }
 
@@ -47,7 +46,7 @@ public class ArpffeController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+            System.out.println(e.getMessage());
             return super.getErrorRequest();
         }
 

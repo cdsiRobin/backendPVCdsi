@@ -2,6 +2,7 @@ package com.cdsi.backend.inve.models.services.impl;
 
 import java.util.List;
 
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,10 @@ public class Arinbo1ServiceImpl implements IArinbo1Service {
 		return arbDao.findAll(cia);
 	}
 
-	
+	@Override
+	public Arinbo1 findArinbo1XCiaAndAlmacen(String cia, String almacen) {
+		return this.arbDao.findArinbo1XciaAndBodega(cia, almacen);
+	}
+
 
 }
