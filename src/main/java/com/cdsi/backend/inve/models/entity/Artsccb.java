@@ -23,6 +23,7 @@ import com.cdsi.backend.inve.models.Artstcb;
 public class Artsccb implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @EmbeddedId
     protected ArtsccbPK artsccbPK;
     @Column(name = "DESC_CABA")
