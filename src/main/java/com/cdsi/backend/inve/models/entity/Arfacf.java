@@ -2,15 +2,16 @@ package com.cdsi.backend.inve.models.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 @Table(name = "ARFACF")
 public class Arfacf implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @EmbeddedId
     protected ArfacfPK arfacfPK;
+    
     @Column(name = "DESCRIPCION")
     private String descripcion;
     @Column(name = "TRANS_PTO_VENTA_PED")
@@ -47,16 +48,7 @@ public class Arfacf implements Serializable {
     private String seriePtoVentaTeso;
     @Column(name = "LIBRERIA")
     private String libreria;
-    @Column(name = "FEC_CREA")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fecCrea;
-    @Column(name = "USU_CREA")
-    private String usuCrea;
-    @Column(name = "FEC_MODI")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fecModi;
-    @Column(name = "USU_MODI")
-    private String usuModi;
+    
     @Column(name = "ON_LINE")
     private String onLine;
 
@@ -213,38 +205,6 @@ public class Arfacf implements Serializable {
 
     public void setLibreria(String libreria) {
         this.libreria = libreria;
-    }
-
-    public Date getFecCrea() {
-        return fecCrea;
-    }
-
-    public void setFecCrea(Date fecCrea) {
-        this.fecCrea = fecCrea;
-    }
-
-    public String getUsuCrea() {
-        return usuCrea;
-    }
-
-    public void setUsuCrea(String usuCrea) {
-        this.usuCrea = usuCrea;
-    }
-
-    public Date getFecModi() {
-        return fecModi;
-    }
-
-    public void setFecModi(Date fecModi) {
-        this.fecModi = fecModi;
-    }
-
-    public String getUsuModi() {
-        return usuModi;
-    }
-
-    public void setUsuModi(String usuModi) {
-        this.usuModi = usuModi;
     }
 
     public String getOnLine() {
