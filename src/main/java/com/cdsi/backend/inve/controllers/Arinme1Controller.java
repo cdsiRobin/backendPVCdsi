@@ -22,8 +22,17 @@ public class Arinme1Controller extends GenericController {
     @Autowired
     private IArinme1Service arinme1Service;
 
+<<<<<<< HEAD
     @GetMapping("/id")
     public ResponseEntity<ResponseRest> buscarId(@RequestParam String cia,@RequestParam String bodega,@RequestParam String trans,@RequestParam String docu){        
+=======
+    // METODO QUE NOS PERMITE BUSCAR POR CLAVE PRIMARIA
+    @PostMapping("/id")
+    public ResponseEntity<ResponseRest> buscarId(@RequestBody Arinme1PK arinme1PK, BindingResult result){
+        if (result.hasErrors()){
+            return super.getErrorRequest();
+        }
+>>>>>>> 1a55db414c34d1e2906eaece4c0c45c4bd525454
         try{
         	Arinme1PK arinme1PK = new Arinme1PK(cia, bodega, trans, docu);
             Object obj = this.arinme1Service.buscarId(arinme1PK);
@@ -37,24 +46,30 @@ public class Arinme1Controller extends GenericController {
         }
 
     }
+<<<<<<< HEAD
     //METODO QUE NOS PERMITE GURADAR
     @PostMapping("/save")
+=======
+
+    //METODO QUE NOS PERMITE GUARDAR
+    @PostMapping
+>>>>>>> 1a55db414c34d1e2906eaece4c0c45c4bd525454
     public ResponseEntity<ResponseRest> guardar(@RequestBody Arinme1 arinme1, BindingResult result){
     	if(result.hasErrors()) {
     		return super.getErrorRequest();
     	}
     	try {
-    	    Object obj = this.arinme1Service.buscarId(arinme1.getArinme1PK());
-    	    if(obj == null) {
+    	    /*Object obj = this.arinme1Service.buscarId(arinme1.getArinme1PK());
+    	    if(obj == null) {*/
     	    	Object obj2 = this.arinme1Service.save(arinme1);
     	    	if(obj2 != null) {
     	    		return super.getOKRegistroRequest(obj2);
     	    	}
     	    	return super.getBadIdRequest();
     	    	
-    	    }else {
+    	    /*}else {
     	    	return super.duplicadoRegsitrarRequest(obj);
-    	    }
+    	    }*/
     	}catch(Exception e) {
     		System.out.println(e.getMessage());
     		return super.getBadRequest(e.getMessage());
@@ -80,7 +95,11 @@ public class Arinme1Controller extends GenericController {
     	    	return super.getDatosNoValidoRequest();
     	    }
     	}catch(Exception e) {
+<<<<<<< HEAD
     		System.out.println(e.getMessage());
+=======
+            System.out.println(e.getMessage());
+>>>>>>> 1a55db414c34d1e2906eaece4c0c45c4bd525454
     		return super.getBadRequest(e.getMessage());
     	}
     	

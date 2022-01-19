@@ -61,7 +61,11 @@ public class ArpffeController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
+<<<<<<< HEAD
         	System.out.println(e.getMessage());
+=======
+            System.out.println(e.getMessage());
+>>>>>>> 1a55db414c34d1e2906eaece4c0c45c4bd525454
             return super.getErrorRequest();
         }
 
