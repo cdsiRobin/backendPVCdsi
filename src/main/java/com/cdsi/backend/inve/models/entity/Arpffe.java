@@ -5,16 +5,17 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "ARPFFE")
 public class Arpffe implements Serializable {
+	
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected ArpffePK arpffePK;
+    
     @Column(name = "FECHA")
     @Temporal(TemporalType.DATE)
     private Date fecha;
@@ -44,6 +45,7 @@ public class Arpffe implements Serializable {
     private String tipo;
     @Column(name = "CLASE")
     private String clase;
+    /*
     @Column(name = "NOMBRE")
     private String nombre;
     @Column(name = "TIPO_DOC_REM")
@@ -52,6 +54,7 @@ public class Arpffe implements Serializable {
     private String serieDocRem;
     @Column(name = "CORR_DOC_REM")
     private String corrDocRem;
+    */
     @Column(name = "NO_DOCU")
     private String noDocu;
  
@@ -64,16 +67,16 @@ public class Arpffe implements Serializable {
     @Column(name = "FECHA_INICIO")
     @Temporal(TemporalType.DATE)
     private Date fechaInicio;
-
+    /*
     @Column(name = "TIPO_DOCUMENTO")
     private String tipoDocumento;
-
-
+    
     @Column(name = "RAZON_SOCIAL")
     private String razonSocial;
-
+    
     @Column(name = "NO_SOLIC")
     private String noSolic;
+    */
     @Column(name = "COD_FPAGO")
     private String codFpago;
     @Column(name = "ALMA_ORIGEN")
@@ -83,21 +86,27 @@ public class Arpffe implements Serializable {
 
     @Column(name = "NOMBRE_DIGI")
     private String nombreDigi;
-
+    /*
     @Column(name = "TIPO_ARTI")
     private String tipoArti;
     @Column(name = "MOTIVO_ANULA")
     private String motivoAnula;
+    */
     @Column(name = "IND_FACTURA")
     private String indFactura;
     @Column(name = "IND_BOLETA")
     private String indBoleta;
+    /*
     @Column(name = "F_ANULACION")
     @Temporal(TemporalType.DATE)
     private Date fAnulacion;
+    */
     @Column(name = "COD_TIENDA")
     private String codTienda;
-
+    
+    @Column(name = "TIPO_GUIA")
+    private String tipoGuia;
+    
     @Column(name = "IMPRIME")
     private String imprime;
 
@@ -106,21 +115,36 @@ public class Arpffe implements Serializable {
     @Column(name = "COD_CAJA")
     private String codCaja;
 
-
-    @Column(name = "GR_REAL")
-    private String grReal;
-    @Column(name = "CANT_LINEAS")
-    private BigInteger cantLineas;
+    @Column(name = "IND_FERIAS")
+    private String indFerias;
+    
+    @Column(name = "IND_PROVINCIA")
+    private String indProvincia;
+    
+    @Column(name = "CONSUMO")
+    private String consumo;
+    
+    @Column(name = "CONVENIO")
+    private String convenio;
+    
+    @Column(name = "IND_COD_BARRA")
+    private String indCodBarra;
+    
+    @Column(name = "IND_FICTA")
+    private String indFicta;
+    
+    @Column(name = "IND_PROFORMA")
+    private String indProforma;
     
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @JoinColumns({
             @JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
             @JoinColumn(name = "BODEGA", referencedColumnName = "BODEGA", insertable = false, updatable = false),
-            @JoinColumn(name = "NO_GUIA", referencedColumnName = "NO_GUIA", insertable = false, updatable = false),
+            @JoinColumn(name = "NO_GUIA", referencedColumnName = "NO_GUIA", insertable = false, updatable = false)
     })
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Arpffl> arpfflList;
-
+    
     public Arpffe() {
     }
 
@@ -131,21 +155,29 @@ public class Arpffe implements Serializable {
     public Arpffe(String noCia, String bodega, String noGuia) {
         this.arpffePK = new ArpffePK(noCia, bodega, noGuia);
     }
+    
+	public ArpffePK getArpffePK() {
+		return arpffePK;
+	}
 
-    public ArpffePK getArpffePK() {
-        return arpffePK;
-    }
+	public void setArpffePK(ArpffePK arpffePK) {
+		this.arpffePK = arpffePK;
+	}
 
-    public void setArpffePK(ArpffePK arpffePK) {
-        this.arpffePK = arpffePK;
-    }
-
-    public Date getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+	public String getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
 	}
 
 	public String getNoCliente() {
@@ -228,38 +260,6 @@ public class Arpffe implements Serializable {
 		this.clase = clase;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getTipoDocRem() {
-		return tipoDocRem;
-	}
-
-	public void setTipoDocRem(String tipoDocRem) {
-		this.tipoDocRem = tipoDocRem;
-	}
-
-	public String getSerieDocRem() {
-		return serieDocRem;
-	}
-
-	public void setSerieDocRem(String serieDocRem) {
-		this.serieDocRem = serieDocRem;
-	}
-
-	public String getCorrDocRem() {
-		return corrDocRem;
-	}
-
-	public void setCorrDocRem(String corrDocRem) {
-		this.corrDocRem = corrDocRem;
-	}
-
 	public String getNoDocu() {
 		return noDocu;
 	}
@@ -290,30 +290,6 @@ public class Arpffe implements Serializable {
 
 	public void setFechaInicio(Date fechaInicio) {
 		this.fechaInicio = fechaInicio;
-	}
-
-	public String getTipoDocumento() {
-		return tipoDocumento;
-	}
-
-	public void setTipoDocumento(String tipoDocumento) {
-		this.tipoDocumento = tipoDocumento;
-	}
-
-	public String getRazonSocial() {
-		return razonSocial;
-	}
-
-	public void setRazonSocial(String razonSocial) {
-		this.razonSocial = razonSocial;
-	}
-
-	public String getNoSolic() {
-		return noSolic;
-	}
-
-	public void setNoSolic(String noSolic) {
-		this.noSolic = noSolic;
 	}
 
 	public String getCodFpago() {
@@ -348,22 +324,6 @@ public class Arpffe implements Serializable {
 		this.nombreDigi = nombreDigi;
 	}
 
-	public String getTipoArti() {
-		return tipoArti;
-	}
-
-	public void setTipoArti(String tipoArti) {
-		this.tipoArti = tipoArti;
-	}
-
-	public String getMotivoAnula() {
-		return motivoAnula;
-	}
-
-	public void setMotivoAnula(String motivoAnula) {
-		this.motivoAnula = motivoAnula;
-	}
-
 	public String getIndFactura() {
 		return indFactura;
 	}
@@ -380,20 +340,20 @@ public class Arpffe implements Serializable {
 		this.indBoleta = indBoleta;
 	}
 
-	public Date getfAnulacion() {
-		return fAnulacion;
-	}
-
-	public void setfAnulacion(Date fAnulacion) {
-		this.fAnulacion = fAnulacion;
-	}
-
 	public String getCodTienda() {
 		return codTienda;
 	}
 
 	public void setCodTienda(String codTienda) {
 		this.codTienda = codTienda;
+	}
+
+	public String getTipoGuia() {
+		return tipoGuia;
+	}
+
+	public void setTipoGuia(String tipoGuia) {
+		this.tipoGuia = tipoGuia;
 	}
 
 	public String getImprime() {
@@ -420,20 +380,60 @@ public class Arpffe implements Serializable {
 		this.codCaja = codCaja;
 	}
 
-	public String getGrReal() {
-		return grReal;
+	public String getIndFerias() {
+		return indFerias;
 	}
 
-	public void setGrReal(String grReal) {
-		this.grReal = grReal;
+	public void setIndFerias(String indFerias) {
+		this.indFerias = indFerias;
 	}
 
-	public BigInteger getCantLineas() {
-		return cantLineas;
+	public String getIndProvincia() {
+		return indProvincia;
 	}
 
-	public void setCantLineas(BigInteger cantLineas) {
-		this.cantLineas = cantLineas;
+	public void setIndProvincia(String indProvincia) {
+		this.indProvincia = indProvincia;
+	}
+
+	public String getConsumo() {
+		return consumo;
+	}
+
+	public void setConsumo(String consumo) {
+		this.consumo = consumo;
+	}
+
+	public String getConvenio() {
+		return convenio;
+	}
+
+	public void setConvenio(String convenio) {
+		this.convenio = convenio;
+	}
+
+	public String getIndCodBarra() {
+		return indCodBarra;
+	}
+
+	public void setIndCodBarra(String indCodBarra) {
+		this.indCodBarra = indCodBarra;
+	}
+
+	public String getIndFicta() {
+		return indFicta;
+	}
+
+	public void setIndFicta(String indFicta) {
+		this.indFicta = indFicta;
+	}
+
+	public String getIndProforma() {
+		return indProforma;
+	}
+
+	public void setIndProforma(String indProforma) {
+		this.indProforma = indProforma;
 	}
 
 	public List<Arpffl> getArpfflList() {

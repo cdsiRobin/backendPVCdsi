@@ -3,7 +3,6 @@ package com.cdsi.backend.inve.models.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 @Entity
 @Table(name = "ARPFFL")
@@ -15,17 +14,15 @@ public class Arpffl implements Serializable {
     @Column(name = "DESCRIPCION")
     private String descripcion;
 
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Basic(optional = false)
     @Column(name = "CANTIDAD")
     private BigDecimal cantidad;
+    
+    @Column(name = "IND_PARENTESCO")
+    private String indParentesco;
 
     @Column(name = "NO_LINEA")
     private Short noLinea;
-
-    @Column(name = "IND_COD_BARRA")
-    private String indCodBarra;
-
+    
     @Column(name = "TIPO_BS")
     private String tipoBs;
 
@@ -65,6 +62,14 @@ public class Arpffl implements Serializable {
 		return cantidad;
 	}
 
+	public String getIndParentesco() {
+		return indParentesco;
+	}
+
+	public void setIndParentesco(String indParentesco) {
+		this.indParentesco = indParentesco;
+	}
+
 	public void setCantidad(BigDecimal cantidad) {
 		this.cantidad = cantidad;
 	}
@@ -75,14 +80,6 @@ public class Arpffl implements Serializable {
 
 	public void setNoLinea(Short noLinea) {
 		this.noLinea = noLinea;
-	}
-
-	public String getIndCodBarra() {
-		return indCodBarra;
-	}
-
-	public void setIndCodBarra(String indCodBarra) {
-		this.indCodBarra = indCodBarra;
 	}
 
 	public String getTipoBs() {

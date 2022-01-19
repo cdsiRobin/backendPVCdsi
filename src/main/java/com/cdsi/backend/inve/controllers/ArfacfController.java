@@ -2,6 +2,7 @@ package com.cdsi.backend.inve.controllers;
 
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
+import com.cdsi.backend.inve.models.entity.Arfacf;
 import com.cdsi.backend.inve.models.entity.ArfacfPK;
 import com.cdsi.backend.inve.models.services.IArfacfService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,24 @@ public class ArfacfController extends GenericController {
 
     @Autowired
     private IArfacfService arfacfService;
+    
+    @PutMapping("/update")
+    public ResponseEntity<ResponseRest> buscarId(@RequestBody Arfacf arfacf, BindingResult result){
+        if (result.hasErrors()){
+            return super.getErrorRequest();
+        }
+        try{
+            Object obj = this.arfacfService.ingrementarCorreFicta(arfacf);
+            if (obj != null){
+                return super.getUpdateRegistroRequest(obj);
+            }
+            return super.getBadIdRequest();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return super.getBadRequest(e.getMessage());
+        }
+
+    }
 
     @PostMapping("/id")
     public ResponseEntity<ResponseRest> buscarId(@RequestBody ArfacfPK arfacfPK, BindingResult result){

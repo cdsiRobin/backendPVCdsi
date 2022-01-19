@@ -47,8 +47,7 @@ public class Arfacf implements Serializable {
     @Column(name = "SERIE_PTO_VENTA_TESO")
     private String seriePtoVentaTeso;
     @Column(name = "LIBRERIA")
-    private String libreria;
-    
+    private String libreria;    
     @Column(name = "ON_LINE")
     private String onLine;
 

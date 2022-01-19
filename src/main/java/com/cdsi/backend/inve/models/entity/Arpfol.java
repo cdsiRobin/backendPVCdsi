@@ -11,10 +11,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- *
- * @author user
- */
 @Entity
 @Table(name = "ARPFOL")
 public class Arpfol implements Serializable {

@@ -5,7 +5,6 @@ import com.cdsi.backend.inve.controllers.generic.GenericController;
 import com.cdsi.backend.inve.models.entity.Arinme1;
 import com.cdsi.backend.inve.models.entity.Arinme1PK;
 import com.cdsi.backend.inve.models.services.IArinme1Service;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -17,32 +16,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/arinme1")
 public class Arinme1Controller extends GenericController {
     @Autowired
     private IArinme1Service arinme1Service;
 
-    @PostMapping("/id")
-    public ResponseEntity<ResponseRest> buscarId(@RequestBody Arinme1PK arinme1PK, BindingResult result){
-        if (result.hasErrors()){
-            return super.getErrorRequest();
-        }
+    @GetMapping("/id")
+    public ResponseEntity<ResponseRest> buscarId(@RequestParam String cia,@RequestParam String bodega,@RequestParam String trans,@RequestParam String docu){        
         try{
+        	Arinme1PK arinme1PK = new Arinme1PK(cia, bodega, trans, docu);
             Object obj = this.arinme1Service.buscarId(arinme1PK);
             if (obj != null){
                 return super.getOKConsultaRequest(obj);
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+            System.out.println(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
 
     }
-    
-    @PostMapping
+    //METODO QUE NOS PERMITE GURADAR
+    @PostMapping("/save")
     public ResponseEntity<ResponseRest> guardar(@RequestBody Arinme1 arinme1, BindingResult result){
     	if(result.hasErrors()) {
     		return super.getErrorRequest();
@@ -60,7 +56,7 @@ public class Arinme1Controller extends GenericController {
     	    	return super.duplicadoRegsitrarRequest(obj);
     	    }
     	}catch(Exception e) {
-    		log.error(e.getMessage());
+    		System.out.println(e.getMessage());
     		return super.getBadRequest(e.getMessage());
     	}
     	
@@ -84,7 +80,7 @@ public class Arinme1Controller extends GenericController {
     	    	return super.getDatosNoValidoRequest();
     	    }
     	}catch(Exception e) {
-    		log.error(e.getMessage());
+    		System.out.println(e.getMessage());
     		return super.getBadRequest(e.getMessage());
     	}
     	
@@ -99,7 +95,7 @@ public class Arinme1Controller extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+            System.out.println(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
 

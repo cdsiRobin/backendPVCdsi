@@ -2,7 +2,6 @@ package com.cdsi.backend.inve.models.services.impl;
 
 import com.cdsi.backend.inve.models.dao.IArpffeRepo;
 import com.cdsi.backend.inve.models.entity.Arpffe;
-import com.cdsi.backend.inve.models.entity.ArpffePK;
 import com.cdsi.backend.inve.models.services.IArpffeService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 @Service
 public class ArpffeServiceImple implements IArpffeService {
 
@@ -20,8 +21,8 @@ public class ArpffeServiceImple implements IArpffeService {
     private IArpffeRepo arpffeRepo;
 
     @Override
-    public Arpffe buscarId(ArpffePK arpffePK) {
-        return this.arpffeRepo.buscarId(arpffePK.getNoCia(),arpffePK.getBodega(),arpffePK.getNoGuia());
+    public Arpffe buscarId(String cia, String bodega,String guia) {
+        return this.arpffeRepo.buscarId(cia,bodega,guia);
     }
 
     @Override
@@ -40,6 +41,7 @@ public class ArpffeServiceImple implements IArpffeService {
     }
 
     @Override
+    @Transactional
     public Arpffe save(Arpffe arpffe) throws ServiceException {
         return this.arpffeRepo.save(arpffe);
     }
