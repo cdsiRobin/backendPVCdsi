@@ -2,10 +2,8 @@ package com.cdsi.backend.inve.controllers;
 
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
-import com.cdsi.backend.inve.models.entity.ArpffePK;
+import com.cdsi.backend.inve.models.entity.Arpffe;
 import com.cdsi.backend.inve.models.services.IArpffeService;
-
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -17,14 +15,31 @@ public class ArpffeController extends GenericController {
 
     @Autowired
     private IArpffeService iArpffeService;
-
-    @PostMapping("/id")
-    public ResponseEntity<ResponseRest> buscarId(@RequestBody ArpffePK arpffePK, BindingResult result){
+    
+    //GUARDAMOS LA GUIA DE REMISION
+    @PostMapping("/save")
+    public ResponseEntity<ResponseRest> guardar(@RequestBody Arpffe arpffe, BindingResult result){
         if (result.hasErrors()){
-            return super.getErrorRequest();
+            return super.getBadRequest(result);
         }
+        try {
+            Object obj = this.iArpffeService.save(arpffe);
+            if (obj != null){
+                return super.getOKRegistroRequest(obj);
+            }
+            return super.getBadIdRequest();
+        }catch (Exception e){
+        	System.out.println(e.getMessage());
+            return super.getBadRequest(e.getMessage());
+        }
+
+    }
+
+    //BUSCAMOS LA GUIA REMISION
+    @GetMapping("/id")
+    public ResponseEntity<ResponseRest> buscarId(@RequestParam String cia,@RequestParam String bodega,@RequestParam String guia){        
         try{
-            Object obj = this.iArpffeService.buscarId(arpffePK);
+            Object obj = this.iArpffeService.buscarId(cia,bodega,guia);
             if (obj != null){
                 return super.getOKConsultaRequest(obj);
             }
@@ -46,7 +61,7 @@ public class ArpffeController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            System.out.println(e.getMessage());
+        	System.out.println(e.getMessage());
             return super.getErrorRequest();
         }
 

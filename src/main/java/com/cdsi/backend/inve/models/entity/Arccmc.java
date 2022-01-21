@@ -20,7 +20,7 @@ public class Arccmc implements Serializable {
 	@Size(min = 1, max=200)
 	private String nombre;
 	
-	@Size(min = 1, max=200)
+	@Size(min = 0, max=200)
 	private String direccion;
 	
 	@Size(min = 1, max=12)

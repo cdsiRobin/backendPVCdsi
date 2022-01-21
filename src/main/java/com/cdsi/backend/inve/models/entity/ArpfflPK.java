@@ -16,7 +16,7 @@ public class ArpfflPK implements Serializable {
     private String noGuia;
 
     @Column(name = "NO_ARTI")
-    private String noArti;
+    private String noArti;        
 
     public ArpfflPK() {
     }

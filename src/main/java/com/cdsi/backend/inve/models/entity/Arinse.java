@@ -5,10 +5,6 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-/**
- *
- * @author user
- */
 @Entity
 @Table(name = "ARINSE")
 public class Arinse implements Serializable {

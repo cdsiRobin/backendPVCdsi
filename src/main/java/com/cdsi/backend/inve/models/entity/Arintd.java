@@ -92,18 +92,7 @@ public class Arintd implements Serializable {
     private String indExportacion;
     @Column(name = "IND_VTA_ANTICIPADA")
     private String indVtaAnticipada;
-    @Column(name = "CTA_DEBE_MN")
-    private String ctaDebeMn;
-    @Column(name = "CTA_HABER_MN")
-    private String ctaHaberMn;
-    @Column(name = "CTA_DEBE_ME")
-    private String ctaDebeMe;
-    @Column(name = "CTA_HABER_ME")
-    private String ctaHaberMe;
-    @Column(name = "TRANS_REF")
-    private String transRef;
-    @Column(name = "TABLA")
-    private String tabla;
+    
     @Column(name = "TIPO_DEPEND1")
     private String tipoDepend1;
     @Column(name = "TIPO_TRAN_AUTO")
@@ -479,54 +468,6 @@ public class Arintd implements Serializable {
 
     public void setIndVtaAnticipada(String indVtaAnticipada) {
         this.indVtaAnticipada = indVtaAnticipada;
-    }
-
-    public String getCtaDebeMn() {
-        return ctaDebeMn;
-    }
-
-    public void setCtaDebeMn(String ctaDebeMn) {
-        this.ctaDebeMn = ctaDebeMn;
-    }
-
-    public String getCtaHaberMn() {
-        return ctaHaberMn;
-    }
-
-    public void setCtaHaberMn(String ctaHaberMn) {
-        this.ctaHaberMn = ctaHaberMn;
-    }
-
-    public String getCtaDebeMe() {
-        return ctaDebeMe;
-    }
-
-    public void setCtaDebeMe(String ctaDebeMe) {
-        this.ctaDebeMe = ctaDebeMe;
-    }
-
-    public String getCtaHaberMe() {
-        return ctaHaberMe;
-    }
-
-    public void setCtaHaberMe(String ctaHaberMe) {
-        this.ctaHaberMe = ctaHaberMe;
-    }
-
-    public String getTransRef() {
-        return transRef;
-    }
-
-    public void setTransRef(String transRef) {
-        this.transRef = transRef;
-    }
-
-    public String getTabla() {
-        return tabla;
-    }
-
-    public void setTabla(String tabla) {
-        this.tabla = tabla;
     }
 
     public String getTipoDepend1() {

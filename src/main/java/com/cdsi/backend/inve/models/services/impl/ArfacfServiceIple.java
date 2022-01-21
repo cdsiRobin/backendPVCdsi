@@ -22,6 +22,32 @@ public class ArfacfServiceIple implements IArfacfService {
     public Arfacf buscarId(ArfacfPK arfacfPK) throws ServiceException {
         return this.arfacfRepo.buscarId(arfacfPK.getNoCia(),arfacfPK.getCentro());
     }
+    
+    @Override
+	public Arfacf ingrementarCorreFicta(Arfacf arfacf) throws ServiceException {
+		Arfacf objA = new Arfacf();
+		objA.setArfacfPK(arfacf.getArfacfPK());
+		objA.setDescripcion(arfacf.getDescripcion());
+		objA.setTransPtoVentaPed(arfacf.getTransPtoVentaPed());
+		objA.setTransPtoVentaCaja(arfacf.getTransPtoVentaCaja());
+		objA.setTransPtoVentaCxc(arfacf.getTransPtoVentaCxc());
+		objA.setTipoPrecioPven(arfacf.getTipoPrecioPven());
+		objA.setSerieGr(arfacf.getSerieGr());		
+		Long correFicta = arfacf.getCorrelFict() + 1;
+		objA.setCorrelFict(correFicta);
+		objA.setSerieFact(arfacf.getSerieFact());
+		objA.setCentroCosto(arfacf.getCentroCosto());
+		objA.setTransPtoVentaCons(arfacf.getTransPtoVentaCons());
+		objA.setTransPtoVentaConv(arfacf.getTransPtoVentaConv());
+		objA.setIndPvent(arfacf.getIndPvent());
+		objA.setTransVentaCxc(arfacf.getTransVentaCxc());
+		objA.setSeriePtoVentaCxc(arfacf.getSeriePtoVentaCxc());
+		objA.setSeriePtoVentaTeso(arfacf.getSeriePtoVentaTeso());
+		objA.setLibreria(arfacf.getLibreria());
+		objA.setOnLine(arfacf.getOnLine());
+		
+		return this.arfacfRepo.save(objA);
+	}
 
     @Override
     public Arfacf findById(Long id) throws ServiceException {
@@ -54,4 +80,6 @@ public class ArfacfServiceIple implements IArfacfService {
         Page<Arfacf> arfacfPage = this.arfacfRepo.pageCia(cia,pageableRequest);
         return arfacfPage;
     }
+
+	
 }

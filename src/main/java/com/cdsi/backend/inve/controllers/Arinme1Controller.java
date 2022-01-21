@@ -22,13 +22,10 @@ public class Arinme1Controller extends GenericController {
     @Autowired
     private IArinme1Service arinme1Service;
 
-    // METODO QUE NOS PERMITE BUSCAR POR CLAVE PRIMARIA
-    @PostMapping("/id")
-    public ResponseEntity<ResponseRest> buscarId(@RequestBody Arinme1PK arinme1PK, BindingResult result){
-        if (result.hasErrors()){
-            return super.getErrorRequest();
-        }
+   @GetMapping("/id")
+    public ResponseEntity<ResponseRest> buscarId(@RequestParam String cia,@RequestParam String bodega,@RequestParam String trans,@RequestParam String docu){
         try{
+        	Arinme1PK arinme1PK = new Arinme1PK(cia, bodega, trans, docu);
             Object obj = this.arinme1Service.buscarId(arinme1PK);
             if (obj != null){
                 return super.getOKConsultaRequest(obj);
@@ -41,8 +38,8 @@ public class Arinme1Controller extends GenericController {
 
     }
 
-    //METODO QUE NOS PERMITE GUARDAR
-    @PostMapping
+    //METODO QUE NOS PERMITE GURADAR
+    @PostMapping("/save")
     public ResponseEntity<ResponseRest> guardar(@RequestBody Arinme1 arinme1, BindingResult result){
     	if(result.hasErrors()) {
     		return super.getErrorRequest();
@@ -84,7 +81,7 @@ public class Arinme1Controller extends GenericController {
     	    	return super.getDatosNoValidoRequest();
     	    }
     	}catch(Exception e) {
-            System.out.println(e.getMessage());
+    		System.out.println(e.getMessage());
     		return super.getBadRequest(e.getMessage());
     	}
     	

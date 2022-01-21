@@ -2,21 +2,38 @@ package com.cdsi.backend.inve.controllers;
 
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
+import com.cdsi.backend.inve.models.entity.Arfacf;
 import com.cdsi.backend.inve.models.entity.ArfacfPK;
 import com.cdsi.backend.inve.models.services.IArfacfService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/arfacf")
 public class ArfacfController extends GenericController {
 
     @Autowired
     private IArfacfService arfacfService;
+    
+    @PutMapping("/update")
+    public ResponseEntity<ResponseRest> buscarId(@RequestBody Arfacf arfacf, BindingResult result){
+        if (result.hasErrors()){
+            return super.getErrorRequest();
+        }
+        try{
+            Object obj = this.arfacfService.ingrementarCorreFicta(arfacf);
+            if (obj != null){
+                return super.getUpdateRegistroRequest(obj);
+            }
+            return super.getBadIdRequest();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return super.getBadRequest(e.getMessage());
+        }
+
+    }
 
     @PostMapping("/id")
     public ResponseEntity<ResponseRest> buscarId(@RequestBody ArfacfPK arfacfPK, BindingResult result){
@@ -30,7 +47,7 @@ public class ArfacfController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+            System.out.println(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
 
@@ -46,7 +63,7 @@ public class ArfacfController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-            log.error(e.getMessage());
+        	System.out.println(e.getMessage());
             return  super.getBadRequest(e.getMessage());
         }
 
