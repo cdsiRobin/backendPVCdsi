@@ -106,7 +106,7 @@ public class Arinbo1 implements Serializable {
 
 	@JoinColumns({
 			@JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
-			@JoinColumn(name = "GRUPO", referencedColumnName = "GRUPO")})
+			@JoinColumn(name = "GRUPO", referencedColumnName = "GRUPO", insertable = false, updatable = false)})
 	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	private Aringr aringr;
 
