@@ -2,15 +2,11 @@ package com.cdsi.backend.inve.models.entity;
 
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlTransient;
+
 
 @Entity
 @Table(name = "ARINGR")
@@ -29,10 +25,10 @@ public class Aringr implements Serializable {
     private String estado;
     @Column(name = "IND_CBARRA")
     private String indCbarra;
-
+    /*
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "aringr", fetch = FetchType.EAGER)
     private List<Arinbo1> arinbo1List;
-
+    */
     public Aringr() {
     }
 
@@ -91,7 +87,7 @@ public class Aringr implements Serializable {
     public void setIndCbarra(String indCbarra) {
         this.indCbarra = indCbarra;
     }
-
+    /*
     @XmlTransient
     public List<Arinbo1> getArinbo1List() {
         return arinbo1List;
@@ -100,7 +96,7 @@ public class Aringr implements Serializable {
     public void setArinbo1List(List<Arinbo1> arinbo1List) {
         this.arinbo1List = arinbo1List;
     }
-
+    */
     @Override
     public int hashCode() {
         int hash = 0;

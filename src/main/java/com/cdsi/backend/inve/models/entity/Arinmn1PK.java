@@ -5,29 +5,21 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-/**
- *
- * @author user
- */
 @Embeddable
 public class Arinmn1PK implements Serializable {
 
     @Basic(optional = false)
     @Column(name = "NO_CIA")
     private String noCia;
-    
     @Basic(optional = false)
     @Column(name = "BODEGA")
     private String bodega;
-    
     @Basic(optional = false)
     @Column(name = "NO_ARTI")
     private String noArti;
-    
     @Basic(optional = false)
     @Column(name = "TIPO_DOC")
     private String tipoDoc;
-    
     @Basic(optional = false)
     @Column(name = "NO_DOCU")
     private String noDocu;

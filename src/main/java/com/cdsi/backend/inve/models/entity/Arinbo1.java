@@ -103,13 +103,13 @@ public class Arinbo1 implements Serializable {
 
 	@Column(name = "IND_CIERRE")
 	private String indCierre;
-
+    /*
 	@JoinColumns({
 			@JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
 			@JoinColumn(name = "GRUPO", referencedColumnName = "GRUPO")})
 	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	private Aringr aringr;
-
+    */
 	public Arinbo1() {
 	}
 
@@ -448,7 +448,7 @@ public class Arinbo1 implements Serializable {
 	public void setIndCierre(String indCierre) {
 		this.indCierre = indCierre;
 	}
-
+    /*
 	public Aringr getAringr() {
 		return aringr;
 	}
@@ -456,7 +456,7 @@ public class Arinbo1 implements Serializable {
 	public void setAringr(Aringr aringr) {
 		this.aringr = aringr;
 	}
-
+    */
 	@Override
 	public int hashCode() {
 		int hash = 0;

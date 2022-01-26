@@ -13,4 +13,6 @@ public interface IArinme1Service extends IGenericService<Arinme1> {
 
     //VAMOS A TRAER PAGINADO TODAS LAS TRANSACCIONES POR COMPAÑIA
     Page<Arinme1> buscarCia(int limit, int page,String cia) throws ServiceException;
+    
+    void guardarArinmn1(Arinme1 a) throws ServiceException;
 }

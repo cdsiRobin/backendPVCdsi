@@ -55,9 +55,7 @@ public class Arinml1 implements Serializable {
     @Column(name = "NO_REQUI")
     private String noRequi;
     @Column(name = "COSTO_UNI")
-    private BigDecimal costoUni;
-    
-    
+    private BigDecimal costoUni;    
     @Column(name = "UNIDAD")
     private String unidad;
     @Column(name = "CONSUMO")

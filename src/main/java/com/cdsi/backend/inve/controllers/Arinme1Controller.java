@@ -22,7 +22,7 @@ public class Arinme1Controller extends GenericController {
     @Autowired
     private IArinme1Service arinme1Service;
 
-   @GetMapping("/id")
+    @GetMapping("/id")
     public ResponseEntity<ResponseRest> buscarId(@RequestParam String cia,@RequestParam String bodega,@RequestParam String trans,@RequestParam String docu){
         try{
         	Arinme1PK arinme1PK = new Arinme1PK(cia, bodega, trans, docu);
@@ -44,18 +44,13 @@ public class Arinme1Controller extends GenericController {
     	if(result.hasErrors()) {
     		return super.getErrorRequest();
     	}
-    	try {
-    	    /*Object obj = this.arinme1Service.buscarId(arinme1.getArinme1PK());
-    	    if(obj == null) {*/
+    	try {    	    
     	    	Object obj2 = this.arinme1Service.save(arinme1);
     	    	if(obj2 != null) {
+    	    		this.arinme1Service.guardarArinmn1(arinme1);
     	    		return super.getOKRegistroRequest(obj2);
     	    	}
-    	    	return super.getBadIdRequest();
-    	    	
-    	    /*}else {
-    	    	return super.duplicadoRegsitrarRequest(obj);
-    	    }*/
+    	    	return super.getBadIdRequest();    	    	
     	}catch(Exception e) {
     		System.out.println(e.getMessage());
     		return super.getBadRequest(e.getMessage());

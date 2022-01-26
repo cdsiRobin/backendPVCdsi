@@ -14,7 +14,7 @@ import com.cdsi.backend.inve.models.entity.Arinbo1PK;
 public interface IArinbo1Dao extends PagingAndSortingRepository<Arinbo1, Arinbo1PK> {
 	
 	//VAMOS A TRAER TODAS LAS SUB LINEAS DE UN ARTICULO
-	@Query("SELECT a FROM Arinbo1 a WHERE a.arinbo1PK.cia = :cia")
+	@Query("SELECT a FROM Arinbo1 a WHERE a.arinbo1PK.noCia = :cia")
 	List<Arinbo1> findAll(@Param("cia") String cia);
 
 	// METODO QUE NOS DEVOLVERA UN ALMACEN

@@ -1,8 +1,6 @@
 package com.cdsi.backend.inve.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +13,6 @@ import com.cdsi.backend.inve.models.services.IVArinda1PSService;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/vaps")
 public class VArinda1PSController extends GenericController {
@@ -32,7 +29,7 @@ public class VArinda1PSController extends GenericController {
 	           }
 	           return super.getBadIdRequest();
 	        }catch (Exception e){
-	        	log.error(e.getMessage());
+	        	System.out.println(e.getMessage());
 	            return super.getBadRequest(e.getMessage());
 	        }
 	}
@@ -46,7 +43,7 @@ public class VArinda1PSController extends GenericController {
 	           }
 	           return super.getBadIdRequest();
 	        }catch (Exception e){
-	        	log.error(e.getMessage());
+	        	System.out.println(e.getMessage());
 	            return super.getBadRequest(e.getMessage());
 	        }
 	}
