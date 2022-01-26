@@ -5,10 +5,6 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -106,7 +102,7 @@ public class Arinbo1 implements Serializable {
     /*
 	@JoinColumns({
 			@JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
-			@JoinColumn(name = "GRUPO", referencedColumnName = "GRUPO")})
+			@JoinColumn(name = "GRUPO", referencedColumnName = "GRUPO", insertable = false, updatable = false)})
 	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	private Aringr aringr;
     */
