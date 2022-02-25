@@ -5,14 +5,12 @@ import com.cdsi.backend.inve.models.entity.Transaccion;
 import com.cdsi.backend.inve.models.services.ITransaccionService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Slf4j
 @Service
 public class TransaccionServiceImple implements ITransaccionService {
     @Autowired
@@ -23,7 +21,7 @@ public class TransaccionServiceImple implements ITransaccionService {
         try {
             return this.iTransaccionRepo.findByCiaAndUser(cia,usuario);
         }catch (Exception e){
-        	log.error(e.getMessage());
+        	System.out.println(e.getMessage());
         }
         return null;
     }

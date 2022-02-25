@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,15 @@ public class ArccvcController {
 
 	@Autowired
 	private IArccvcService service;
+	
+	@PutMapping
+	public ResponseEntity<Arccvc> modificar(@RequestBody Arccvc arccvc) {		
+		Arccvc obj = this.service.modificar(arccvc);
+		if(obj != null ) {
+			return new ResponseEntity<Arccvc>(obj, HttpStatus.OK);			
+		}
+		throw new ModeloNotFoundException("MODIFICAR : ");
+	}
 	
 	@GetMapping("/list/{cia}")
 	public ResponseEntity<List<Arccvc>> listaVendedores(@PathVariable("cia") String cia) {

@@ -24,15 +24,13 @@ public class VendedorDTO {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
+	
 	public String getCodEmp() {
 		return codEmp;
 	}
 	public void setCodEmp(String codEmp) {
 		this.codEmp = codEmp;
 	}
-	
-	
-	
 	
 	
 }

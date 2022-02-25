@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/trans")
 public class TransaccionController extends GenericController {
@@ -25,7 +24,7 @@ public class TransaccionController extends GenericController {
             }
             return super.getNotFoundRequest();
         }catch (Exception e){
-        	log.error(e.getMessage());
+        	System.out.println(e.getMessage());
             return super.getErrorRequest();
         }
     }

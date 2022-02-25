@@ -12,4 +12,6 @@ public interface IArccvcService {
 	Arccvc traeVendedor(VendedorDTO dto);
 	
 	VendedorDTO traeEmpelado(String cia, String emp);
+	// modificar
+	Arccvc modificar(Arccvc arccvc);
 }

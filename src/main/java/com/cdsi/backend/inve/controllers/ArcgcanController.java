@@ -6,7 +6,6 @@ import com.cdsi.backend.inve.models.entity.Arcgcan;
 import com.cdsi.backend.inve.models.entity.ArcgcanPK;
 import com.cdsi.backend.inve.models.services.IArcgcanService;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/trans")
 public class ArcgcanController extends GenericController {
@@ -36,7 +34,7 @@ public class ArcgcanController extends GenericController {
             return super.getBadIdRequest();
         }catch (Exception e){
         	
-            log.error(e.getMessage());
+            System.out.println(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
     }
@@ -54,7 +52,7 @@ public class ArcgcanController extends GenericController {
             }
             return super.getBadIdRequest();
         }catch (Exception e){
-        	log.error(e.getMessage());
+        	System.out.println(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
     }

@@ -35,10 +35,8 @@ public class ArcaaccajController {
 	@PostMapping
 	public ResponseEntity<Void> registrar(@Valid @RequestBody Arcaaccaj caja) throws Exception {
 		
-		
 		Arcaaccaj obj = service.aperturaCaja(caja);
 
-		// localhost:8080/pacientes/5
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getIdArcaja())
 				.toUri();
 		return ResponseEntity.created(location).build();
@@ -87,9 +85,7 @@ public class ArcaaccajController {
 	public ResponseEntity<List<Arcaaccaj>> totalCajas(@RequestBody DatosCajaDTO dto) throws Exception{
 
 		List<Arcaaccaj> obj = service.totalCajas(dto);
-		/*if (obj == new ArrayList<Arcaaccaj>()) {
-			throw new ModeloNotFoundException("CAJA EXISTEN CAJAS ABIERTAS EN LAS FECHAS "+ dto.getFecha()+" - "+ dto.getFechaSgte());
-		}*/
+		
 		return new ResponseEntity<List<Arcaaccaj>>(obj, HttpStatus.OK);
 	}
 	@PostMapping("/eliminar")

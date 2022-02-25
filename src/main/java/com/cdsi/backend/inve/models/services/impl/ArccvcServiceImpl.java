@@ -31,7 +31,6 @@ public class ArccvcServiceImpl implements IArccvcService {
 	@Override
 	public VendedorDTO traeEmpelado(String cia, String emp) {
 		// TODO Auto-generated method stub
-	
 		VendedorDTO v = new VendedorDTO();
 		 dao.listaEmpleado(cia, emp).forEach(x->{
 			v.setCia(String.valueOf(x[0]));
@@ -40,6 +39,12 @@ public class ArccvcServiceImpl implements IArccvcService {
 		});
 		
 		return v;
+	}
+
+	@Override
+	public Arccvc modificar(Arccvc arccvc) {
+		// TODO Auto-generated method stub
+		return this.dao.save(arccvc);
 	}	
 
 
