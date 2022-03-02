@@ -7,6 +7,8 @@ import com.cdsi.backend.inve.models.services.generic.IGenericService;
 import java.util.List;
 
 public interface IArpfoeService extends IGenericService<Arpfoe> {
+	
+	public List<Arpfoe> listarPedidosPV(String cia, String indPvent, String fec1, String fec2) throws ServiceException;
 
     public Arpfoe buscarId(String cia, String noOrden) throws ServiceException;
 

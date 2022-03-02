@@ -2,6 +2,9 @@ package com.cdsi.backend.inve.models.dao;
 
 import com.cdsi.backend.inve.models.entity.Arpfoe;
 import com.cdsi.backend.inve.models.entity.ArpfoePK;
+
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -11,6 +14,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IArpfoeRepo extends PagingAndSortingRepository<Arpfoe, ArpfoePK> {
+	
+	@Query("FROM Arpfoe a where a.arpfoePK.noCia = :cia AND a.indPvent = :indPvent "
+			+ "AND a.fRecepcion BETWEEN TO_DATE(:f1,'DD/MM/YYYY') and TO_DATE(:f2,'DD/MM/YYYY HH24:MI')" )
+    List<Arpfoe> listarCiaAndIndPvent(@Param("cia") String cia , @Param("indPvent") String indPvent,
+    		@Param("f1") String f1, @Param("f2") String f2);
 
     //METODO QUE NOS PERMITE OPTENER UN PEDIDO
     @Query("SELECT a FROM Arpfoe a where a.arpfoePK.noCia = :cia AND a.arpfoePK.noOrden = :noOrden")

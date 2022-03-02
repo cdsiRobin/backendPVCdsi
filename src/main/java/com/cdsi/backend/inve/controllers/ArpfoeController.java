@@ -17,6 +17,21 @@ public class ArpfoeController extends GenericController {
 
     @Autowired
     private IArpfoeService iArpfoeService;
+    
+    @GetMapping("/pv")
+    public ResponseEntity<ResponseRest> listarPV(@RequestParam String cia,@RequestParam String indPven,
+    		@RequestParam String fec1,@RequestParam String fec2){
+        try{
+            Object obj = this.iArpfoeService.listarPedidosPV(cia, indPven, fec1, fec2);
+            if (obj != null){
+                return super.getOKConsultaRequest(obj);
+            }
+            return super.getBadIdRequest();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return super.getErrorRequest();
+        }
+    }
 
     @PostMapping("/id")
     public ResponseEntity<ResponseRest> buscarId(@RequestBody ArpfoePK arpfoePK, BindingResult result){

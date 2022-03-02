@@ -111,4 +111,12 @@ public class ArpfoeServiceImple implements IArpfoeService {
         Page<Arpfoe> arpfoePage = this.iArpfoeRepo.pageCia(pageableRest,cia);
         return arpfoePage;
     }
+
+    @Override
+	public List<Arpfoe> listarPedidosPV(String cia, String indPvent, String fec1, String fec2) throws ServiceException {
+		// TODO Auto-generated method stub
+		return this.iArpfoeRepo.listarCiaAndIndPvent(cia, indPvent, fec1, fec2);
+	}
+
+	
 }
