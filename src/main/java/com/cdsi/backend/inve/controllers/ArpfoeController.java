@@ -33,13 +33,11 @@ public class ArpfoeController extends GenericController {
         }
     }
 
-    @PostMapping("/id")
-    public ResponseEntity<ResponseRest> buscarId(@RequestBody ArpfoePK arpfoePK, BindingResult result){
-        if (result.hasErrors()){
-            return super.getErrorRequest();
-        }
+    @GetMapping("/id")
+    public ResponseEntity<ResponseRest> buscarId(@RequestParam String cia, @RequestParam String cod){
+        
         try{
-            Object obj = this.iArpfoeService.buscarId(arpfoePK.getNoCia(), arpfoePK.getNoOrden());
+            Object obj = this.iArpfoeService.buscarId(cia, cod);
             if (obj != null){
                 return super.getOKConsultaRequest(obj);
             }

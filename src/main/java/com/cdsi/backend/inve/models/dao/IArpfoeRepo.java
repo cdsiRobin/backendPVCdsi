@@ -16,7 +16,8 @@ import org.springframework.stereotype.Repository;
 public interface IArpfoeRepo extends PagingAndSortingRepository<Arpfoe, ArpfoePK> {
 	
 	@Query("FROM Arpfoe a where a.arpfoePK.noCia = :cia AND a.indPvent = :indPvent "
-			+ "AND a.fRecepcion BETWEEN TO_DATE(:f1,'DD/MM/YYYY') and TO_DATE(:f2,'DD/MM/YYYY HH24:MI')" )
+			+ "AND a.fRecepcion BETWEEN TO_DATE(:f1,'DD/MM/YYYY') and TO_DATE(:f2,'DD/MM/YYYY HH24:MI')"
+			+ " ORDER BY a.fRecepcion DESC" )
     List<Arpfoe> listarCiaAndIndPvent(@Param("cia") String cia , @Param("indPvent") String indPvent,
     		@Param("f1") String f1, @Param("f2") String f2);
 
