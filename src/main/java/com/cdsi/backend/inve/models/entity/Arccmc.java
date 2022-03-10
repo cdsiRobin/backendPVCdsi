@@ -23,9 +23,11 @@ public class Arccmc implements Serializable {
 	@Size(min = 0, max=200)
 	private String direccion;
 	
-	@Size(min = 1, max=12)
 	private String ruc;
 	
+	@Column(name ="NU_DOCUMENTO")
+	private String dni;
+
 	@Column(name ="TELEFONO1")
 	private String telefono;
 	
@@ -56,6 +58,14 @@ public class Arccmc implements Serializable {
 	@JsonIgnoreProperties({"arccmc"})
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "arccmc", cascade = CascadeType.ALL)
 	private List<ArcctdaEntity> arcctdaEntity;
+	
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
 
 	public IdArccmc getObjIdArc() {
 		return objIdArc;

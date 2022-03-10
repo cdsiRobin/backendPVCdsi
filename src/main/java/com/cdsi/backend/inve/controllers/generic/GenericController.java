@@ -172,7 +172,7 @@ public class GenericController {
                 ).build();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseRest);
     }
-
+    
     protected ResponseEntity<ResponseRest> getErrorRequest() {
         ResponseRest responseRest = ResponseRest.builder()
                 .apiVerision(apiVersion)
@@ -184,6 +184,22 @@ public class GenericController {
                                 .error(HttpStatus.INTERNAL_SERVER_ERROR.name())
                                 .build()
                 ).build();
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseRest);
+    }
+
+    protected ResponseEntity<ResponseRest> getErrorRequestMessage(Object obj) {
+        ResponseRest responseRest = ResponseRest.builder()
+                .apiVerision(apiVersion)
+                .estado(
+                        ResponseEstado.builder()
+                                .codigo(ResponseEnum.ERROR)
+                                .mensaje(ResponseContants.MSG_ERR_GENE)
+                                .estado(HttpStatus.INTERNAL_SERVER_ERROR.value() )
+                                .error(HttpStatus.INTERNAL_SERVER_ERROR.name())
+                                .build()
+                )
+                .resultado(obj)
+                .build();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseRest);
     }
 }
