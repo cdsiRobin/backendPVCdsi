@@ -17,7 +17,7 @@ public class ITapUsuPvenServiceImpl implements ITapUsuPvenService {
 	private ITapUsuPvenDao usu;
 	
 	@Override
-	public List<TapUsuPven> listarPorId(String cia, String emp) {
+	public TapUsuPven listarPorId(String cia, String emp) {
 		// TODO Auto-generated method stub
 		
 		return usu.listarPorId(cia, emp);

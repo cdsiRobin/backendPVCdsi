@@ -23,15 +23,14 @@ public class TapUsuPvenController {
 	private ITapUsuPvenService service;
 	
 	@GetMapping("/usuario/{cia}/{emp}")
-	public ResponseEntity<List<TapUsuPven>> listarPorId(@PathVariable("cia") String cia,@PathVariable("emp") String emp) throws Exception{
+	public ResponseEntity<TapUsuPven> listarPorId(@PathVariable("cia") String cia,@PathVariable("emp") String emp) throws Exception{
 		
-		List<TapUsuPven> obj = new ArrayList<>();
-		obj = service.listarPorId(cia,emp);
+		// List<TapUsuPven> obj = new ArrayList<>();
+		TapUsuPven obj = service.listarPorId(cia,emp);
 		if(obj == null ) {
 			throw new ModeloNotFoundException("ID NO ENCONTRADO " + emp);
-		}
-		
-		return new ResponseEntity<List<TapUsuPven>>(obj, HttpStatus.OK);
+		}		
+		return new ResponseEntity<TapUsuPven>(obj, HttpStatus.OK);
 	}
 	@GetMapping("/cajeros/{cia}/{centro}")
 	public ResponseEntity<List<TapUsuPven>> listaCajeros(@PathVariable("cia") String cia,@PathVariable("centro") String centro) throws Exception{

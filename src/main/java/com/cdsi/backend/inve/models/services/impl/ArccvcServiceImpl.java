@@ -25,7 +25,7 @@ public class ArccvcServiceImpl implements IArccvcService {
 	@Override
 	public Arccvc traeVendedor(VendedorDTO dto) {
 		// TODO Auto-generated method stub
-		return dao.traeVendedor(dto.getCia(),dto.getCodigo(),dto.getPass());
+		return dao.traeVendedor(dto.getCodigo(),dto.getPass());
 	}
 
 	@Override
