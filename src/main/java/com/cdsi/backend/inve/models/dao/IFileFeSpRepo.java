@@ -11,7 +11,7 @@ import com.cdsi.backend.inve.models.entity.Arobtt;
 public interface IFileFeSpRepo extends CrudRepository<Arobtt, Long> {
 	
 	@Procedure(name = "crear_file_plano_fe")
-    String respestaCrearFilePlanoFe(@Param("PCIA") String PCIA, @Param("PCOD_SUC") String PCOD_SUC, @Param("PTIP_DOCU") String PTIP_DOCU,
-    		 @Param("PNRO_DOCU") String PNRO_DOCU);
+    String respestaCrearFilePlanoFe(@Param("PCIA") String PCIA, @Param("PCOD_SUC") String PCOD_SUC, 
+    		@Param("PTIP_DOCU") String PTIP_DOCU, @Param("PNRO_DOCU") String PNRO_DOCU);
 
 }

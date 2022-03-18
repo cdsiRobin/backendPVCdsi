@@ -6,12 +6,14 @@ public class VendedorDTO {
 	private String codigo;
 	private String codEmp;
 	private String pass;
+	
 	public String getCia() {
 		return cia;
 	}
 	public void setCia(String cia) {
 		this.cia = cia;
 	}
+	
 	public String getCodigo() {
 		return codigo;
 	}
