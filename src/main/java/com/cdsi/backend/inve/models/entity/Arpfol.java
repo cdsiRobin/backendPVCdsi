@@ -87,7 +87,18 @@ public class Arpfol implements Serializable {
     @Column(name = "PRECIO_UNI")
     private BigDecimal precioUni;  
     
-    public String getTipoBs() {
+    @Column(name = "P_DSCTO3")
+    private BigDecimal dscto;
+    
+    public BigDecimal getDscto() {
+		return dscto;
+	}
+
+	public void setDscto(BigDecimal dscto) {
+		this.dscto = dscto;
+	}
+
+	public String getTipoBs() {
 		return tipoBs;
 	}
 
