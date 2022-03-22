@@ -16,7 +16,7 @@ public class Arfamc implements Serializable {
 	@Column(name="NO_CIA")
 	private String cia;
 	
-	@Size(min=1, max=30, message="La longuitud del nombre de la compañia es 30.")
+	@Column(name="RAZON_SOCIAL")
 	private String nombre;
 	
 	@Column(name="NOMBRE_ANO")
