@@ -18,13 +18,19 @@ public class ArfamcServiceImpl implements IArfamcService {
 	@Override
 	public List<Arfamc> findAll() {
 		// TODO Auto-generated method stub
-		return arfamcDao.findAll();
+		return this.arfamcDao.findAll();
 	}
 
 	@Override
 	public Arfamc finById(String cia) {
 		// TODO Auto-generated method stub
-		return arfamcDao.findById(cia).orElse(null);
+		return this.arfamcDao.findById(cia).orElse(null);
+	}
+
+	@Override
+	public Arfamc actualizar(Arfamc a) {
+		// TODO Auto-generated method stub
+		return this.arfamcDao.save(a);
 	}
 
 }
