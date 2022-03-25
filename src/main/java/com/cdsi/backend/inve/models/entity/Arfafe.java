@@ -110,7 +110,7 @@ public class Arfafe implements Serializable {
     private String ANO_DOC;
     private BigDecimal VALOR_VENTA;
     private BigDecimal M_DSCTO_GLOBAL;
-    private Date FECHA_VENCE;
+    private String FECHA_VENCE;
     private String CODI_DEPA;
     private String CODI_PROV;
     private String CODI_DIST;
@@ -965,11 +965,11 @@ public class Arfafe implements Serializable {
         M_DSCTO_GLOBAL = m_DSCTO_GLOBAL;
     }
 
-    public Date getFECHA_VENCE() {
+    public String getFECHA_VENCE() {
         return FECHA_VENCE;
     }
 
-    public void setFECHA_VENCE(Date FECHA_VENCE) {
+    public void setFECHA_VENCE(String FECHA_VENCE) {
         this.FECHA_VENCE = FECHA_VENCE;
     }
 

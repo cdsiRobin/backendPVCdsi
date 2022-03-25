@@ -96,6 +96,7 @@ public class ArfafeController extends GenericController {
         try {
         	SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         	arfafe.setFECHA(sdf.format(Date.from(Instant.parse(arfafe.getFECHA()))));
+        	arfafe.setFECHA_VENCE(sdf.format(Date.from(Instant.parse(arfafe.getFECHA_VENCE()))));
             Object o = this.iArfafeService.save(arfafe);
             if (o != null){
                 return super.getOKRegistroRequest(o);

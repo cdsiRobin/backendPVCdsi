@@ -33,7 +33,7 @@ public class ArpfoeController extends GenericController {
         }
     }
 
-    @GetMapping("/id")
+    @PostMapping("/id")
     public ResponseEntity<ResponseRest> buscarId(@RequestParam String cia, @RequestParam String cod){
         
         try{
