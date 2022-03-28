@@ -10,4 +10,6 @@ public interface IArfamcService {
 	List<Arfamc> findAll();
 	
 	Arfamc finById(String cia);
+	
+	Arfamc actualizar(Arfamc a);
 }

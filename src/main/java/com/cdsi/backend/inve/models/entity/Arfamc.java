@@ -16,7 +16,7 @@ public class Arfamc implements Serializable {
 	@Column(name="NO_CIA")
 	private String cia;
 	
-	@Size(min=1, max=30, message="La longuitud del nombre de la compañia es 30.")
+	@Column(name="RAZON_SOCIAL")
 	private String nombre;
 	
 	@Column(name="NOMBRE_ANO")
@@ -24,18 +24,64 @@ public class Arfamc implements Serializable {
 	
 	@Column(name="NO_CLIENTE_ONLINE")
 	private String ruc;
-	/*
-	@Column(name="RAZON_SOCIAL")
-	private String razonSocial;
 	
+	@Column(name="EMAIL")
+	private String email;
+	
+	@Column(name="BANCO")
+	private String banco;
+		
 	@Column(name="CUENTA_SOL")
 	private String cuentaSol;
 	
 	@Column(name = "CUENTA_DOL")
 	private String cuentaDol;
-    */
+	
+	@Column(name="DESCRIPCION")
+	private String descripcion;
+    
+	public String getBanco() {
+		return banco;
+	}
+
+	public void setBanco(String banco) {
+		this.banco = banco;
+	}
+
+	public String getCuentaSol() {
+		return cuentaSol;
+	}
+
+	public void setCuentaSol(String cuentaSol) {
+		this.cuentaSol = cuentaSol;
+	}
+
+	public String getCuentaDol() {
+		return cuentaDol;
+	}
+
+	public void setCuentaDol(String cuentaDol) {
+		this.cuentaDol = cuentaDol;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
 	public String getCia() {
 		return cia;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void setCia(String cia) {
