@@ -15,6 +15,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class ArtsccbController extends GenericController {
     @Autowired
     private IArtsccbService service;
+    
+    //CONSULTA QUE NOS VA PERMITIR SABER QUE CAJA TIENE EL USUARIO
+    @GetMapping
+    public ResponseEntity<ResponseRest> cajaUsuario(@RequestParam String cia, @RequestParam String tipo ,@RequestParam String centro,@RequestParam String responsable) {
+        try{
+            Object obj = this.service.cajaUsuario(cia, tipo, centro, responsable);
+            if (obj != null){
+                return super.getOKConsultaRequest(obj);
+            }
+            return super.getBadIdRequest();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return super.getErrorRequest();
+        }
+    }
 
     // metodo que nos permite traer todos los datos de una caja
     @GetMapping("/caja")

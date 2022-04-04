@@ -68,14 +68,13 @@ public class Artsccb implements Serializable {
     private String indFacUni;
     @Column(name = "IND_PORC_DESC")
     private String indPorcDesc;
-
+    /*
     @JoinColumns({
         @JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
         @JoinColumn(name = "TIPO_CABA", referencedColumnName = "TIPO_CABA", insertable = false, updatable = false)})
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Artstcb artstcb;
+    */
 
-
-    
 }
 
