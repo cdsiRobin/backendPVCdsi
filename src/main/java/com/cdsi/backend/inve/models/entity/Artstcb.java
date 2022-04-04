@@ -1,4 +1,4 @@
-package com.cdsi.backend.inve.models;
+package com.cdsi.backend.inve.models.entity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -12,9 +12,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import javax.xml.bind.annotation.XmlTransient;
-
-import com.cdsi.backend.inve.models.entity.Artsccb;
-import com.cdsi.backend.inve.models.entity.ArtstcbPK;
 
 @Entity
 @Table(name = "ARTSTCB")

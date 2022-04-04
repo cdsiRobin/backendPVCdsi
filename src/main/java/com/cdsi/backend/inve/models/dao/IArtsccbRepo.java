@@ -1,7 +1,8 @@
 package com.cdsi.backend.inve.models.dao;
 
-import com.cdsi.backend.inve.models.ArtsccbPK;
 import com.cdsi.backend.inve.models.entity.Artsccb;
+import com.cdsi.backend.inve.models.entity.ArtsccbPK;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
