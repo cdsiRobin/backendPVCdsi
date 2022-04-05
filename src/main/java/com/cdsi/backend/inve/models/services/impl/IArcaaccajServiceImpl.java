@@ -2,6 +2,7 @@ package com.cdsi.backend.inve.models.services.impl;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,57 +24,54 @@ public class IArcaaccajServiceImpl implements IArcaaccajService {
 	@Override
 	public Arcaaccaj aperturaCaja(Arcaaccaj caja) throws Exception {
 
-
-		caja.getIdArcaja().setCod_aper(caj.codCaja(caja.getIdArcaja().getCia(), caja.getFecha()));
-
-		return caj.save(caja);
+		caja.getIdArcaja().setCodAper(this.caj.codigoAperturaCaja(caja.getIdArcaja().getCia(), caja.getFecha()));
+		return this.caj.save(caja);
 	}
 	@Override
 	public Arcaaccaj actualizaCaja(Arcaaccaj caja) throws Exception {
 		// TODO Auto-generated method stub
-		return caj.save(caja);
+		return this.caj.save(caja);
 	}
 	@Override
 	public Arcaaccaj buscarCaja(DatosCajaDTO dto) {
 		// TODO Auto-generated method stub
-		return caj.buscarCaja(dto.getCia(), dto.getCentro(), dto.getCaja(), dto.getCajera());
+		return this.caj.buscarCaja(dto.getCia(), dto.getCentro(), dto.getCaja(), dto.getCajera());
 	}
 	
 	@Override
 	public List<Arcaaccaj> totalCajas(DatosCajaDTO dto) {
 		// TODO Auto-generated method stub
-		return caj.totalCajas(dto.getCia(), dto.getCentro(),dto.getFecha(),dto.getFecha().plusDays(1));
+		return this.caj.totalCajas(dto.getCia(), dto.getCentro(),dto.getFecha(),dto.getFecha());
 	}
 
 	@Override
-	public String codCaja(String cia, LocalDateTime fecha) {
-
-		return caj.codCaja(cia, fecha);
+	public String codigoAperturaCaja(String cia, Date fecha) {
+		return this.caj.codigoAperturaCaja(cia, fecha);
 	}
 
 	@Override
 	public List<Arcaaccaj> caja(DatosCajaDTO dto) {
 		// TODO Auto-generated method stub
-		return caj.caja(dto.getCia(), dto.getCentro(), dto.getCajera());
+		return this.caj.caja(dto.getCia(), dto.getCentro(), dto.getCajera());
 	}
 
 	@Override
 	public Arcaaccaj findById(IdArcaaccaj id) {
 		// TODO Auto-generated method stub
-		return caj.findById(id).orElse(null);
+		return this.caj.findById(id).orElse(null);
 	}
 
 	@Override
 	public void eliminar(IdArcaaccaj id) throws Exception {
 		// TODO Auto-generated method stub
-		caj.deleteById(id);
+		this.caj.deleteById(id);
 	}
 
 	@Override
 	public List<CajaDTO> listaCajas(String cia, String centro) {
 		// TODO Auto-generated method stub
 		List<CajaDTO> dto = new ArrayList<>();
-		caj.listaCajas(cia, centro).forEach(x->{
+		this.caj.listaCajas(cia, centro).forEach(x->{
 			CajaDTO caja = new CajaDTO();
 			caja.setCodigo(String.valueOf(x[0]));
 			caja.setNombre(String.valueOf(x[1]));
@@ -83,6 +81,17 @@ public class IArcaaccajServiceImpl implements IArcaaccajService {
 		
 		return dto;
 	}
+	@Override
+	public Arcaaccaj buscarID(String cia, String centro, String caja, String cod) {
+		// TODO Auto-generated method stub
+		return this.caj.buscarID(cia,centro,caja,cod);
+	}
+	@Override
+	public List<Arcaaccaj> verificarCajaAbierta(String cia, String centro, String cajera, String estado, String fecha) {
+		// TODO Auto-generated method stub
+		return this.caj.verificarCajaAbierta(cia, centro, cajera, estado, fecha.concat(" 00:00"), fecha.concat(" 23:59"));
+	}
+	
 
 	
 
