@@ -21,7 +21,6 @@ import com.cdsi.backend.inve.models.entity.ArtstrdPVenPK;
 import com.cdsi.backend.inve.models.services.ArtstrdPVenService;
 import com.cdsi.backend.inve.models.services.IArtsoppService;
 import com.cdsi.backend.inve.models.services.IArtsttropiService;
-import com.cdsi.backend.inve.models.services.exception.ServiceException;
 
 @RestController
 @RequestMapping("/api/ArtstrdPven")
@@ -75,7 +74,7 @@ public class ArtstrdPVenController extends GenericController {
     	try {
     		Object o = this.serv1.listar(cia);
     		if(o != null) {
-    			return this.getOKRegistroRequest(o);
+    			return this.getOKConsultaRequest(o);
     		}
     		return super.getBadIdRequest();
 		} catch (Exception e) {
@@ -89,7 +88,7 @@ public class ArtstrdPVenController extends GenericController {
     	try {
     		Object o = this.serv2.listar(cia);
     		if(o != null) {
-    			return this.getOKRegistroRequest(o);
+    			return this.getOKConsultaRequest(o);
     		}
     		return super.getBadIdRequest();
 		} catch (Exception e) {
