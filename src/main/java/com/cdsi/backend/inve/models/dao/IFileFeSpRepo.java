@@ -1,5 +1,8 @@
 package com.cdsi.backend.inve.models.dao;
 
+import java.math.BigDecimal;
+import java.sql.Date;
+
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
