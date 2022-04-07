@@ -2,63 +2,69 @@ package com.cdsi.backend.inve.models.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+
 public class ArtsttropiPK implements Serializable {
 	
-	private String NO_CIA;
-	private String TIPO_M;
-	private String TIPO_OPER_ITEM;
-	private String COD_OPER_ITEM;
+	@Column(name = "NO_CIA")
+	private String noCia;
+	@Column(name = "TIPO_M")
+	private String tipoM;
+	@Column(name = "TIPO_OPER_ITEM")
+	private String tipoOperItem;
+	@Column(name = "COD_OPER_ITEM")
+	private String codOperItem;
 	
 	public ArtsttropiPK() {
 	}
-	
-	public ArtsttropiPK(String nO_CIA, String tIPO_M, String tIPO_OPER_ITEM, String cOD_OPER_ITEM) {
-		NO_CIA = nO_CIA;
-		TIPO_M = tIPO_M;
-		TIPO_OPER_ITEM = tIPO_OPER_ITEM;
-		COD_OPER_ITEM = cOD_OPER_ITEM;
+
+	public ArtsttropiPK(String noCia, String tipoM, String tipoOperItem, String codOperItem) {
+		this.noCia = noCia;
+		this.tipoM = tipoM;
+		this.tipoOperItem = tipoOperItem;
+		this.codOperItem = codOperItem;
 	}
 
-	public String getNO_CIA() {
-		return NO_CIA;
+	public String getNoCia() {
+		return noCia;
 	}
 
-	public void setNO_CIA(String nO_CIA) {
-		NO_CIA = nO_CIA;
+	public void setNoCia(String noCia) {
+		this.noCia = noCia;
 	}
 
-	public String getTIPO_M() {
-		return TIPO_M;
+	public String getTipoM() {
+		return tipoM;
 	}
 
-	public void setTIPO_M(String tIPO_M) {
-		TIPO_M = tIPO_M;
+	public void setTipoM(String tipoM) {
+		this.tipoM = tipoM;
 	}
 
-	public String getTIPO_OPER_ITEM() {
-		return TIPO_OPER_ITEM;
+	public String getTipoOperItem() {
+		return tipoOperItem;
 	}
 
-	public void setTIPO_OPER_ITEM(String tIPO_OPER_ITEM) {
-		TIPO_OPER_ITEM = tIPO_OPER_ITEM;
+	public void setTipoOperItem(String tipoOperItem) {
+		this.tipoOperItem = tipoOperItem;
 	}
 
-	public String getCOD_OPER_ITEM() {
-		return COD_OPER_ITEM;
+	public String getCodOperItem() {
+		return codOperItem;
 	}
 
-	public void setCOD_OPER_ITEM(String cOD_OPER_ITEM) {
-		COD_OPER_ITEM = cOD_OPER_ITEM;
+	public void setCodOperItem(String codOperItem) {
+		this.codOperItem = codOperItem;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((COD_OPER_ITEM == null) ? 0 : COD_OPER_ITEM.hashCode());
-		result = prime * result + ((NO_CIA == null) ? 0 : NO_CIA.hashCode());
-		result = prime * result + ((TIPO_M == null) ? 0 : TIPO_M.hashCode());
-		result = prime * result + ((TIPO_OPER_ITEM == null) ? 0 : TIPO_OPER_ITEM.hashCode());
+		result = prime * result + ((codOperItem == null) ? 0 : codOperItem.hashCode());
+		result = prime * result + ((noCia == null) ? 0 : noCia.hashCode());
+		result = prime * result + ((tipoM == null) ? 0 : tipoM.hashCode());
+		result = prime * result + ((tipoOperItem == null) ? 0 : tipoOperItem.hashCode());
 		return result;
 	}
 
@@ -71,33 +77,34 @@ public class ArtsttropiPK implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ArtsttropiPK other = (ArtsttropiPK) obj;
-		if (COD_OPER_ITEM == null) {
-			if (other.COD_OPER_ITEM != null)
+		if (codOperItem == null) {
+			if (other.codOperItem != null)
 				return false;
-		} else if (!COD_OPER_ITEM.equals(other.COD_OPER_ITEM))
+		} else if (!codOperItem.equals(other.codOperItem))
 			return false;
-		if (NO_CIA == null) {
-			if (other.NO_CIA != null)
+		if (noCia == null) {
+			if (other.noCia != null)
 				return false;
-		} else if (!NO_CIA.equals(other.NO_CIA))
+		} else if (!noCia.equals(other.noCia))
 			return false;
-		if (TIPO_M == null) {
-			if (other.TIPO_M != null)
+		if (tipoM == null) {
+			if (other.tipoM != null)
 				return false;
-		} else if (!TIPO_M.equals(other.TIPO_M))
+		} else if (!tipoM.equals(other.tipoM))
 			return false;
-		if (TIPO_OPER_ITEM == null) {
-			if (other.TIPO_OPER_ITEM != null)
+		if (tipoOperItem == null) {
+			if (other.tipoOperItem != null)
 				return false;
-		} else if (!TIPO_OPER_ITEM.equals(other.TIPO_OPER_ITEM))
+		} else if (!tipoOperItem.equals(other.tipoOperItem))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "ArtsttropiPK [NO_CIA=" + NO_CIA + ", TIPO_M=" + TIPO_M + ", TIPO_OPER_ITEM=" + TIPO_OPER_ITEM
-				+ ", COD_OPER_ITEM=" + COD_OPER_ITEM + "]";
+		return "ArtsttropiPK [noCia=" + noCia + ", tipoM=" + tipoM + ", tipoOperItem=" + tipoOperItem + ", codOperItem="
+				+ codOperItem + "]";
 	}
+	
 
 }

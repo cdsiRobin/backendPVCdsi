@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Artsopp implements Serializable {
 
 	@EmbeddedId
-	private ArtsoppPK artSoppPK;
+	private ArtsoppPK artsoppPk;
 	
 	@Column(name = "DESCRIPCION")
 	private String descripcion;
@@ -45,16 +45,16 @@ public class Artsopp implements Serializable {
 	public Artsopp() {
 	}
 	
-	public Artsopp(ArtsoppPK artSoppPK) {
-		this.artSoppPK = artSoppPK;
+	public Artsopp(ArtsoppPK artsoppPk) {
+		this.artsoppPk = artsoppPk;
 	}
 
-	public ArtsoppPK getArtSoppPK() {
-		return artSoppPK;
+	public ArtsoppPK getartsoppPk() {
+		return artsoppPk;
 	}
 
-	public void setArtSoppPK(ArtsoppPK artSoppPK) {
-		this.artSoppPK = artSoppPK;
+	public void setartsoppPk(ArtsoppPK artsoppPk) {
+		this.artsoppPk = artsoppPk;
 	}
 
 	public String getDescripcion() {
@@ -165,7 +165,7 @@ public class Artsopp implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((artSoppPK == null) ? 0 : artSoppPK.hashCode());
+		result = prime * result + ((artsoppPk == null) ? 0 : artsoppPk.hashCode());
 		return result;
 	}
 
@@ -178,17 +178,17 @@ public class Artsopp implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Artsopp other = (Artsopp) obj;
-		if (artSoppPK == null) {
-			if (other.artSoppPK != null)
+		if (artsoppPk == null) {
+			if (other.artsoppPk != null)
 				return false;
-		} else if (!artSoppPK.equals(other.artSoppPK))
+		} else if (!artsoppPk.equals(other.artsoppPk))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Artsopp [artSoppPK=" + artSoppPK + "]";
+		return "Artsopp [artsoppPk=" + artsoppPk + "]";
 	}
 
 }
