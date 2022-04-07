@@ -25,12 +25,7 @@ public class IArtsttropiServiceImpl implements IArtsttropiService {
 
 	@Override
 	public List<Artsttropi> getAll() throws ServiceException {
-		try {
-			return repo.listar();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
+		return null;
 	}
 
 	@Override
@@ -58,9 +53,9 @@ public class IArtsttropiServiceImpl implements IArtsttropiService {
 	}
 
 	@Override
-	public List<Artsttropi> listar() {
+	public List<Artsttropi> listar(String cia) {
 		try {
-			return repo.listar();
+			return repo.listar(cia);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return null;

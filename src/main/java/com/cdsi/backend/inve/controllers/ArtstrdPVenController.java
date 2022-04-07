@@ -1,21 +1,27 @@
 package com.cdsi.backend.inve.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
+import com.cdsi.backend.inve.models.entity.Artsopp;
 import com.cdsi.backend.inve.models.entity.ArtstrdPVen;
 import com.cdsi.backend.inve.models.entity.ArtstrdPVenPK;
 import com.cdsi.backend.inve.models.services.ArtstrdPVenService;
 import com.cdsi.backend.inve.models.services.IArtsoppService;
 import com.cdsi.backend.inve.models.services.IArtsttropiService;
+import com.cdsi.backend.inve.models.services.exception.ServiceException;
 
 @RestController
 @RequestMapping("/api/ArtstrdPven")
@@ -65,14 +71,11 @@ public class ArtstrdPVenController extends GenericController {
     }
     
     @GetMapping("/artsopp")
-    public ResponseEntity<ResponseRest> listarArtsopp(BindingResult result){
-    	if(result.hasErrors()) {
-    		return super.getBadRequest(result);
-    	}
+    public ResponseEntity<ResponseRest> listarArtsopp(@RequestParam String cia){
     	try {
-    		Object o = this.serv1.listar();
+    		Object o = this.serv1.listar(cia);
     		if(o != null) {
-    			return super.getOKRegistroRequest(o);
+    			return this.getOKRegistroRequest(o);
     		}
     		return super.getBadIdRequest();
 		} catch (Exception e) {
@@ -82,14 +85,11 @@ public class ArtstrdPVenController extends GenericController {
     }
     
     @GetMapping("/Artsttropi")
-    public ResponseEntity<ResponseRest> listarArtsttropi(BindingResult result){
-    	if(result.hasErrors()) {
-    		return super.getBadRequest(result);
-    	}
+    public ResponseEntity<ResponseRest> listarArtsttropi(@RequestParam String cia){
     	try {
-    		Object o = this.serv2.listar();
+    		Object o = this.serv2.listar(cia);
     		if(o != null) {
-    			return super.getOKRegistroRequest(o);
+    			return this.getOKRegistroRequest(o);
     		}
     		return super.getBadIdRequest();
 		} catch (Exception e) {
