@@ -1,7 +1,4 @@
 package com.cdsi.backend.inve.controllers;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
-import com.cdsi.backend.inve.models.entity.Arcaaccaj;
 import com.cdsi.backend.inve.models.entity.Usuac;
 import com.cdsi.backend.inve.models.services.IUsuacService;
 
@@ -41,7 +37,7 @@ public class UsuacController extends GenericController {
 		
 	}
 	
-	@GetMapping
+	@GetMapping("/activo")
 	public ResponseEntity<ResponseRest> buscarCiaAndActivo(@RequestParam String cia, @RequestParam String activo) {		
 		    try{
 	            Object obj = this.servi.buscarCiaAndActivo(cia, activo);

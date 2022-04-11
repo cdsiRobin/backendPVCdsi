@@ -49,8 +49,7 @@ public class UsuacServiceImple implements IUsuacService {
 		Usuac usuac = this.buscarId(usupk.getNoCia(), usupk.getUsuario());
 	    if (usuac != null) {
 	    	usuac = this.repo.save(usuac);
-	    }
-	    
+	    }	    
 	    return usuac;
 	}
 

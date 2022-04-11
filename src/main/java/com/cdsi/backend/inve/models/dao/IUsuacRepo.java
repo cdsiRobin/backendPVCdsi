@@ -14,6 +14,7 @@ import com.cdsi.backend.inve.models.entity.UsuacPK;
 public interface IUsuacRepo extends JpaRepository<Usuac, UsuacPK>{
   
 	//CONSULTAMOS LOS USUARIOS ACTIVOS EN EL SISTEMA
-	@Query("FROM Usuac WHERE a.usuacPK.noCia = :cia AND a.activo = :activo")
+	@Query("FROM Usuac a WHERE a.usuacPK.noCia = :cia AND a.activo = :activo")
 	List<Usuac> buscarUsuarioActivos(@Param("cia") String cia, @Param("activo") String activo);
+	//FIN
 }

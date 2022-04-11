@@ -34,7 +34,7 @@ public class LicenciaController extends GenericController  {
 	}
 	
 	@GetMapping
-	public ResponseEntity<ResponseRest> getID(@RequestParam String cia) {		
+	public ResponseEntity<ResponseRest> getCia(@RequestParam String cia) {		
 		    try{
 	            Object obj = this.servi.buscarCia(cia);
 	            if (obj != null){

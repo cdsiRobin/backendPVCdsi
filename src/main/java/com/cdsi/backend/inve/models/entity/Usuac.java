@@ -24,6 +24,7 @@ public class Usuac implements Serializable {
 	private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected UsuacPK usuacPK;
+    
     @Column(name = "ENTRADA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date entrada;
