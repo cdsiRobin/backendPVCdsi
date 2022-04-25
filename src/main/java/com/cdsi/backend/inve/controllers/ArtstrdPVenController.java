@@ -1,12 +1,9 @@
 package com.cdsi.backend.inve.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
-import com.cdsi.backend.inve.models.entity.Artsopp;
 import com.cdsi.backend.inve.models.entity.ArtstrdPVen;
 import com.cdsi.backend.inve.models.entity.ArtstrdPVenPK;
 import com.cdsi.backend.inve.models.services.ArtstrdPVenService;
