@@ -14,6 +14,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -51,7 +52,7 @@ public class ArcgtcServiceImpl implements IArcgtcService {
     		objA.setTipoCambio(sunattc.getCompra());
     		
     		arcgtcRepo.save(objA);
-    		System.out.println("Guardo ::::::::::::::::::::::::::::::::::::::::::");
+    		
     		Arcgtc objA2 = new Arcgtc();
     		ArcgtcPK objAPK2 = new ArcgtcPK();
     		
@@ -62,6 +63,19 @@ public class ArcgtcServiceImpl implements IArcgtcService {
     		objA2.setTipoCambio(sunattc.getVenta());
     		
     		arcgtcRepo.save(objA2);
+    		
+    		Arcgtc objA3 = new Arcgtc();
+    		ArcgtcPK objAPK3 = new ArcgtcPK();
+    		
+    		objAPK3.setClaseCambio("03");
+    		objAPK3.setFecha(f);
+    		
+    		objA3.setArcgtcPK(objAPK3);
+    		BigDecimal pizarra = new BigDecimal(0.05);
+    		BigDecimal piza = sunattc.getVenta().subtract(pizarra);
+    		objA3.setTipoCambio(piza);
+    		
+    		arcgtcRepo.save(objA3);
     	}
     	
     }
