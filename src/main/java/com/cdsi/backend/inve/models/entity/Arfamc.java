@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.Size;
 
 @Entity
 public class Arfamc implements Serializable {
@@ -39,7 +38,40 @@ public class Arfamc implements Serializable {
 	
 	@Column(name="DESCRIPCION")
 	private String descripcion;
+	
+	@Column(name = "PORCEN_RETENCION")
+	private String retencion;
+	
+	@Column(name = "PORCEN_PERCEPTION")
+	private String percepcion;
+	
+	@Column(name = "NUM_CUENTA_DETRAC")
+	private String cuentaDetrac;
     
+	public String getRetencion() {
+		return retencion;
+	}
+
+	public void setRetencion(String retencion) {
+		this.retencion = retencion;
+	}
+
+	public String getPercepcion() {
+		return percepcion;
+	}
+
+	public void setPercepcion(String percepcion) {
+		this.percepcion = percepcion;
+	}
+
+	public String getCuentaDetrac() {
+		return cuentaDetrac;
+	}
+
+	public void setCuentaDetrac(String cuentaDetrac) {
+		this.cuentaDetrac = cuentaDetrac;
+	}
+
 	public String getBanco() {
 		return banco;
 	}
