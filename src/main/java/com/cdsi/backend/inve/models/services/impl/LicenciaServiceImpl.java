@@ -27,4 +27,12 @@ public class LicenciaServiceImpl implements ILicenciaService {
 		return this.repo.buscarCia(cia);
 	}
 
+	@Override
+	public Licencia actualizar(String cia, String ruc, String llave) {
+		// TODO Auto-generated method stub
+		Licencia licencia = this.buscarId(cia, ruc);
+		licencia.setLlave(llave);
+		return this.repo.save(licencia);
+	}
+
 }
