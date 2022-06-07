@@ -8,10 +8,8 @@ import com.cdsi.backend.inve.models.entity.Arcgtc;
 import com.cdsi.backend.inve.models.services.IArcgccService;
 import com.cdsi.backend.inve.models.services.IArcgtcService;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -109,8 +107,7 @@ public class ArcgtcController extends GenericController {
         	 List<Arcgcc> arcgccList = this.arcgccService.mostrarTodos();
         	 
         	 List<TipoCambioDTO> tipoCambioDtoList = new ArrayList<>();
-        	 
-        	 //ModelMapper modelMapper = new ModelMapper();        	 
+        	       	 
         	 for(Arcgtc arcgtc: arcgtcList) {
         		 String c1 = arcgtc.getArcgtcPK().getClaseCambio();
         		 for(Arcgcc arcgcc: arcgccList) {
@@ -127,8 +124,7 @@ public class ArcgtcController extends GenericController {
         			 }
         		 }        		         		 
         	 }
-        	 
-             //Object obj = this.arcgtcService.listarXFecha(f);
+
         	 Object obj = tipoCambioDtoList;
              if (obj != null){
                  return this.getOKConsultaRequest(obj);

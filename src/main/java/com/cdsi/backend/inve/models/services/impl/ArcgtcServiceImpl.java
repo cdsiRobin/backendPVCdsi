@@ -49,8 +49,7 @@ public class ArcgtcServiceImpl implements IArcgtcService {
     		objAPK.setFecha(f);
     		
     		objA.setArcgtcPK(objAPK);
-    		objA.setTipoCambio(sunattc.getCompra());
-    		
+    		objA.setTipoCambio(sunattc.getCompra());    		
     		arcgtcRepo.save(objA);
     		
     		Arcgtc objA2 = new Arcgtc();
@@ -60,8 +59,7 @@ public class ArcgtcServiceImpl implements IArcgtcService {
     		objAPK2.setFecha(f);
     		
     		objA2.setArcgtcPK(objAPK2);
-    		objA2.setTipoCambio(sunattc.getVenta());
-    		
+    		objA2.setTipoCambio(sunattc.getVenta());    		
     		arcgtcRepo.save(objA2);
     		
     		Arcgtc objA3 = new Arcgtc();
@@ -73,9 +71,9 @@ public class ArcgtcServiceImpl implements IArcgtcService {
     		objA3.setArcgtcPK(objAPK3);
     		BigDecimal pizarra = new BigDecimal(0.05);
     		BigDecimal piza = sunattc.getVenta().subtract(pizarra);
-    		objA3.setTipoCambio(piza);
-    		
+    		objA3.setTipoCambio(piza);    		
     		arcgtcRepo.save(objA3);
+    		
     	}
     	
     }

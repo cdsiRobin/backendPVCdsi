@@ -21,15 +21,13 @@ public class TipoCambioSunat {
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
-            //conn.setRequestProperty("Authorization", "Bearer "+token);
-            
+            //conn.setRequestProperty("Authorization", "Bearer "+token);           
             if (conn.getResponseCode() != 200) {
             	System.out.println("=) ... ENTRO AL ERROR ::::::::::::::::");
                 throw new RuntimeException("Failed : HTTP Error code : "+ conn.getResponseCode());
             }
             InputStreamReader in = new InputStreamReader(conn.getInputStream());
-            BufferedReader br = new BufferedReader(in);
-            
+            BufferedReader br = new BufferedReader(in);            
             //VAMOS A CONVERITR DE JSON A UN OBJETO
             Gson gson = new Gson();
             sunattc = gson.fromJson(br.readLine(), Sunattc.class);           
