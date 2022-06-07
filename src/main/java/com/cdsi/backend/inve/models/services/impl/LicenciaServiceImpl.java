@@ -35,4 +35,10 @@ public class LicenciaServiceImpl implements ILicenciaService {
 		return this.repo.save(licencia);
 	}
 
+	@Override
+	public Boolean validar(String cia, String ruc, String llave) {
+		Licencia licencia = this.buscarId(cia, ruc);
+		return licencia.getLlave().equals(llave) ? true : false;
+	}
+
 }
