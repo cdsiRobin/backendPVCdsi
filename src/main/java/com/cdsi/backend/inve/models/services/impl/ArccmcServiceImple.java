@@ -26,7 +26,15 @@ public class ArccmcServiceImple implements IArccmcService  {
 	@Override
 	@Transactional
 	public Arccmc createArccmc(Arccmc arccmc) {
-		return arccDao.save(arccmc);
+		if (arccmc.getNombre().trim().contains("-")) {
+			//VAMOS A CORTAR EL NOMBRE DESPUES '-'
+			String[] cortarNombres = arccmc.getNombre().trim().split("-");
+			arccmc.setNombre(cortarNombres[0]);
+			return this.arccDao.save(arccmc);
+		}else {
+			return this.arccDao.save(arccmc);
+		}
+		
 	}
 
 	@Override
