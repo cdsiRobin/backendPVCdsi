@@ -65,6 +65,11 @@ public class ArccmcServiceImple implements IArccmcService  {
 		newArcc.setTipo(objA.getTipo());
 		newArcc.setWeb(objA.getWeb());
 		*/
+		objA.setClase("020");
+		objA.setCodPais("001");
+		objA.setCodVenCob("001");
+		objA.setTipoFpago("20");
+		objA.setCodFpago("01");
 		newArcc = objectMapper.convertValue(objA,Arccmc.class);
 		return arccDao.save(newArcc);
 	}
