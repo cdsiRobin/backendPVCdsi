@@ -30,8 +30,18 @@ public class ArccmcServiceImple implements IArccmcService  {
 			//VAMOS A CORTAR EL NOMBRE DESPUES '-'
 			String[] cortarNombres = arccmc.getNombre().trim().split("-");
 			arccmc.setNombre(cortarNombres[0]);
+			arccmc.setClase("020");
+			arccmc.setCodPais("001");
+			arccmc.setCodVenCob("001");
+			arccmc.setTipoFpago("20");
+			arccmc.setCodFpago("01");
 			return this.arccDao.save(arccmc);
 		}else {
+			arccmc.setClase("020");
+			arccmc.setCodPais("001");
+			arccmc.setCodVenCob("001");
+			arccmc.setTipoFpago("20");
+			arccmc.setCodFpago("01");
 			return this.arccDao.save(arccmc);
 		}
 		

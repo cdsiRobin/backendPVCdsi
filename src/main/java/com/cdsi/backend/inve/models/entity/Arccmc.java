@@ -54,6 +54,20 @@ public class Arccmc implements Serializable {
 	private String documento;
 	
 	private String email;
+	
+	private String clase; //020
+	
+	@Column(name="COD_PAIS")
+	private String codPais; //001
+	
+	@Column(name="COD_VEN_COB")
+	private String codVenCob; //001
+	
+	@Column(name="TIPO_FPAGO")
+	private String tipoFpago; //20
+	
+	@Column(name="COD_FPAGO")
+	private String codFpago; //01
 
 	@JsonIgnoreProperties({"arccmc"})
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "arccmc", cascade = CascadeType.ALL)
@@ -177,6 +191,46 @@ public class Arccmc implements Serializable {
 
 	public void setArcctdaEntity(List<ArcctdaEntity> arcctdaEntity) {
 		this.arcctdaEntity = arcctdaEntity;
+	}
+	
+	public String getClase() {
+		return clase;
+	}
+
+	public void setClase(String clase) {
+		this.clase = clase;
+	}
+
+	public String getCodPais() {
+		return codPais;
+	}
+
+	public void setCodPais(String codPais) {
+		this.codPais = codPais;
+	}
+
+	public String getCodVenCob() {
+		return codVenCob;
+	}
+
+	public void setCodVenCob(String codVenCob) {
+		this.codVenCob = codVenCob;
+	}
+
+	public String getTipoFpago() {
+		return tipoFpago;
+	}
+
+	public void setTipoFpago(String tipoFpago) {
+		this.tipoFpago = tipoFpago;
+	}
+
+	public String getCodFpago() {
+		return codFpago;
+	}
+
+	public void setCodFpago(String codFpago) {
+		this.codFpago = codFpago;
 	}
 
 	@Override
