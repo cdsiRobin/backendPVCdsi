@@ -11,9 +11,7 @@ import com.cdsi.backend.inve.models.entity.Arfcree;
 import com.cdsi.backend.inve.models.services.IArfcreeService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Service
 public class ArfcreeServiceImpl implements IArfcreeService {
 	

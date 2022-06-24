@@ -1,15 +1,11 @@
 package com.cdsi.backend.inve.controllers;
 
-import java.util.List;
-
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.cdsi.backend.inve.models.entity.Arinbo1;
 import com.cdsi.backend.inve.models.services.IArinbo1Service;
 
 @RestController

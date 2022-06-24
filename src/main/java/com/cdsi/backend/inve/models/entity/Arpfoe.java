@@ -140,6 +140,7 @@ public class Arpfoe implements Serializable {
 
     @Column(name = "TIPO_DOC_CLI")
     private String tipoDocCli;
+    
     @Column(name = "NUM_DOC_CLI")
     private String numDocCli;
 
@@ -194,6 +195,9 @@ public class Arpfoe implements Serializable {
     @Column(name = "EMAIL_PEDIDO")
     private String emailPedido;
     
+    @Column(name = "MOT_CONTING")
+    private String motConting;
+    
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     @JoinColumns({
             @JoinColumn(name = "NO_CIA", referencedColumnName = "NO_CIA", insertable = false, updatable = false),
@@ -201,9 +205,9 @@ public class Arpfoe implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Arpfol> arpfolList;
     
-
     public Arpfoe() {
     }
+    
 
     public Arpfoe(ArpfoePK arpfoePK) {
         this.arpfoePK = arpfoePK;
@@ -216,8 +220,18 @@ public class Arpfoe implements Serializable {
     public ArpfoePK getArpfoePK() {
 		return arpfoePK;
 	}
-    
-    public String getAlmaDestino() {
+     
+    public String getMotConting() {
+		return motConting;
+	}
+
+
+	public void setMotConting(String motConting) {
+		this.motConting = motConting;
+	}
+
+
+	public String getAlmaDestino() {
 		return almaDestino;
 	}
 

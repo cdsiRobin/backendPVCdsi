@@ -3,7 +3,6 @@ package com.cdsi.backend.inve.controllers;
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
 import com.cdsi.backend.inve.models.entity.Arpfoe;
-import com.cdsi.backend.inve.models.entity.ArpfoePK;
 import com.cdsi.backend.inve.models.services.IArpfoeService;
 
 import org.springframework.beans.factory.annotation.Autowired;

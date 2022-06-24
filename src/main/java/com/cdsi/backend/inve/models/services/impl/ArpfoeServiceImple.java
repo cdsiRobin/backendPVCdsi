@@ -91,7 +91,18 @@ public class ArpfoeServiceImple implements IArpfoeService {
     public Arpfoe save(Arpfoe arpfoe) throws ServiceException {
         Arpfoe objA =  null;
     	try{
-            //Arpfoe arpfoe1 = this.iArpfoeRepo.save(arpfoe);
+    		arpfoe.setMotConting("0");    		
+    		if(arpfoe.getNoCliente().length() == 11) { // RUC
+    			arpfoe.setTipoDocCli("RUC");
+    			arpfoe.setNumDocCli(arpfoe.getNoCliente());
+    		} else if(arpfoe.getNoCliente().length() == 8) {
+    			arpfoe.setTipoDocCli("DNI");
+    			arpfoe.setNumDocCli(arpfoe.getNoCliente());
+    		}else {
+    			arpfoe.setTipoDocCli("");
+    			arpfoe.setNumDocCli("");
+    		}
+    			
             objA =  this.iArpfoeRepo.save(arpfoe);
         }catch (Exception e){
             
