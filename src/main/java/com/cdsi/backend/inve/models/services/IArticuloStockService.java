@@ -1,11 +1,6 @@
 package com.cdsi.backend.inve.models.services;
 
 import java.util.List;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.Param;
-
 import com.cdsi.backend.inve.dto.StockLibroDTO;
 
 public interface IArticuloStockService {
@@ -13,6 +8,8 @@ public interface IArticuloStockService {
 	// PAGINACION DE ARTICULOS CON SU PRECIO Y STOCK
 	// Page<StockLibroDTO> pagArtiPrecStock(Pageable pageable,String cia,String
 	// cat);
+	
+	public List<StockLibroDTO> listaCiaAndBodegaAndTipo(String cia, String bodega, String tipo);
 
 	List<StockLibroDTO> pagArtiFind(String cia, String cat, String lin, String sub, String fam, String pre, String alm);
 

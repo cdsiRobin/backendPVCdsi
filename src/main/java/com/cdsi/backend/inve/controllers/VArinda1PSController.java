@@ -11,8 +11,6 @@ import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
 import com.cdsi.backend.inve.models.services.IVArinda1PSService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
 @RequestMapping("/api/vaps")
 public class VArinda1PSController extends GenericController {

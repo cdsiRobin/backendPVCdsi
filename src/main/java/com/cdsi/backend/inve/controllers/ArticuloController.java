@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,6 +38,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cdsi.backend.inve.controllers.commons.ResponseRest;
 import com.cdsi.backend.inve.controllers.generic.GenericController;
 import com.cdsi.backend.inve.dto.StockLibroDTO;
+import com.cdsi.backend.inve.models.entity.Arcaaccaj;
 import com.cdsi.backend.inve.models.entity.Articulo;
 import com.cdsi.backend.inve.models.services.IArticuloService;
 import com.cdsi.backend.inve.models.services.IArticuloStockService;
@@ -47,14 +51,25 @@ public class ArticuloController extends GenericController {
 	
 	@Autowired
 	private IArticuloService artiServi;
+	
 	@Autowired
 	private IArticuloStockService artiStkServi;
 	
-	
-	private final Logger log = LoggerFactory.getLogger(ArticuloController.class);
+	@GetMapping("/stock")
+	public ResponseEntity<ResponseRest> consultarArtiStock(@RequestParam String cia, @RequestParam String bodega, @RequestParam String tipo){		
+		 try{
+	            Object obj = this.artiStkServi.listaCiaAndBodegaAndTipo(cia, bodega, tipo);
+	            if (obj != null){
+	                return super.getOKRegistroRequest(obj);
+	            }
+	            return super.getBadIdRequest();
+	        }catch (Exception e){
+	        	System.out.println(e.getMessage());
+	            return super.getBadRequest(e.getMessage());
+	        }		
+	}
 	
 	@GetMapping("/show/{cia}/{cod}")
-	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
 	public ResponseEntity<?> show(@PathVariable("cia") String cia, @PathVariable("cod") String cod) {
 		
 		Articulo articulo = null;
@@ -87,7 +102,6 @@ public class ArticuloController extends GenericController {
             }
             return this.getBadIdRequest();
         }catch (Exception e){
-       	 log.error(e.getMessage());
             return super.getBadRequest(e.getMessage());
         }
     }
@@ -177,10 +191,8 @@ public class ArticuloController extends GenericController {
 
   	// METODO QUE NOS PERMITE MOSTRAR LA IMAGEN DE LA FOTO
   	@GetMapping("/uploads/img/{nombreFoto:.+}")
-  	//@Secured({"ROLE_ADMIN","ROLE_VENDEDOR","ROLE_USER"})
   	public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto){
   		Path rutaFoto = Paths.get("uploads").resolve(nombreFoto).toAbsolutePath();
-  		log.info(rutaFoto.toString());
   		Resource recurso = null;
   		try {
 			recurso = new UrlResource(rutaFoto.toUri());
