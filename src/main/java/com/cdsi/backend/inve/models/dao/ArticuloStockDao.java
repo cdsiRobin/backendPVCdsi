@@ -11,12 +11,9 @@ import com.cdsi.backend.inve.dto.StockLibroDTO;
 
 @Repository
 public interface ArticuloStockDao extends JpaRepository<StockLibroDTO, String> {
-    // PagingAndSortingRepository
-	// METODO QUE NOS DEVUELVE EL ARTICULO CON SU PRECIO,STOCK Y COMPROMISO
-	// Page<StockLibroDTO> pagArtiPreStock(Pageable pageable,@Param("cia") String
-	// cia, @Param("cat") String cat);
-	@Query("SELECT a FROM StockLibroDTO a WHERE a.cia = :cia AND a.bodega = :bodega AND a.tipo = :tipo")
-	List<StockLibroDTO> listaCiaAndBodegaAndTipo(@Param("cia") String cia, @Param("bodega") String bodega, @Param("tipo") String tipo );
+
+	@Query("SELECT a FROM StockLibroDTO a WHERE a.cia = :cia AND a.almacen = :almacen AND a.tipo = :tipo")
+	List<StockLibroDTO> listaCiaAndBodegaAndTipo(@Param("cia") String cia, @Param("almacen") String almacen, @Param("tipo") String tipo );
 	
 	List<StockLibroDTO> findByCiaAndCatalogoAndAlmacenAndTipo(@Param("cia") String cia,
 			@Param("cat") String cat, @Param("alm") String alm, @Param("pre") String pre);

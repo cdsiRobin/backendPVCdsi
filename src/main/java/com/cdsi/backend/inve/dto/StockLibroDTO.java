@@ -29,8 +29,10 @@ public class StockLibroDTO {
 	private Integer compromiso;
 	@Column
 	private String Vigente;
+	/*
 	@Column
 	private LocalDateTime fecha;
+	*/
 	@Column(name = "DES_CATALO")
 	private String tipo_arti;
 	@Column(name = "DES_CLASE")
@@ -51,7 +53,33 @@ public class StockLibroDTO {
 	private String almacen;
 	@Column
 	private String tipo;
+		
+	public StockLibroDTO() {
+	}
 	
+	public StockLibroDTO(String cia, String no_arti, String descripcion, String medida, String marca, Double precio,
+			Integer stock, Integer compromiso, String vigente, String tipo_arti, String clase, String categoria,
+			String familia, String catalogo, String linea, String subLinea, String fam, String almacen, String tipo) {
+		this.cia = cia;
+		this.no_arti = no_arti;
+		this.descripcion = descripcion;
+		this.medida = medida;
+		this.marca = marca;
+		this.precio = precio;
+		this.stock = stock;
+		this.compromiso = compromiso;
+		Vigente = vigente;
+		this.tipo_arti = tipo_arti;
+		this.clase = clase;
+		this.categoria = categoria;
+		this.familia = familia;
+		this.catalogo = catalogo;
+		this.linea = linea;
+		this.subLinea = subLinea;
+		this.fam = fam;
+		this.almacen = almacen;
+		this.tipo = tipo;
+	}
 	public String getCia() {
 		return cia;
 	}
@@ -105,12 +133,6 @@ public class StockLibroDTO {
 	}
 	public void setVigente(String vigente) {
 		Vigente = vigente;
-	}
-	public LocalDateTime getFecha() {
-		return fecha;
-	}
-	public void setFecha(LocalDateTime fecha) {
-		this.fecha = fecha;
 	}
 	public String getTipo_arti() {
 		return tipo_arti;
@@ -172,9 +194,5 @@ public class StockLibroDTO {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	
-	
-	
-	
-	
+		
 }
