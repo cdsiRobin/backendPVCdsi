@@ -27,7 +27,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             Arpfoe arpfoe = this.iArpfoeRepo.buscarId(cia,noOrden);
             return arpfoe;
         }catch (Exception e){
-        	
+        	System.out.println(e.getMessage());
             return  null;
         }
     }
@@ -40,7 +40,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             List<Arpfoe> arpfoeList = arpfoePage.getContent();
             return arpfoeList;
         }catch (Exception e){
-            
+        	System.out.println(e.getMessage());
             return null;
         }
     }
@@ -53,7 +53,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             List<Arpfoe> arpfoeList = arpfoePage.getContent();
             return arpfoeList;
         }catch (Exception e){
-            
+        	System.out.println(e.getMessage());
             return null;
         }
     }
@@ -66,7 +66,7 @@ public class ArpfoeServiceImple implements IArpfoeService {
             List<Arpfoe> arpfoeList = arpfoePage.getContent();
             return arpfoeList;
         }catch (Exception e){
-            
+        	System.out.println(e.getMessage());
             return null;
         }
     }
