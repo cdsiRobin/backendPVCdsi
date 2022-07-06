@@ -23,11 +23,9 @@ public class Arfatcn implements Serializable {
     @EmbeddedId
     protected ArfatcnPK arfatcnPK;
     
-    @Basic(optional = false)
     @Column(name = "DESCRIPCION")
     private String descripcion;
     
-    @Basic(optional = false)
     @Column(name = "IND_DETALLE")
     private String indDetalle;
 
