@@ -63,12 +63,18 @@ public class ArcaaccajController extends GenericController {
 	}
 	
 	@GetMapping("/vericaja")
-	public ResponseEntity<ResponseRest> verificarCajaAbiertas(@RequestParam String cia, @RequestParam String centro, @RequestParam String cajera, @RequestParam String estado, @RequestParam String fecha) {		
+	public ResponseEntity<ResponseRest> verificarCajaAbiertas(@RequestParam String cia, @RequestParam String centro,
+			    @RequestParam String cajera, @RequestParam String estado, @RequestParam String fecha) {		
 		    try{
-	            Object obj = this.service.verificarCajaAbierta(cia, centro, cajera, estado, fecha);
-	            if (obj != null){
-	                return super.getOKConsultaRequest(obj);
-	            }
+		    	Object obj2 = this.service.buscarCajaAbierta(cia, centro, cajera, estado);
+		    	if(obj2 != null) {
+		    		return super.getOKConsultaRequest(obj2);
+		    	}else {
+		            Object obj = this.service.verificarCajaAbierta(cia, centro, cajera, estado, fecha);
+		            if (obj != null){
+		                return super.getOKConsultaRequest(obj);
+		            }
+		    	}
 	            return super.getBadIdRequest();
 	        }catch (Exception e){
 	        	System.out.println(e.getMessage());

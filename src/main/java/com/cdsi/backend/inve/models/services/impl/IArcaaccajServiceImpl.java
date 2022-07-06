@@ -1,6 +1,5 @@
 package com.cdsi.backend.inve.models.services.impl;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -90,6 +89,11 @@ public class IArcaaccajServiceImpl implements IArcaaccajService {
 	public List<Arcaaccaj> verificarCajaAbierta(String cia, String centro, String cajera, String estado, String fecha) {
 		// TODO Auto-generated method stub
 		return this.caj.verificarCajaAbierta(cia, centro, cajera, estado, fecha.concat(" 00:00"), fecha.concat(" 23:59"));
+	}
+	@Override
+	public List<Arcaaccaj> buscarCajaAbierta(String cia, String centro, String cajera, String estado) {
+		// TODO Auto-generated method stub
+		return this.caj.buscarCajaAbierta(cia, centro, cajera, estado);
 	}
 	
 

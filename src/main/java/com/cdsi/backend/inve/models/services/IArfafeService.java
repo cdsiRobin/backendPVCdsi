@@ -4,7 +4,6 @@ import com.cdsi.backend.inve.models.entity.Arfafe;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
 import com.cdsi.backend.inve.models.services.generic.IGenericService;
 
-import java.util.Date;
 import java.util.List;
 
 //import org.springframework.data.domain.Page;

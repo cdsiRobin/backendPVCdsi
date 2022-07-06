@@ -3,7 +3,6 @@ package com.cdsi.backend.inve.models.dao;
 import com.cdsi.backend.inve.models.entity.Arfafe;
 import com.cdsi.backend.inve.models.entity.ArfafePK;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Page;

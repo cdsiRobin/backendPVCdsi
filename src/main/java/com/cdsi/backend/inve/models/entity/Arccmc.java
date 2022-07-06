@@ -45,9 +45,10 @@ public class Arccmc implements Serializable {
 	private String activo;
 	
 	private String web;
-	
+	/*
 	@Column(name="COD_PAIS")
 	private String pais;
+	*/
 	
 	@Column(name="TIPO_DOCUMENTO")
 	@Size(min = 1, max=10)
@@ -160,7 +161,7 @@ public class Arccmc implements Serializable {
 	public void setWeb(String web) {
 		this.web = web;
 	}
-
+    /*
 	public String getPais() {
 		return pais;
 	}
@@ -168,7 +169,7 @@ public class Arccmc implements Serializable {
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
-
+    */
 	public String getDocumento() {
 		return documento;
 	}

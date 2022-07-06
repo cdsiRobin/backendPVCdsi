@@ -1,6 +1,5 @@
 package com.cdsi.backend.inve.models.services;
 
-
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +9,8 @@ import com.cdsi.backend.inve.models.entity.Arcaaccaj;
 import com.cdsi.backend.inve.models.entity.IdArcaaccaj;
 
 public interface IArcaaccajService {
+	
+	List<Arcaaccaj> buscarCajaAbierta(String cia, String centro, String caja, String estado);
 	
 	List<Arcaaccaj> verificarCajaAbierta(String cia, String centro, String cajera, String estado, String fecha);
 

@@ -1,7 +1,6 @@
 package com.cdsi.backend.inve.models.entity;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -24,7 +23,7 @@ public class Arcaaccaj implements Serializable {
 
 	@EmbeddedId
 	private IdArcaaccaj idArcaja;
-
+	
 	@Column(name = "FECHA")
 	private Date fecha;
 	@Column(name = "CAJERA")

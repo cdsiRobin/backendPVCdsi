@@ -14,6 +14,9 @@ import com.cdsi.backend.inve.models.entity.IdArcaaccaj;
 @Repository
 public interface IArcaaccajDao extends JpaRepository<Arcaaccaj, IdArcaaccaj> {
 	
+	@Query("FROM Arcaaccaj a WHERE a.idArcaja.cia = :cia AND a.idArcaja.centro= :centro AND a.cajera = :cajera AND a.estado = :estado")
+	List<Arcaaccaj> buscarCajaAbierta(@Param("cia") String cia, @Param("centro") String centro, @Param("cajera") String cajera, @Param("estado") String estado);
+	
 	//VER SI EL CAJERO TIENE UNA CAJA ABIERTA EN UNA FECHA
 	@Query("FROM Arcaaccaj a WHERE a.idArcaja.cia = :cia AND a.idArcaja.centro= :centro AND a.cajera = :cajera AND a.estado = :estado and  a.fecha BETWEEN TO_DATE(:fec1,'DD/MM/YYYY HH24:MI') and TO_DATE(:fec2,'DD/MM/YYYY HH24:MI')")
 	List<Arcaaccaj> verificarCajaAbierta(@Param("cia") String cia, @Param("centro") String centro, @Param("cajera") String cajera, @Param("estado") String estado, @Param("fec1") String fec1, @Param("fec2") String fec2);

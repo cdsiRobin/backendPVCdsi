@@ -88,7 +88,7 @@ public class Arinme1ServiceImple implements IArinme1Service {
 	    		//objArinmn1.setCostoUni(0.00);
 	    		objArinmn1.setTipoBs("B");
 	    		//GUARDAR
-	    		Arinmn1 x = this.arinmn1Repo.save(objArinmn1);
+	    		this.arinmn1Repo.save(objArinmn1);
     		}
     		
     		
