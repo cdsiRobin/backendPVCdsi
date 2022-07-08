@@ -16,14 +16,12 @@ public interface IArfaccRepo extends PagingAndSortingRepository<Arfacc, ArfaccPK
     
 	@Query("SELECT a FROM Arfacc a WHERE a.arfaccPK.noCia = :cia AND a.arfaccPK.centro = :centro AND a.arfaccPK.tipoDoc = :tipoDoc AND a.arfaccPK.serie = :serie ")
 	Arfacc buscarId(@Param("cia") String cia, @Param("centro") String centro,@Param("tipoDoc") String tipoDoc, @Param("serie") String serie );
-	
-	/*
-    @Override
-    Optional<Arfacc> findById(ArfaccPK arfaccPK);
-    */
+
     //METODO QUE NOS PERMITE OBTENER EL CORRELATIVO DE LAS SERIES DE FACTU
-    @Query("SELECT a FROM Arfacc a WHERE a.arfaccPK.noCia = :cia AND a.arfaccPK.tipoDoc = :tipoDoc AND a.arfaccPK.centro = :centro AND a.activo = :activo")
-    List<Arfacc> buscarCiaAndTipDocAndCentroAndActivo(@Param("cia") String cia, @Param("tipoDoc") String tipoDoc, @Param("centro") String centro, @Param("activo") String activo);
+    @Query("SELECT a FROM Arfacc a WHERE a.arfaccPK.noCia = :cia AND a.arfaccPK.tipoDoc = :tipoDoc "
+    		+ "AND a.arfaccPK.centro = :centro AND a.activo = :activo")
+    List<Arfacc> buscarCiaAndTipDocAndCentroAndActivo(@Param("cia") String cia, @Param("tipoDoc") String tipoDoc,
+    		@Param("centro") String centro, @Param("activo") String activo);
 
     //METODO QUE TRAE TODAS LAS SERIES DE PUNTO DE VENTA Y FACTURACION
     @Query("SELECT a FROM Arfacc a WHERE a.arfaccPK.noCia = :cia")

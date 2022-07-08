@@ -19,7 +19,7 @@ public class Arfacc implements Serializable {
     @Column(name = "CONS_HASTA")
     private Long consHasta;
     @Column(name = "IND_CONTROL_AUTO")
-    private String indControlAuto;    
+    private String indControlAuto;
     @Column(name = "ACTIVO")
     private String activo;
     

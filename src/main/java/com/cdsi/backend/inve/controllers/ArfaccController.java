@@ -16,6 +16,19 @@ public class ArfaccController extends GenericController {
     @Autowired
     private IArfaccService iArfaccService;
     
+    @GetMapping("/serieDocu")
+    public ResponseEntity<ResponseRest> listaSerieDocumentos(@RequestParam String cia,@RequestParam String tipDoc, @RequestParam String centro, @RequestParam String activo){
+        try{ // String cia, String tipoDoc, String centro, String activo
+            Object obj = this.iArfaccService.listaSerieDocumento(cia, tipDoc, centro, activo);            
+            if (obj != null){
+                return super.getOKConsultaRequest(obj);
+            }
+            return super.getNotFoundRequest();
+        }catch (Exception e){
+            return super.getBadRequest(e.getMessage());
+        }
+    }
+    
     //METODO QUE NOS PERMITE TRAER LAS SERIE Y CORRELATIVO
     @PostMapping("/id")
     public ResponseEntity<ResponseRest> buscarId(@RequestBody Arfacc arfacc, BindingResult result){
