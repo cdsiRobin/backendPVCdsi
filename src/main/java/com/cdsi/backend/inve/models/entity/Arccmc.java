@@ -86,10 +86,10 @@ public class Arccmc implements Serializable {
 	private String moneda; //sol
 	
 	@Column(name="LIMITE_CREDI_N")
-	private String limCredN; //0
+	private Integer limCredN; //0
 	
 	@Column(name="LIMITE_CREDI_D")
-	private String limCredD; //0
+	private Integer limCredD; //0
 	
 	@Column(name="EXCENTO_IMP")
 	private String excenImp; //N
@@ -125,7 +125,7 @@ public class Arccmc implements Serializable {
 	private String codCali; //1
 	
 	@Column(name="COD_PROPIO")
-	private String cod_Propio; //N
+	private String codPropio; //N
 	
 	@Column(name="IND_RENOVACION")
 	private String indRenova; //N

@@ -29,21 +29,38 @@ public class ArccmcServiceImple implements IArccmcService  {
 		if (arccmc.getNombre().trim().contains("-")) {
 			//VAMOS A CORTAR EL NOMBRE DESPUES '-'
 			String[] cortarNombres = arccmc.getNombre().trim().split("-");
-			arccmc.setNombre(cortarNombres[0]);
-			arccmc.setClase("020");
-			arccmc.setCodPais("001");
-			arccmc.setCodVenCob("001");
-			arccmc.setTipoFpago("20");
-			arccmc.setCodFpago("01");
-			return this.arccDao.save(arccmc);
-		}else {
-			arccmc.setClase("020");
-			arccmc.setCodPais("001");
-			arccmc.setCodVenCob("001");
-			arccmc.setTipoFpago("20");
-			arccmc.setCodFpago("01");
-			return this.arccDao.save(arccmc);
-		}
+			arccmc.setNombre(cortarNombres[0]);			
+		}		
+		arccmc.setClase("020");
+		arccmc.setCodPais("001");
+		arccmc.setCodVenCob("001");
+		arccmc.setTipoFpago("20");
+		arccmc.setCodFpago("01");
+		
+		arccmc.setTipoCliente("B");
+		arccmc.setGrupo("01");
+		arccmc.setGracia("8");
+		arccmc.setMoneda("SOL");
+		arccmc.setLimCredN(0);
+		arccmc.setLimCredD(0);
+		arccmc.setExcenImp("N");
+		arccmc.setStatus("1");
+		arccmc.setCheqDife("N");
+		arccmc.setUsuario("LLE");
+		arccmc.setIndVal("L");
+		arccmc.setCodClasif("B");
+		arccmc.setCodCateg("A");
+		arccmc.setIndAgeRet("N");
+		arccmc.setIndBuenCon("N");
+		arccmc.setIndSisDef("N");
+		arccmc.setCodCali("1");
+		arccmc.setCodPropio("N");
+		arccmc.setIndRenova("N");
+		arccmc.setIndProve("N");
+		arccmc.setTipoEnti("C");
+		arccmc.setCodSuc("001");
+		
+		return this.arccDao.save(arccmc);
 		
 	}
 
@@ -70,6 +87,30 @@ public class ArccmcServiceImple implements IArccmcService  {
 		objA.setCodVenCob("001");
 		objA.setTipoFpago("20");
 		objA.setCodFpago("01");
+		
+		objA.setTipoCliente("B");
+		objA.setGrupo("01");
+		objA.setGracia("8");
+		objA.setMoneda("SOL");
+		objA.setLimCredN(0);
+		objA.setLimCredD(0);
+		objA.setExcenImp("N");
+		objA.setStatus("1");
+		objA.setCheqDife("N");
+		objA.setUsuario("LLE");
+		objA.setIndVal("L");
+		objA.setCodClasif("B");
+		objA.setCodCateg("A");
+		objA.setIndAgeRet("N");
+		objA.setIndBuenCon("N");
+		objA.setIndSisDef("N");
+		objA.setCodCali("1");
+		objA.setCodPropio("N");
+		objA.setIndRenova("N");
+		objA.setIndProve("N");
+		objA.setTipoEnti("C");
+		objA.setCodSuc("001");
+		
 		newArcc = objectMapper.convertValue(objA,Arccmc.class);
 		return arccDao.save(newArcc);
 	}

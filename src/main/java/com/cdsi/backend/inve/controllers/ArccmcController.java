@@ -63,7 +63,6 @@ public class ArccmcController extends GenericController {
 	//METODO QUE NOS PERMITE GUARDAR UN CLIENTE
 	@PostMapping("/save")
 	public ResponseEntity<ResponseRest> guardar(@RequestBody Arccmc arccmc, BindingResult result){
-		System.out.println("ENTRO =)");
 		if (result.hasErrors()){
 			return super.getBadRequest(result);
 		}
