@@ -1,5 +1,6 @@
 package com.cdsi.backend.inve.models.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cdsi.backend.inve.dto.ArccmcDTO;
 import com.cdsi.backend.inve.models.dao.IArccmcDao;
 import com.cdsi.backend.inve.models.entity.Arccmc;
 import com.cdsi.backend.inve.models.entity.IdArccmc;
@@ -22,6 +24,34 @@ public class ArccmcServiceImple implements IArccmcService  {
 
 	@Autowired
 	private ObjectMapper objectMapper;
+	
+	@Override
+	public List<ArccmcDTO> listaClienteDtoByCiaAndCodigo(String cia, String codigo) {
+		List<Arccmc> arccmcs = this.arccDao.findByCiaAndRuc(cia, codigo);
+		if(!arccmcs.isEmpty()) {
+			List<ArccmcDTO> arccmcdtos = new ArrayList<ArccmcDTO>();
+			for(Arccmc arccmc: arccmcs) {
+				ArccmcDTO arccmcdto = new ArccmcDTO(arccmc.getObjIdArc().getId(),arccmc.getDocumento(),arccmc.getNombre());
+				arccmcdtos.add(arccmcdto);
+			}
+			return arccmcdtos;
+		}
+		return null;
+	}
+	
+	@Override
+	public List<ArccmcDTO> listaClienteDtoByCiaAndNombre(String cia, String nombre) {
+		List<Arccmc> arccmcs = this.arccDao.findByNombreAndCia(cia, nombre);
+		if(!arccmcs.isEmpty()) {
+			List<ArccmcDTO> arccmcdtos = new ArrayList<ArccmcDTO>();
+			for(Arccmc arccmc: arccmcs) {
+				ArccmcDTO arccmcdto = new ArccmcDTO(arccmc.getObjIdArc().getId(),arccmc.getDocumento(),arccmc.getNombre());
+				arccmcdtos.add(arccmcdto);
+			}
+			return arccmcdtos;
+		}
+		return null;
+	}
 	
 	@Override
 	@Transactional
