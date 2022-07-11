@@ -7,7 +7,12 @@ import java.io.Serializable;
 @Embeddable
 public class ArfafePK implements Serializable {
 
-    @Column(name = "NO_CIA")
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Column(name = "NO_CIA")
     private String noCia;
     @Column(name = "TIPO_DOC")
     private String tipoDoc;
