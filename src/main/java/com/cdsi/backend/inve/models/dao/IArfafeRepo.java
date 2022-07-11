@@ -14,6 +14,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IArfafeRepo extends PagingAndSortingRepository<Arfafe, ArfafePK> {
+	
+	@Query("SELECT a FROM Arfafe a WHERE a.arfafePK.noCia = :cia AND a.arfafePK.tipoDoc = :tipo AND a.ESTADO = :estado")
+	List<Arfafe> listaByCiaTipDocEstado(@Param("cia") String cia, @Param("tipo") String tipo, @Param("estado") String estado );
 
     @Query("SELECT a FROM Arfafe a where a.arfafePK.noCia = :cia")
     Page<Arfafe> pageCia(Pageable pageable, @Param("cia") String cia);

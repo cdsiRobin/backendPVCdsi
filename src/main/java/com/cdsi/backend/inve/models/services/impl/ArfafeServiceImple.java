@@ -1,5 +1,6 @@
 package com.cdsi.backend.inve.models.services.impl;
 
+import com.cdsi.backend.inve.dto.DocumentoDto;
 import com.cdsi.backend.inve.models.dao.IArfafeRepo;
 import com.cdsi.backend.inve.models.entity.Arfafe;
 import com.cdsi.backend.inve.models.services.IArfafeService;
@@ -11,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -19,6 +21,21 @@ public class ArfafeServiceImple implements IArfafeService {
 
     @Autowired
     private IArfafeRepo iArfafeRepo;
+    
+	@Override
+	public List<DocumentoDto> listaByCiaAndTipDocAndEstado(String cia, String tipDoc, String estado) {
+		List<Arfafe> arfafes = this.iArfafeRepo.listaByCiaTipDocEstado(cia, tipDoc, estado);
+		if(!arfafes.isEmpty()) {
+		   List<DocumentoDto> documentodtos = new ArrayList<>();
+		   for(Arfafe arfafe: arfafes) {
+			   DocumentoDto docuDto = new DocumentoDto(arfafe.getArfafePK().getTipoDoc(), arfafe.getArfafePK().getNoFactu(),
+					      arfafe.getFECHA(), arfafe.getNO_CLIENTE(), arfafe.getNBR_CLIENTE());
+			   documentodtos.add(docuDto);
+		   }
+		   return documentodtos;
+		}
+		return null;
+	}
 
     @Override
     public Arfafe buscarId(String cia, String doc, String factu) throws ServiceException {
@@ -112,5 +129,7 @@ public class ArfafeServiceImple implements IArfafeService {
         Page<Arfafe> arfafePage = this.iArfafeRepo.pageCia(pageableRest,cia);
         return arfafePage;
     }
+
+
 
 }

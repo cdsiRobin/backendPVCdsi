@@ -22,6 +22,22 @@ public class ArfafeController extends GenericController {
 
     @Autowired
     private IArfafeService iArfafeService;
+    
+    @GetMapping("/documento")
+    public ResponseEntity<ResponseRest> listaByCiaAndTipoDocAndEstado(@RequestParam String cia, 
+    		                            @RequestParam String tipo, @RequestParam String estado){
+    	try {    		
+    		Object o = this.iArfafeService.listaByCiaAndTipDocAndEstado(cia, tipo, estado);
+    		if (o != null){
+                return super.getOKConsultaRequest(o);
+            }
+            return super.getNotFoundRequest();
+    		
+    	} catch(Exception e) {
+    		System.out.println(e.getMessage());
+    		return super.getErrorRequest();
+    	}
+    }
 
     @PostMapping("/id")
     public ResponseEntity<ResponseRest> buscarId(@RequestBody ArfafePK arfafePK, BindingResult result){
