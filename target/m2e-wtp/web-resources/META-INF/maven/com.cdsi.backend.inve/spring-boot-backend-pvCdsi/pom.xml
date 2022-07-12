@@ -29,7 +29,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>		
-		<!-- DESCOMENTAR PARA PRODUCCION
+		<!-- DESCOMENTAR PARA PRODUCCION --> 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -44,7 +44,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-        --> 	
+        <!-- FIN --> 	
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-servlet-api</artifactId>
