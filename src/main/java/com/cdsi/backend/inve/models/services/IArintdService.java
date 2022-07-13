@@ -6,6 +6,8 @@ import com.cdsi.backend.inve.models.entity.Arintd;
 
 
 public interface IArintdService {
+	
+  public List<String> listaTransDevoluByCiaAndIndNC(String cia, String ind);
   //BUSCAMOS POR CIA Y TRANSACCION
   public Arintd getCiaAndTransa(String cia, String trasac);
   

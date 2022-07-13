@@ -15,6 +15,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IArfafeRepo extends PagingAndSortingRepository<Arfafe, ArfafePK> {
 	
+	@Query("SELECT a FROM Arfafe a WHERE a.arfafePK.noCia = :cia AND a.centro = :centro AND a.ALMACEN_REF = :bodega"
+			+ "AND a.TIPO_DOC_ALMA = :tipDoc AND a.NO_REFE_ALMA = :noDocu AND a.NO_CLIENTE = :noCli AND a.arfafePK.tipoDoc = 'NC' "
+			+ "AND a.ESTADO IN('D','G') ")
+	Arfafe getExisteArinme1(@Param("cia") String cia, @Param("centro") String centro, @Param("bodega") String bodega, @Param("tipDoc") String tipDoc, 
+			@Param("noDocu") String noDocu, @Param("noCli") String noCli);
+	
 	@Query("SELECT a FROM Arfafe a WHERE a.arfafePK.noCia = :cia AND a.arfafePK.tipoDoc = :tipo AND a.ESTADO = :estado")
 	List<Arfafe> listaByCiaTipDocEstado(@Param("cia") String cia, @Param("tipo") String tipo, @Param("estado") String estado );
 

@@ -4,9 +4,18 @@ import com.cdsi.backend.inve.models.entity.Arinme1;
 import com.cdsi.backend.inve.models.entity.Arinme1PK;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
 import com.cdsi.backend.inve.models.services.generic.IGenericService;
+
+import java.util.List;
+
 import org.springframework.data.domain.Page;
+import org.springframework.data.repository.query.Param;
 
 public interface IArinme1Service extends IGenericService<Arinme1> {
+	
+    List<Arinme1> listaComprobIngreso(String cia, String noCli);
+	
+	Arinme1 getExistencia(String cia,  String noCli, String centro,
+    		 String bodega, String tipoDoc, String noDocu);
 
     //METODOS QUE NOS PERMITE BUSCAR POR ID
     Arinme1 buscarId(Arinme1PK arinme1PK) throws ServiceException;
