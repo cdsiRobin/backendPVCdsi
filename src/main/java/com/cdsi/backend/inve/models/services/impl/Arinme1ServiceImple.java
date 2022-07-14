@@ -1,5 +1,6 @@
 package com.cdsi.backend.inve.models.services.impl;
 
+import com.cdsi.backend.inve.dto.ComprobanteIngresoDto;
 import com.cdsi.backend.inve.models.dao.IArinme1Repo;
 import com.cdsi.backend.inve.models.dao.IArinmn1Repo;
 import com.cdsi.backend.inve.models.entity.Arinme1;
@@ -17,6 +18,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,8 +38,31 @@ public class Arinme1ServiceImple implements IArinme1Service {
     @Autowired
     private IArfafeService arfafeService;
     
+    private List<ComprobanteIngresoDto> convertir(List<Arinme1> arinme1s) {
+    	if(!arinme1s.isEmpty()) {
+    		List<ComprobanteIngresoDto> compobIngreDtos = new ArrayList<>();
+    		for(Arinme1 arinme1: arinme1s) {
+    			ComprobanteIngresoDto compIngreDto = new ComprobanteIngresoDto();
+    			compIngreDto.setAlmacen(arinme1.getArinme1PK().getBodega());
+    			compIngreDto.setTipoDoc(arinme1.getArinme1PK().getTipoDoc());
+    			compIngreDto.setNoDocu(arinme1.getArinme1PK().getNoDocu());
+    			compIngreDto.setFecha(arinme1.getFecha());
+    			compIngreDto.setNoCliente(arinme1.getNoCliente());
+    			compIngreDto.setTipoDocRem(arinme1.getTipoDocRem());
+    			compIngreDto.setSerieDocRem(arinme1.getSerieDocRem());
+    			compIngreDto.setCorrDocRem(arinme1.getCorrDocRem());
+    			compIngreDto.setTipoDocRec2(arinme1.getTipoDocRec2());
+    			compIngreDto.setCorrDocRec2(arinme1.getCorrDocRec2());
+    			compIngreDto.setEstado(arinme1.getEstado());
+    			compobIngreDtos.add(compIngreDto);    			
+    		}
+    		return compobIngreDtos;
+    	}
+    	return null;
+    }
+    
 	@Override
-	public List<Arinme1> listaComprobIngreso(String cia, String noCli) {
+	public List<ComprobanteIngresoDto> listaComprobIngreso(String cia, String noCli) {
 		List<Arinme1> arinme1s = this.arinme1Repo.listaComprobIngreso(cia, noCli);
 		if(!arinme1s.isEmpty()) {
 			List<String> transacNCs = this.arintdService.listaTransDevoluByCiaAndIndNC(cia, "S");
@@ -48,7 +73,7 @@ public class Arinme1ServiceImple implements IArinme1Service {
 							&& null == getExistencia(cia, arinme1.getNoCliente(),  arinme1.getCentro(),  arinme1.getArinme1PK().getBodega(),
 									arinme1.getArinme1PK().getTipoDoc(), arinme1.getArinme1PK().getNoDocu() )
 							).collect( Collectors.toList() );
-			return lisCompNC;
+			return this.convertir(lisCompNC);
 		}
 		return null;
 	}

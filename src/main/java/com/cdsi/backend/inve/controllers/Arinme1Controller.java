@@ -29,7 +29,7 @@ public class Arinme1Controller extends GenericController {
             if (obj != null){
                 return super.getOKConsultaRequest(obj);
             }
-            return super.getBadIdRequest();
+            return super.getNotFoundRequest();
         }catch (Exception e){
             System.out.println(e.getMessage());
             return super.getBadRequest(e.getMessage());
