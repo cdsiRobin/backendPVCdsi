@@ -30,5 +30,19 @@ public class ArfacrController extends GenericController {
 			return super.getErrorRequest();
 		}
 	}
+	
+	@GetMapping("/dto/lista")
+	public ResponseEntity<ResponseRest> listaConceptos(@RequestParam String cia, @RequestParam String indDet) {
+		try {
+			Object obj = this.service.listaNotaCredito(cia, indDet);
+			if (obj != null){
+				return super.getOKConsultaRequest(obj);
+			}
+			return super.getNotFoundRequest();
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+			return super.getErrorRequest();
+		}
+	}
 
 }

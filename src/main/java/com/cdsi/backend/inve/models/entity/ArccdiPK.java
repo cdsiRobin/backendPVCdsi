@@ -9,7 +9,11 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class ArccdiPK implements Serializable {
 
-    @Basic(optional = false)
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Basic(optional = false)
     @Column(name = "NO_CIA")
     private String noCia;
     @Basic(optional = false)

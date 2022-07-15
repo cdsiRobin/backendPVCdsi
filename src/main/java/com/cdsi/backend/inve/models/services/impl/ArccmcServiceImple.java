@@ -2,6 +2,7 @@ package com.cdsi.backend.inve.models.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cdsi.backend.inve.dto.ArccmcDTO;
+import com.cdsi.backend.inve.dto.DireccionLegalDto;
 import com.cdsi.backend.inve.models.dao.IArccmcDao;
+import com.cdsi.backend.inve.models.dao.IArcctdaRepo;
+import com.cdsi.backend.inve.models.dao.IArfatdirRepo;
 import com.cdsi.backend.inve.models.entity.Arccmc;
+import com.cdsi.backend.inve.models.entity.ArcctdaEntity;
+import com.cdsi.backend.inve.models.entity.Arfatdir;
+import com.cdsi.backend.inve.models.entity.ArfatdirPK;
 import com.cdsi.backend.inve.models.entity.IdArccmc;
 import com.cdsi.backend.inve.models.services.IArccmcService;
 
@@ -21,9 +28,36 @@ public class ArccmcServiceImple implements IArccmcService  {
 
 	@Autowired
 	private IArccmcDao arccDao;
+	
+	@Autowired
+	private IArfatdirRepo arfatdirRepo;
+	
+	@Autowired
+	private IArcctdaRepo arcctdaRepo;
 
 	@Autowired
 	private ObjectMapper objectMapper;
+	
+	@Override
+	public List<DireccionLegalDto> listaDireccionLegal(String cia, String noCli) {
+		ArfatdirPK arfatdirPk = new ArfatdirPK(cia,"LEG");
+		Arfatdir arfatdir = this.arfatdirRepo.findById(arfatdirPk).orElse(null);
+		if(arfatdir != null) {
+			List<ArcctdaEntity> arcctdas = this.arcctdaRepo.listaDirecLegal(cia, noCli);
+			if(!arcctdas.isEmpty()) {
+				List<ArcctdaEntity> arcctdas2 = arcctdas.stream().filter(d -> d.getTipoDir().contains(arfatdir.getArfatdirPK().getTipo()) ).collect(Collectors.toList());
+				if(!arcctdas2.isEmpty()) {
+					List<DireccionLegalDto> direccLegalDtos = new ArrayList<>();
+					for(ArcctdaEntity a: arcctdas2) {
+						DireccionLegalDto direccLegalDto = new DireccionLegalDto(a.getDireccion(),a.getNombre(),a.getArcctdaPKEntity().getCodTienda(),arfatdir.getDescripcion());
+						direccLegalDtos.add(direccLegalDto);
+					}
+					return direccLegalDtos;
+				}
+			}
+		}
+		return null;
+	}
 	
 	@Override
 	public List<ArccmcDTO> listaClienteDtoByCiaAndCodigo(String cia, String codigo) {
