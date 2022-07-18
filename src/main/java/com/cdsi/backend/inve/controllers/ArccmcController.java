@@ -24,6 +24,46 @@ public class ArccmcController extends GenericController {
 	
 	@Autowired
 	private IArccmcService arccService;
+	
+	@GetMapping("/dto/direc")
+	public ResponseEntity<ResponseRest> listaDireccionLegal(@RequestParam String cia, @RequestParam String noCli){
+		try {
+			Object obj = this.arccService.listaDireccionLegal(cia, noCli);
+			if (obj != null){
+				return super.getOKConsultaRequest(obj);
+			}
+			return super.getNotFoundRequest();
+		}catch (Exception e){
+			return super.getErrorRequest();
+		}
+	}
+	
+	@GetMapping("/dto/id")
+	public ResponseEntity<ResponseRest> listaClienteDtoByCiaAndCodigo(@RequestParam String cia, @RequestParam String codigo){
+		try {
+			Object obj = this.arccService.listaClienteDtoByCiaAndCodigo(cia, codigo);
+			if (obj != null){
+				return super.getOKConsultaRequest(obj);
+			}
+			return super.getNotFoundRequest();
+		}catch (Exception e){
+			return super.getErrorRequest();
+		}
+	}
+	
+	@GetMapping("/dto/nombre")
+	public ResponseEntity<ResponseRest> listaClienteDtoByCiaAndNombre(@RequestParam String cia, @RequestParam String nombre){
+		try {
+			Object obj = this.arccService.listaClienteDtoByCiaAndNombre(cia, nombre);
+			if (obj != null){
+				return super.getOKConsultaRequest(obj);
+			}
+			return super.getNotFoundRequest();
+		}catch (Exception e){
+			return super.getErrorRequest();
+		}
+	}
+	
     //ELIMINAR CLIENTE
 	@DeleteMapping
 	public ResponseEntity<ResponseRest> eliminar(@RequestBody IdArccmc idArccmc, BindingResult result){

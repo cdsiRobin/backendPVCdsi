@@ -1,13 +1,18 @@
 package com.cdsi.backend.inve.models.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "ARINME1")
 public class Arinme1 implements Serializable {
@@ -15,6 +20,7 @@ public class Arinme1 implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
     protected Arinme1PK arinme1PK;
+    
     @Column(name = "GRUPO")
     private String grupo;
     /*
@@ -39,19 +45,19 @@ public class Arinme1 implements Serializable {
     private String noRefe;
     @Column(name = "TIPO_DOC_REC")
     private String tipoDocRec;
-    /*@Column(name = "SERIE_DOC_REC")
+    @Column(name = "SERIE_DOC_REC")
     private String serieDocRec;
-    */
+    
     @Column(name = "CORR_DOC_REC")
     private String corrDocRec;
-    /*
+    
     @Column(name = "TIPO_DOC_REC_2")
     private String tipoDocRec2;
     @Column(name = "SERIE_DOC_REC_2")
     private String serieDocRec2;
     @Column(name = "CORR_DOC_REC_2")
     private String corrDocRec2;
-    */
+    
     @Column(name = "FECHA")
     @Temporal(TemporalType.DATE)
     private Date fecha;
@@ -285,8 +291,8 @@ public class Arinme1 implements Serializable {
     private String codDirEntrega;
     @Column(name = "COD_DIR_SALIDA")
     private String codDirSalida;
-    /*@Column(name = "NO_GUIA_REFE")
-    private String noGuiaRefe;*/
+    @Column(name = "NO_GUIA_REFE")
+    private String noGuiaRefe;
     @Column(name = "IMPRIME")
     private String imprime;
     @Column(name = "CENTRO")
@@ -453,432 +459,4 @@ public class Arinme1 implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Arinml1> arinml1List;
 
-    public Arinme1() {
-    }
-
-    public Arinme1(Arinme1PK arinme1PK) {
-        this.arinme1PK = arinme1PK;
-    }
-
-    public Arinme1(String noCia, String bodega, String tipoDoc, String noDocu) {
-        this.arinme1PK = new Arinme1PK(noCia, bodega, tipoDoc, noDocu);
-    }
-
-    public Arinme1PK getArinme1PK() {
-        return arinme1PK;
-    }
-
-    public void setArinme1PK(Arinme1PK arinme1PK) {
-        this.arinme1PK = arinme1PK;
-    }
-
-    public String getGrupo() {
-        return grupo;
-    }
-
-    public void setGrupo(String grupo) {
-        this.grupo = grupo;
-    }
-
-    public String getNoOrden() {
-        return noOrden;
-    }
-
-    public void setNoOrden(String noOrden) {
-        this.noOrden = noOrden;
-    }
-
-    public String getNoGuia() {
-        return noGuia;
-    }
-
-    public void setNoGuia(String noGuia) {
-        this.noGuia = noGuia;
-    }
-
-    public String getTipoDocRem() {
-        return tipoDocRem;
-    }
-
-    public void setTipoDocRem(String tipoDocRem) {
-        this.tipoDocRem = tipoDocRem;
-    }
-
-    public String getSerieDocRem() {
-        return serieDocRem;
-    }
-
-    public void setSerieDocRem(String serieDocRem) {
-        this.serieDocRem = serieDocRem;
-    }
-
-    public String getCorrDocRem() {
-        return corrDocRem;
-    }
-
-    public void setCorrDocRem(String corrDocRem) {
-        this.corrDocRem = corrDocRem;
-    }
-
-    public String getNoRefe() {
-        return noRefe;
-    }
-
-    public void setNoRefe(String noRefe) {
-        this.noRefe = noRefe;
-    }
-
-    public String getTipoDocRec() {
-        return tipoDocRec;
-    }
-
-    public void setTipoDocRec(String tipoDocRec) {
-        this.tipoDocRec = tipoDocRec;
-    }
-
-    public String getCorrDocRec() {
-        return corrDocRec;
-    }
-
-    public void setCorrDocRec(String corrDocRec) {
-        this.corrDocRec = corrDocRec;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getFormaPago() {
-        return formaPago;
-    }
-
-    public void setFormaPago(String formaPago) {
-        this.formaPago = formaPago;
-    }
-
-    public BigDecimal getTipoCambio() {
-        return tipoCambio;
-    }
-
-    public void setTipoCambio(BigDecimal tipoCambio) {
-        this.tipoCambio = tipoCambio;
-    }
-
-    public Short getAnoProce() {
-        return anoProce;
-    }
-
-    public void setAnoProce(Short anoProce) {
-        this.anoProce = anoProce;
-    }
-
-    public Short getMesProce() {
-        return mesProce;
-    }
-
-    public void setMesProce(Short mesProce) {
-        this.mesProce = mesProce;
-    }
-
-    public String getMoneda() {
-        return moneda;
-    }
-
-    public void setMoneda(String moneda) {
-        this.moneda = moneda;
-    }
-
-    public String getIndControl() {
-        return indControl;
-    }
-
-    public void setIndControl(String indControl) {
-        this.indControl = indControl;
-    }
-
-    public String getStatusControl() {
-        return statusControl;
-    }
-
-    public void setStatusControl(String statusControl) {
-        this.statusControl = statusControl;
-    }
-
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getAlmaOrigen() {
-        return almaOrigen;
-    }
-
-    public void setAlmaOrigen(String almaOrigen) {
-        this.almaOrigen = almaOrigen;
-    }
-
-    public String getAlmaDestino() {
-        return almaDestino;
-    }
-
-    public void setAlmaDestino(String almaDestino) {
-        this.almaDestino = almaDestino;
-    }
-
-    public String getMotivoTraslado() {
-        return motivoTraslado;
-    }
-
-    public void setMotivoTraslado(String motivoTraslado) {
-        this.motivoTraslado = motivoTraslado;
-    }
-
-    public String getNoPedMant() {
-        return noPedMant;
-    }
-
-    public void setNoPedMant(String noPedMant) {
-        this.noPedMant = noPedMant;
-    }
-
-    public String getNoCliente() {
-        return noCliente;
-    }
-
-    public void setNoCliente(String noCliente) {
-        this.noCliente = noCliente;
-    }
-
-    public String getDireccionComercial() {
-        return direccionComercial;
-    }
-
-    public void setDireccionComercial(String direccionComercial) {
-        this.direccionComercial = direccionComercial;
-    }
-
-    public String getNoVendedor() {
-        return noVendedor;
-    }
-
-    public void setNoVendedor(String noVendedor) {
-        this.noVendedor = noVendedor;
-    }
-
-    public String getTipoCosto() {
-        return tipoCosto;
-    }
-
-    public void setTipoCosto(String tipoCosto) {
-        this.tipoCosto = tipoCosto;
-    }
-
-    public String getIndGuiado() {
-        return indGuiado;
-    }
-
-    public void setIndGuiado(String indGuiado) {
-        this.indGuiado = indGuiado;
-    }
-    public String getCodFpago() {
-        return codFpago;
-    }
-
-    public void setCodFpago(String codFpago) {
-        this.codFpago = codFpago;
-    }
-    public String getTipoArti() {
-        return tipoArti;
-    }
-
-    public void setTipoArti(String tipoArti) {
-        this.tipoArti = tipoArti;
-    }
-
-    public String getClaseTransc() {
-        return claseTransc;
-    }
-
-    public void setClaseTransc(String claseTransc) {
-        this.claseTransc = claseTransc;
-    }
-
-    public String getNombreDigi() {
-        return nombreDigi;
-    }
-
-    public void setNombreDigi(String nombreDigi) {
-        this.nombreDigi = nombreDigi;
-    }
-
-    public String getIndFactura() {
-        return indFactura;
-    }
-
-    public void setIndFactura(String indFactura) {
-        this.indFactura = indFactura;
-    }
-
-    public String getIndBoleta() {
-        return indBoleta;
-    }
-
-    public void setIndBoleta(String indBoleta) {
-        this.indBoleta = indBoleta;
-    }
-
-    public String getCodTienda() {
-        return codTienda;
-    }
-
-    public void setCodTienda(String codTienda) {
-        this.codTienda = codTienda;
-    }
-
-    public String getCodDirEntrega() {
-        return codDirEntrega;
-    }
-
-    public void setCodDirEntrega(String codDirEntrega) {
-        this.codDirEntrega = codDirEntrega;
-    }
-
-    public String getCodDirSalida() {
-        return codDirSalida;
-    }
-
-    public void setCodDirSalida(String codDirSalida) {
-        this.codDirSalida = codDirSalida;
-    }
-
-    public String getImprime() {
-        return imprime;
-    }
-
-    public void setImprime(String imprime) {
-        this.imprime = imprime;
-    }
-
-    public String getCentro() {
-        return centro;
-    }
-
-    public void setCentro(String centro) {
-        this.centro = centro;
-    }
-
-
-    public String getIndPvent() {
-        return indPvent;
-    }
-
-    public void setIndPvent(String indPvent) {
-        this.indPvent = indPvent;
-    }
-
-    public String getCodCaja() {
-        return codCaja;
-    }
-
-    public void setCodCaja(String codCaja) {
-        this.codCaja = codCaja;
-    }
-
-    public String getIndProvincia() {
-        return indProvincia;
-    }
-
-    public void setIndProvincia(String indProvincia) {
-        this.indProvincia = indProvincia;
-    }
-
-    public String getConvenio() {
-        return convenio;
-    }
-
-    public void setConvenio(String convenio) {
-        this.convenio = convenio;
-    }
-
-    public String getConsumo() {
-        return consumo;
-    }
-
-    public void setConsumo(String consumo) {
-        this.consumo = consumo;
-    }
-
-    public String getDemasia() {
-        return demasia;
-    }
-
-    public void setDemasia(String demasia) {
-        this.demasia = demasia;
-    }
-
-    public String getGrabaCodBarra() {
-        return grabaCodBarra;
-    }
-
-    public void setGrabaCodBarra(String grabaCodBarra) {
-        this.grabaCodBarra = grabaCodBarra;
-    }
-
-    public String getIndCodBarra() {
-        return indCodBarra;
-    }
-
-    public void setIndCodBarra(String indCodBarra) {
-        this.indCodBarra = indCodBarra;
-    }
-    
-    public List<Arinml1> getArinml1List() {
-		return arinml1List;
-	}
-
-	public void setArinml1List(List<Arinml1> arinml1List) {
-		this.arinml1List = arinml1List;
-	}    
-    
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (arinme1PK != null ? arinme1PK.hashCode() : 0);
-        return hash;
-    }
-
-
-	@Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Arinme1)) {
-            return false;
-        }
-        Arinme1 other = (Arinme1) object;
-        if ((this.arinme1PK == null && other.arinme1PK != null) || (this.arinme1PK != null && !this.arinme1PK.equals(other.arinme1PK))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "INVE.Arinme1[ arinme1PK=" + arinme1PK + " ]";
-    }
 }

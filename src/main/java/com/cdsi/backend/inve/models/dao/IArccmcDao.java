@@ -28,7 +28,7 @@ public interface IArccmcDao extends PagingAndSortingRepository<Arccmc,IdArccmc> 
 	@Query("SELECT a FROM Arccmc a WHERE a.objIdArc.cia = :cia AND a.activo = 'S' AND a.nombre LIKE %:dscri%")
 	List<Arccmc> findByNombreAndCia(@Param("cia") String cia,@Param("dscri") String dscri);
 	
-	//METODO QUE NOS PERMITE BUSCAR A UN CLIENTE POR SU NOMBRE
+	//METODO QUE NOS PERMITE BUSCAR UN CLIENTE POR RUC O DNI
 	@Query("SELECT a FROM Arccmc a WHERE a.objIdArc.cia = :cia AND a.activo = 'S' AND (a.ruc LIKE :id% OR a.dni LIKE :id%) ")
 	List<Arccmc> findByCiaAndRuc(@Param("cia") String cia,@Param("id") String id);
 	

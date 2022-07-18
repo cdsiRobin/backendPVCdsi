@@ -20,5 +20,9 @@ public interface IArintdRepo extends JpaRepository<Arintd, ArintdPK> {
 	//VAMOS A TRAER LA BODEGAS POR TRANSACCION Y COMPAÑIA
 	@Query("SELECT a FROM Arintd a WHERE a.arintdPK.noCia = :cia")
 	public List<Arintd> listaCia(@Param("cia") String cia);
+	
+	//CONSULTAMOS TODAS LAS TRANSACCIONES DE DEVOLUCION CON NOTA DE CREDITO
+	@Query("SELECT a.arintdPK.tipoM FROM Arintd a WHERE a.arintdPK.noCia = :cia AND a.indNotaCred = :indnc")
+	public List<String> listaTransDevoluByCiaAndIndNC(@Param("cia") String cia, @Param("indnc") String indnc);
 
 }

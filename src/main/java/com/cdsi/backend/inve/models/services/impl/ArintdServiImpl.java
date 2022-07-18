@@ -33,4 +33,10 @@ public class ArintdServiImpl implements IArintdService {
 		return this.arintdRepo.save(a);
 	}
 
+	@Override
+	public List<String> listaTransDevoluByCiaAndIndNC(String cia, String ind) {
+		// TODO Auto-generated method stub
+		return this.arintdRepo.listaTransDevoluByCiaAndIndNC(cia, ind);
+	}
+
 }

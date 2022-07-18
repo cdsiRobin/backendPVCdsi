@@ -31,6 +31,27 @@ import lombok.NoArgsConstructor;
                         }
                 ),
                 @NamedStoredProcedureQuery(
+                        name="crear_nc_ci",
+                        procedureName="FACTU.GENERA_NOTAS_TEMPORAL",
+                        resultClasses= Arobtt.class,
+                        parameters={                                
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wno_cia", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wbodega", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wtipo_doc", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wno_docu", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wcliente", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wtipo_refe_factu", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wno_refe_factu", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wcod_tienda", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wmoneda", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wmotivo_nc", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wsustento", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wcentro", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.IN,  name="wserie", type=String.class),
+                                @StoredProcedureParameter(mode=ParameterMode.OUT, name="R_MSJ", type=String.class)
+                        }
+                ),
+                @NamedStoredProcedureQuery(
                 		name = "cxc_artstrd_pven",
             			procedureName = "CXC.P_PASE_A_CXC_PVENT",
             			resultClasses= Arobtt.class,

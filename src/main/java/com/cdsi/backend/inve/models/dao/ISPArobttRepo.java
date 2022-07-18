@@ -14,6 +14,12 @@ import com.cdsi.backend.inve.models.entity.BasucCred;
 @Repository
 public interface ISPArobttRepo extends CrudRepository<Arobtt, Long>{
 	
+	@Procedure(name = "crear_nc_ci")
+	String crearNcCi(@Param("wno_cia") String wno_cia, @Param("wbodega") String wbodega, @Param("wtipo_doc") String wtipo_doc,
+		@Param("wno_docu") String wno_docu, @Param("wcliente") String wcliente,@Param("wtipo_refe_factu") String wtipo_refe_factu,
+		@Param("wno_refe_factu") String wno_refe_factu, @Param("wcod_tienda") String wcod_tienda, @Param("wmoneda") String wmoneda, 
+		@Param("wmotivo_nc") String wmotivo_nc, @Param("wsustento") String wsustento, @Param("wcentro") String wcentro, @Param("wserie") String wserie);
+	
 	@Procedure(name = "cxc_artstrd_pven")
 	String paseCxcPven(@Param("PNO_CIA") String cia, @Param("ptipo_m") String tipo_m, @Param("pcentro") String centro,
 		@Param("pcod_ven_cob") String pcod_ven, @Param("pno_cliente") String cli,@Param("ptipo_doc") String tDoc,

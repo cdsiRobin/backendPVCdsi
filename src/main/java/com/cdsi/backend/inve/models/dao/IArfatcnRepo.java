@@ -13,8 +13,8 @@ import com.cdsi.backend.inve.models.entity.ArfatcnPK;
 @Repository
 public interface IArfatcnRepo extends JpaRepository<Arfatcn, ArfatcnPK> {
 	
-	@Query("SELECT a FROM Arfatcn a WHERE a.arfatcnPK.noCia = :cia AND a.indDetalle = :ind")
-	List<Arfatcn> listaCiaAndIndDeta(@Param("cia") String cia, @Param("ind") String ind);
+	@Query("SELECT a.arfatcnPK.tipo FROM Arfatcn a WHERE a.arfatcnPK.noCia = :cia AND a.indDetalle = :indDet")
+	List<String> listaCiaAndIndDeta(@Param("cia") String cia, @Param("indDet") String indDet);
 	
 	@Query("SELECT a.arfatcnPK.tipo FROM Arfatcn a WHERE a.arfatcnPK.noCia = :cia AND a.indDetalle = :ind")
 	List<String> listaTipoFromCiaAndIndDetalle(@Param("cia") String cia, @Param("ind") String ind);

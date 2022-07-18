@@ -7,10 +7,9 @@ import com.cdsi.backend.inve.models.services.generic.IGenericService;
 
 import java.util.List;
 
-//import org.springframework.data.domain.Page;
-//import org.springframework.data.domain.Pageable;
-
 public interface IArfafeService extends IGenericService<Arfafe> {
+	
+	public Arfafe getExisteArinme1(String cia, String centro, String bodega, String tipDoc, String noDocu, String noCli);
 	
 	public List<DocumentoDto> listaByCiaAndTipDocAndEstado(String cia,String tipDoc,String estado);
 

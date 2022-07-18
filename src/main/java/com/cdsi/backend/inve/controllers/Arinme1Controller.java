@@ -21,6 +21,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class Arinme1Controller extends GenericController {
     @Autowired
     private IArinme1Service arinme1Service;
+    
+    @GetMapping("/lcinc")
+    public ResponseEntity<ResponseRest> listaComprobIngresoNC(@RequestParam String cia,@RequestParam String noCli){
+        try{
+            Object obj = this.arinme1Service.listaComprobIngreso(cia, noCli);
+            if (obj != null){
+                return super.getOKConsultaRequest(obj);
+            }
+            return super.getNotFoundRequest();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return super.getBadRequest(e.getMessage());
+        }
+
+    }
 
     @GetMapping("/id")
     public ResponseEntity<ResponseRest> buscarId(@RequestParam String cia,@RequestParam String bodega,@RequestParam String trans,@RequestParam String docu){

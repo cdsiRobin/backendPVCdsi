@@ -23,6 +23,13 @@ public class ArfafeServiceImple implements IArfafeService {
     private IArfafeRepo iArfafeRepo;
     
 	@Override
+	public Arfafe getExisteArinme1(String cia, String centro, String bodega, String tipDoc, String noDocu,
+			String noCli) {
+		// TODO Auto-generated method stub
+		return this.iArfafeRepo.getExisteArinme1(cia, centro, bodega, tipDoc, noDocu, noCli);
+	}
+    
+	@Override
 	public List<DocumentoDto> listaByCiaAndTipDocAndEstado(String cia, String tipDoc, String estado) {
 		List<Arfafe> arfafes = this.iArfafeRepo.listaByCiaTipDocEstado(cia, tipDoc, estado);
 		if(!arfafes.isEmpty()) {
@@ -129,7 +136,5 @@ public class ArfafeServiceImple implements IArfafeService {
         Page<Arfafe> arfafePage = this.iArfafeRepo.pageCia(pageableRest,cia);
         return arfafePage;
     }
-
-
 
 }
