@@ -16,6 +16,15 @@ public class ISPArobttServiceImpl implements ISPArobttService {
 	private ISPArobttRepo repo;
 
 	@Override
+	public String crearNcCI(String wno_cia, String wbodega, String wtipo_doc, String wno_docu, String wcliente,
+			String wtipo_refe_factu, String wno_refe_factu, String wcod_tienda, String wmoneda, String wmotivo_nc,
+			String wsustento, String wcentro,String wserie) {
+		// TODO Auto-generated method stub
+		return this.repo.crearNcCi(wno_cia, wbodega, wtipo_doc, wno_docu, wcliente, wtipo_refe_factu, wno_refe_factu,
+				wcod_tienda, wmoneda, wmotivo_nc, wsustento, wcentro,wserie);
+	}
+	
+	@Override
 	public String PaseCxcPven(String cia, String tipo_m, String centro, String pcod_ven, String cli, String tDoc,
 			String codDoc, String noDoc, String pMon, String total, String fechaDoc, BigDecimal tc, String fechaVence,
 			String tDocEmp, String docEmp, String pConv, String indFerias) {

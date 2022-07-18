@@ -46,9 +46,5 @@ public class SerieDocumentoDto {
 	}
 	public void setConsDesde(Long consDesde) {
 		this.consDesde = consDesde;
-	}
-  
-  
-  
-  
+	} 
 }
