@@ -22,6 +22,22 @@ public class ArfafeController extends GenericController {
 
     @Autowired
     private IArfafeService iArfafeService;
+
+    @GetMapping("/nc")
+    public ResponseEntity<ResponseRest> listaNotasCredito(@RequestParam String cia,
+                                                          @RequestParam String doc, @RequestParam String pven){
+        try {
+            Object o = this.iArfafeService.listaDocumentosElectronicosNc(cia, doc, pven);
+            if (o != null){
+                return super.getOKConsultaRequest(o);
+            }
+            return super.getNotFoundRequest();
+
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+            return super.getErrorRequest();
+        }
+    }
     
     @GetMapping("/documento")
     public ResponseEntity<ResponseRest> listaByCiaAndTipoDocAndEstado(@RequestParam String cia, 
@@ -81,28 +97,6 @@ public class ArfafeController extends GenericController {
     		return super.getErrorRequest();
     	}
     }
-    
-    
-    /*@GetMapping("/list/{cia}")
-    public Response listarTodas(@PathVariable("cia") String cia, BindingResult result) throws Exception{
-        List<Arfafe> obj = new ArrayList<>();
-        obj = this.iArfafeService.buscarCiaAndIndPvent(1, 15, cia, "N");
-       return new Response.ok(obj, HttpStatus.OK);
-    	/*if(result.hasErrors()){
-            return super.getErrorRequest();
-        }
-        try {
-        	Object o = this.iArfafeService.buscarCiaAndIndPvent(1, 15, cia, pven);
-            //Object o = this.iArfafeService.buscarId(arfafePK.getNoCia(), arfafePK.getTipoDoc(), arfafePK.getNoFactu());
-            if (o != null){
-                return super.getOKConsultaRequest(o);
-            }
-            return super.getBadIdRequest();
-        } catch (Exception e){
-            log.error(e.getMessage());
-            return super.getErrorRequest();
-        }
-    }*/
 
     @PostMapping("save")
     public ResponseEntity<ResponseRest> guardar(@RequestBody Arfafe arfafe, BindingResult result){

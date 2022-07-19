@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
@@ -13,7 +14,10 @@ import com.cdsi.backend.inve.models.entity.Arccmc;
 import com.cdsi.backend.inve.models.entity.IdArccmc;
 
 @Repository
-public interface IArccmcDao extends PagingAndSortingRepository<Arccmc,IdArccmc> {
+public interface IArccmcDao extends JpaRepository<Arccmc,IdArccmc> {
+
+	@Query("SELECT a.nombre FROM Arccmc a WHERE a.objIdArc.cia = :cia AND a.objIdArc.id = :codigo")
+	String nombreClient(@Param("cia") String cia, @Param("codigo") String codigo);
 	
 	//METODO QUE NOS PERMITE TRAER TODOS LOS CLIENTE CON COMPAÑIA
 	@Query("SELECT a FROM Arccmc a WHERE a.objIdArc.cia = :cia AND a.activo = 'S'")

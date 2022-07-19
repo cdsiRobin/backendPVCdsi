@@ -37,7 +37,7 @@ public class ArccmcServiceImple implements IArccmcService  {
 
 	@Autowired
 	private ObjectMapper objectMapper;
-	
+
 	@Override
 	public List<DireccionLegalDto> listaDireccionLegal(String cia, String noCli) {
 		ArfatdirPK arfatdirPk = new ArfatdirPK(cia,"LEG");
@@ -132,20 +132,7 @@ public class ArccmcServiceImple implements IArccmcService  {
 	@Transactional
 	public Arccmc updateArccmc(IdArccmc objIdArc, Arccmc objA) {
 		Arccmc newArcc = findCiaForCodigo(objIdArc);
-		/***
-		newArcc.setActivo(objA.getActivo());
-		newArcc.setCelular(objA.getCelular());
-		newArcc.setDireccion(objA.getDireccion());
-		newArcc.setDocumento(objA.getDocumento());
-		newArcc.setEmail(objA.getEmail());
-		newArcc.setExtranjero(objA.getExtranjero());
-		newArcc.setNombre(objA.getNombre());
-		newArcc.setPais(objA.getPais());
-		newArcc.setRuc(objA.getRuc());
-		newArcc.setTelefono(objA.getTelefono());
-		newArcc.setTipo(objA.getTipo());
-		newArcc.setWeb(objA.getWeb());
-		*/
+
 		objA.setClase("020");
 		objA.setCodPais("001");
 		objA.setCodVenCob("001");

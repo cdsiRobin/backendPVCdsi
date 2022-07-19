@@ -13,7 +13,7 @@ import java.util.Date;
 public class DocumentoElectronicoNc {
     private String tipoDoc;
     private String noFactu;
-    private Date fecha;
+    private String fecha;
     private String tipoRefeFactu;
     private String noRefeFactu;
     private String codTped;

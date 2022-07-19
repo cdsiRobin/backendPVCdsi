@@ -1,7 +1,10 @@
 package com.cdsi.backend.inve.models.services.impl;
 
 import com.cdsi.backend.inve.dto.DocumentoDto;
+import com.cdsi.backend.inve.dto.DocumentoElectronicoNc;
+import com.cdsi.backend.inve.models.dao.IArccmcDao;
 import com.cdsi.backend.inve.models.dao.IArfafeRepo;
+import com.cdsi.backend.inve.models.dao.IEstadoRepo;
 import com.cdsi.backend.inve.models.entity.Arfafe;
 import com.cdsi.backend.inve.models.services.IArfafeService;
 import com.cdsi.backend.inve.models.services.exception.ServiceException;
@@ -21,12 +24,33 @@ public class ArfafeServiceImple implements IArfafeService {
 
     @Autowired
     private IArfafeRepo iArfafeRepo;
+    @Autowired
+    private IEstadoRepo estadoRepo;
+    @Autowired
+    private IArccmcDao arccmcDao;
 
     @Override
-    public List<Arfafe> listaDocumentosElectronicos(String cia, String doc, String pven) {
+    public List<DocumentoElectronicoNc> listaDocumentosElectronicosNc(String cia, String doc, String pven) {
         List<Arfafe> arfafes = this.iArfafeRepo.listaDocumentoElectronicos(cia, doc, pven);
         if (!arfafes.isEmpty()){
+             List<DocumentoElectronicoNc> documentoElectronicoNcList = new ArrayList<DocumentoElectronicoNc>();
+             for(Arfafe arfafe: arfafes){
+                  DocumentoElectronicoNc documentoElectronicoNc = new DocumentoElectronicoNc();
+                  documentoElectronicoNc.setTipoDoc(arfafe.getArfafePK().getTipoDoc());
+                  documentoElectronicoNc.setNoFactu(arfafe.getArfafePK().getNoFactu());
+                  documentoElectronicoNc.setFecha(arfafe.getFECHA());
+                  documentoElectronicoNc.setTipoRefeFactu(arfafe.getTIPO_REFE_FACTU());
+                  documentoElectronicoNc.setNoRefeFactu(arfafe.getNO_REFE_FACTU());
+                  documentoElectronicoNc.setCodTped(arfafe.getCOD_T_PED());
+                  documentoElectronicoNc.setEstado(this.estadoRepo.nombreEstado(doc,arfafe.getESTADO()));
+                  documentoElectronicoNc.setNoCliente(arfafe.getNO_CLIENTE());
+                  documentoElectronicoNc.setNombreCli(this.arccmcDao.nombreClient(cia,arfafe.getNO_CLIENTE()));
+                  documentoElectronicoNc.setMoneda(arfafe.getMONEDA());
+                  documentoElectronicoNc.setTotal(arfafe.getTOTAL());
 
+                  documentoElectronicoNcList.add(documentoElectronicoNc);
+             }
+             return documentoElectronicoNcList;
         }
         return null;
     }
