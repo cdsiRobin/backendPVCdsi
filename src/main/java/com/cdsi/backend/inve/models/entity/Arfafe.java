@@ -1,8 +1,8 @@
 package com.cdsi.backend.inve.models.entity;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,12 +10,9 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Data
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "ARFAFE")
@@ -231,17 +228,4 @@ public class Arfafe implements Serializable {
     @ToString.Exclude
     private List<Arfafl> arfaflList;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Arfafe arfafe = (Arfafe) o;
-
-        return Objects.equals(arfafePK, arfafe.arfafePK);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(arfafePK);
-    }
 }

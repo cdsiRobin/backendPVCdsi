@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 
 	<name>spring-boot-backend-pvCdsi</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Aplicación de Punto de Venta del sistema ISANEG ERP </description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -29,7 +29,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>		
-		<!-- DESCOMENTAR PARA PRODUCCION --> 
+		<!-- DESCOMENTAR PARA PRODUCCION -->
+		<!--
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -44,7 +45,8 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-        <!-- FIN --> 	
+		-->
+		<!-- FIN -->
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-servlet-api</artifactId>

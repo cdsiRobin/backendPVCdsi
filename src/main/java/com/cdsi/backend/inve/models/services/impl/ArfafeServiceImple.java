@@ -45,7 +45,8 @@ public class ArfafeServiceImple implements IArfafeService {
                   documentoElectronicoNc.setEstado(this.estadoRepo.nombreEstado(doc,arfafe.getESTADO()));
                   documentoElectronicoNc.setNoCliente(arfafe.getNO_CLIENTE());
                   documentoElectronicoNc.setNombreCli(this.arccmcDao.nombreClient(cia,arfafe.getNO_CLIENTE()));
-                  documentoElectronicoNc.setMoneda(arfafe.getMONEDA());
+				  documentoElectronicoNc.setMoticoNc(arfafe.getMOTIVO_NC());
+                  documentoElectronicoNc.setMoneda(arfafe .getMONEDA());
                   documentoElectronicoNc.setTotal(arfafe.getTOTAL());
 
                   documentoElectronicoNcList.add(documentoElectronicoNc);

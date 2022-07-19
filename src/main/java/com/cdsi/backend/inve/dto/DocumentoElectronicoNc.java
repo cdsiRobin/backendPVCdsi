@@ -3,12 +3,9 @@ package com.cdsi.backend.inve.dto;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class DocumentoElectronicoNc {
     private String tipoDoc;
