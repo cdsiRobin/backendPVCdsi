@@ -21,8 +21,17 @@ public class ArfafeServiceImple implements IArfafeService {
 
     @Autowired
     private IArfafeRepo iArfafeRepo;
-    
-	@Override
+
+    @Override
+    public List<Arfafe> listaDocumentosElectronicos(String cia, String doc, String pven) {
+        List<Arfafe> arfafes = this.iArfafeRepo.listaDocumentoElectronicos(cia, doc, pven);
+        if (!arfafes.isEmpty()){
+
+        }
+        return null;
+    }
+
+    @Override
 	public Arfafe getExisteArinme1(String cia, String centro, String bodega, String tipDoc, String noDocu,
 			String noCli) {
 		// TODO Auto-generated method stub

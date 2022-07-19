@@ -8,7 +8,10 @@ import com.cdsi.backend.inve.models.services.generic.IGenericService;
 import java.util.List;
 
 public interface IArfafeService extends IGenericService<Arfafe> {
-	
+
+
+	public List<Arfafe> listaDocumentosElectronicos(String cia, String doc,String pven);
+
 	public Arfafe getExisteArinme1(String cia, String centro, String bodega, String tipDoc, String noDocu, String noCli);
 	
 	public List<DocumentoDto> listaByCiaAndTipDocAndEstado(String cia,String tipDoc,String estado);
@@ -22,10 +25,5 @@ public interface IArfafeService extends IGenericService<Arfafe> {
     List<Arfafe> buscarCiaAndIndPvenAndNoCliente(int limit, int page, String cia, String indPvent, String noCliente) throws ServiceException;
 
     List<Arfafe> buscarCiaAndIndPventAndNoFactu(int limit, int page, String cia, String indPvent, String factu) throws ServiceException;
-    
-    // Prueba de listados x cia  1 - todos | 2 - paginacion
-    //List<Arfafe> listarXCia(String noCia) throws ServiceException;
-    
-    //Page<Arfafe> PaginacionXCia(Pageable pag, String noCia) throws ServiceException;
     
 }

@@ -14,6 +14,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IArfafeRepo extends PagingAndSortingRepository<Arfafe, ArfafePK> {
+
+    @Query("SELECT a FROM Arfafe a WHERE a.arfafePK.noCia = :cia AND a.arfafePK.tipoDoc = :doc  AND a.IND_PVENT = :pven " +
+            "ORDER BY a.FECHA DESC")
+    public List<Arfafe> listaDocumentoElectronicos(@Param("cia") String cia,@Param("doc") String doc,@Param("pven") String pven);
 	
 	@Query("SELECT a FROM Arfafe a WHERE a.arfafePK.noCia = :cia AND a.CENTRO = :centro AND a.ALMACEN_REF = :bodega"
 			+ " AND a.TIPO_DOC_ALMA = :tipDoc AND a.NO_REFE_ALMA = :noDocu AND a.NO_CLIENTE = :noCli AND a.arfafePK.tipoDoc = 'NC' "
@@ -47,7 +51,7 @@ public interface IArfafeRepo extends PagingAndSortingRepository<Arfafe, ArfafePK
     
     //LISTAR FACTURAS 2 MESES - PVTA
     @Query("SELECT a FROM Arfafe a where a.arfafePK.noCia = :cia and IND_PVENT = :pven and tipo_doc= :doc "
-    		+ "and FECHA BETWEEN :f1 and :f2 and NO_FACTU = nvl(:fac,NO_FACTU)")
+    		+ "and FECHA BETWEEN :f1 and :f2 and NO_FACTU = nvl( :fac,NO_FACTU)")
     public List<Arfafe> listArfafePventa(@Param("cia") String cia,@Param("pven") String pven, @Param("doc") String doc,
     		@Param("f1") String f1, @Param("f2") String f2, @Param("fac") String fac);
 
