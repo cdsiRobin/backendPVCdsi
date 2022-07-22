@@ -96,7 +96,7 @@ public class ArccmcServiceImple implements IArccmcService  {
 			arccmc.setNombre(cortarNombres[0]);			
 		}		
 		arccmc.setClase("020");
-		arccmc.setCodPais("001");
+		arccmc.setPais("001");
 		arccmc.setCodVenCob("001");
 		arccmc.setTipoFpago("20");
 		arccmc.setCodFpago("01");
@@ -134,7 +134,7 @@ public class ArccmcServiceImple implements IArccmcService  {
 		Arccmc newArcc = findCiaForCodigo(objIdArc);
 
 		objA.setClase("020");
-		objA.setCodPais("001");
+		objA.setPais("001");
 		objA.setCodVenCob("001");
 		objA.setTipoFpago("20");
 		objA.setCodFpago("01");

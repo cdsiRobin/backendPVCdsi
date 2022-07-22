@@ -62,7 +62,7 @@ public class Arccmc implements Serializable {
 	private String clase; //020
 	
 	@Column(name="COD_PAIS")
-	private String codPais; //001
+	private String pais; //001
 	
 	@Column(name="COD_VEN_COB")
 	private String codVenCob; //001
