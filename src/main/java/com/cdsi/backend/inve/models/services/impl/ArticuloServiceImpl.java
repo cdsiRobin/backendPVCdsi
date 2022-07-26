@@ -131,7 +131,6 @@ public class ArticuloServiceImpl implements IArticuloService {
 	@Override
     @Transactional(readOnly = true)
 	public Articulo findByCiaAndCod(String cia, String cod) {
-		log.info("desde artiServiImple cia : "+cia+" ,cod : "+cod);
 		return artiDao.buscarArtiCiaAndCod(cia, cod);
 	}
 

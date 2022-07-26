@@ -34,7 +34,7 @@ public class ArfapfServiceImple implements IArfafpService {
     @Override
     public Arfafp buscarId(ArfafpPK arfafpPK) throws ServiceException {
         try {
-            return this.iArfafpRepo.buscarId(arfafpPK.getNoCia(), arfafpPK.getTipoFpago(), arfafpPK.getCodFpago());
+            return this.iArfafpRepo.findById(arfafpPK).orElse(null);  //buscarId(arfafpPK.getNoCia(), arfafpPK.getTipoFpago(), arfafpPK.getCodFpago());
         }catch (Exception e){
         	log.error(e.getMessage());
         }

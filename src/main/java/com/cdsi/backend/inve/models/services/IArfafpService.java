@@ -13,6 +13,6 @@ public interface IArfafpService extends IGenericService<Arfafp> {
     public List<Arfafp> findByCiaAndEstado(String cia,String estado) throws ServiceException;
 
     //METODO QUE TRAE UNA FORMA DE PAGO
-    Arfafp buscarId(ArfafpPK arfafpPK) throws ServiceException;
+    Arfafp buscarId(ArfafpPK arfafpPK);
 
 }

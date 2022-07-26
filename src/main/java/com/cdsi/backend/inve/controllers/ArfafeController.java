@@ -12,6 +12,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,18 @@ public class ArfafeController extends GenericController {
 
     @Autowired
     private IArfafeService iArfafeService;
+    
+    @GetMapping(value ="/nc/pdf", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public ResponseEntity<byte[]> reporteNotaCredito(@RequestParam String cia,@RequestParam String sucursal,
+    		                                         @RequestParam String tipoDoc,@RequestParam String noFactu){
+       // try {
+        	byte[] data = null;
+        	data = this.iArfafeService.generarReporteNotaCredito(cia, sucursal, tipoDoc, noFactu);
+            return new ResponseEntity<byte[]>(data, HttpStatus.OK);
+        /*} catch(Exception e) {
+            System.out.println(e.getMessage());            
+        }*/
+    }
 
     @GetMapping("/nc")
     public ResponseEntity<ResponseRest> listaNotasCredito(@RequestParam String cia,
@@ -32,7 +46,6 @@ public class ArfafeController extends GenericController {
                 return super.getOKConsultaRequest(o);
             }
             return super.getNotFoundRequest();
-
         } catch(Exception e) {
             System.out.println(e.getMessage());
             return super.getErrorRequest();
